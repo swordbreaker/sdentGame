@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class InteractionController : MonoBehaviour {
 
@@ -15,12 +16,14 @@ public class InteractionController : MonoBehaviour {
 		RaycastHit hitInfo;
 		if (Physics.Raycast (transform.position, transform.forward, out hitInfo, 10, LayerMask.GetMask ("PlayerInteraction")))
 		{
-			var interaction = hitInfo.transform.gameObject.GetComponent<IInteraction> ();
-			if (interaction != null) 
+			IEnumerable<IInteraction> interactions = hitInfo.transform.gameObject.GetComponents<IInteraction> ().Where(x => x.Interactable);
+			if (interactions.Any())
 			{
-				Debug.Log (interaction.Name);
-				if (Input.GetKeyDown (KeyCode.E)) {
-					interaction.Interact (this.gameObject);
+				Debug.Log (interactions.First().Name);
+				if (Input.GetKeyDown (KeyCode.E)) 
+				{
+					foreach (var x in interactions)
+						x.Interact (this.gameObject);
 				}
 			}
 		}

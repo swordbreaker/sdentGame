@@ -20,6 +20,9 @@ public class DialogEventManagement : MonoBehaviour {
 	private Transform CaptainExit;
 
 	[SerializeField]
+	private GameObject _captainIdCard;
+
+	[SerializeField]
 	private Door _captainDoor;
 
 	public void LookAtLookOutEntree() 
@@ -32,7 +35,7 @@ public class DialogEventManagement : MonoBehaviour {
 		_SAIwAController.LookAt = CaptainEntree;
 	}
 
-	public void LookAtLookOutReset() 
+	public void LookAtReset() 
 	{
 		_SAIwAController.LookAt = null;
 	}
@@ -57,6 +60,14 @@ public class DialogEventManagement : MonoBehaviour {
 	{
 		var trigger = CaptainExit.gameObject.AddComponent<FungusTrigger>() as FungusTrigger;
 		trigger.Message = "Motorroom_Start";
+	}
+
+	public void MakeCaptainIDInteractable() 
+	{
+		foreach (var interaction in _captainIdCard.GetComponents<IInteraction>()) 
+		{
+			interaction.Interactable = true;
+		}
 	}
 
 }

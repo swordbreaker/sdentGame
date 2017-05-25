@@ -83,7 +83,6 @@ GameObject:
   - component: {fileID: 114067946166922206}
   - component: {fileID: 114318297971886600}
   - component: {fileID: 114381739045427328}
-  - component: {fileID: 114497771651243234}
   - component: {fileID: 114952561826311054}
   - component: {fileID: 114182664610300450}
   - component: {fileID: 114284843662632438}
@@ -134,6 +133,8 @@ GameObject:
   - component: {fileID: 114720587646101474}
   - component: {fileID: 114090472719569152}
   - component: {fileID: 114297127409947046}
+  - component: {fileID: 114605533910258532}
+  - component: {fileID: 114584682635257288}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -361,7 +362,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 688.97546
-    y: 745.59375
+    y: 746.9426
     width: 145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -468,7 +469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 71
   indentLevel: 0
-  storyText: "AUF MATROSEN DER WIND STEHT G\xFCnstig!"
+  storyText: Der Motorraum liegt auf der anderen Seite. Mit dem Lift runter und schon
+    sind Sie da.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -744,6 +746,7 @@ MonoBehaviour:
   LookOutEntree: {fileID: 4256982397628874}
   CaptainEntree: {fileID: 4545609760586714}
   CaptainExit: {fileID: 4317883625402000}
+  _captainIdCard: {fileID: 0}
   _captainDoor: {fileID: 0}
 --- !u!114 &114182664610300450
 MonoBehaviour:
@@ -815,7 +818,7 @@ MonoBehaviour:
   - {fileID: 114125724184336968}
   - {fileID: 114524524903493984}
   - {fileID: 114861853321720692}
-  - {fileID: 114497771651243234}
+  - {fileID: 114584682635257288}
 --- !u!114 &114207762800833020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1295,24 +1298,6 @@ MonoBehaviour:
   - {fileID: 114128444234901742}
   - {fileID: 114709002631631782}
   - {fileID: 114872270146478776}
---- !u!114 &114497771651243234
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43743931d28f43f89eced820d907351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 26
-  indentLevel: 0
-  messageTarget: 0
-  _message:
-    stringRef: {fileID: 0}
-    stringVal: LookOut_Take_ID_Card
-  messageOLD: 
 --- !u!114 &114505141886707736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1505,6 +1490,22 @@ MonoBehaviour:
   eventHandler: {fileID: 114603692808536952}
   commandList:
   - {fileID: 114633201257103978}
+--- !u!114 &114584682635257288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 75
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: MakeCaptainIDInteractable
+  delay: 0
 --- !u!114 &114603692808536952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1518,6 +1519,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114558866119919476}
   message: Captain_Diary
+--- !u!114 &114605533910258532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 74
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: LookAtReset
+  delay: 0
 --- !u!114 &114632511265872848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1661,8 +1678,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1017.2257
-    y: 369.23737
+    x: 1005.5659
+    y: 364.24014
     width: 142
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1686,7 +1703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 51
+    x: 49.651142
     y: 204.49031
     width: 157
     height: 40
@@ -1765,7 +1782,7 @@ MonoBehaviour:
   itemId: 22
   indentLevel: 0
   targetObject: {fileID: 1952306719512844}
-  methodName: LookAtLookOutReset
+  methodName: LookAtReset
   delay: 0
 --- !u!114 &114720587646101474
 MonoBehaviour:
@@ -2010,6 +2027,7 @@ MonoBehaviour:
   eventHandler: {fileID: 114337649469068508}
   commandList:
   - {fileID: 114162189785231146}
+  - {fileID: 114605533910258532}
 --- !u!114 &114888317301546118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2048,11 +2066,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 41.960644, y: -23.05569}
+  scrollPos: {x: -76.64859, y: -51.24092}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 401
-  zoom: 0.62972784
+  zoom: 0.74136895
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -2060,7 +2078,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114067946166922206}
+  - {fileID: 114189634446433732}
   selectedCommands: []
   variables: []
   description: 

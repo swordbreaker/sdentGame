@@ -21,7 +21,9 @@ GameObject:
   - component: {fileID: 4376765341289120}
   - component: {fileID: 33380401968641870}
   - component: {fileID: 23008841212283534}
-  m_Layer: 0
+  - component: {fileID: 114450084273042974}
+  - component: {fileID: 65363689341774190}
+  m_Layer: 10
   m_Name: book_0001a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,10 +39,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4995975887865816}
   - component: {fileID: 33819979345149782}
-  - component: {fileID: 65204933034492058}
   - component: {fileID: 23144209896717340}
-  - component: {fileID: 65286904802098402}
-  - component: {fileID: 114845128620523342}
+  - component: {fileID: 65957533900803216}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1369894397897764}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.70710677}
   m_LocalPosition: {x: 0.09980732, y: -0.0084860325, z: -0.5237508}
-  m_LocalScale: {x: 2.5, y: 1.5, z: 3}
+  m_LocalScale: {x: 3, y: 2, z: 4}
   m_Children: []
   m_Father: {fileID: 4995975887865816}
   m_RootOrder: 0
@@ -153,7 +153,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1616690829058986}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65204933034492058
+--- !u!65 &65363689341774190
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369894397897764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
+  m_Center: {x: 0.0000009536743, y: 0.053, z: -0.0000001322478}
+--- !u!65 &65957533900803216
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -165,28 +177,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65286904802098402
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1616690829058986}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114845128620523342
+--- !u!114 &114450084273042974
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1616690829058986}
+  m_GameObject: {fileID: 1369894397897764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6ce718cd20a40a5bc3068c30d2b401, type: 3}
+  m_Script: {fileID: 11500000, guid: f86a42ee21b3d43cdbd350a9e496b86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Lesen
   _message: Captain_Diary
-  _once: 1
