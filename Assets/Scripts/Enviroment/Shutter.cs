@@ -26,7 +26,6 @@ public class Shutter : MonoBehaviour
 
     public void Close()
     {
-        print("close");
         _bottom.DOLocalMoveY(0.5f, MoveSpeed).SetEase(MoveEase);
         _top.DOLocalMoveY(2.1f, MoveSpeed).SetEase(MoveEase);
     }
