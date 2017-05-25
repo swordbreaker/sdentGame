@@ -18,6 +18,11 @@ public class DialogEventManagement : MonoBehaviour {
 		_SAIwAController.LookAt = LookOutEntree;
 	}
 
+	public void LookAtLookOutReset() 
+	{
+		_SAIwAController.LookAt = null;
+	}
+
 	public void CloseLookOutShutters() 
 	{
 		_shutter.CloseAllShutters();
