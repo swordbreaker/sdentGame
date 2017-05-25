@@ -28,6 +28,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1355319614813164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4125160137360126}
+  - component: {fileID: 65886318887779952}
+  m_Layer: 0
+  m_Name: Captain_Exit_Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1369120886648710
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +71,6 @@ GameObject:
   - component: {fileID: 4273338930695140}
   - component: {fileID: 114892666088814562}
   - component: {fileID: 114521297363000532}
-  - component: {fileID: 114648789406692720}
   - component: {fileID: 114314951973421180}
   - component: {fileID: 114946919306036268}
   - component: {fileID: 114424526885704886}
@@ -128,13 +143,35 @@ GameObject:
   - component: {fileID: 114662615905874388}
   - component: {fileID: 114811311700628762}
   - component: {fileID: 114923951502489168}
-  - component: {fileID: 114366929645357888}
   - component: {fileID: 114669902015984618}
   - component: {fileID: 114720587646101474}
   - component: {fileID: 114090472719569152}
   - component: {fileID: 114297127409947046}
   - component: {fileID: 114605533910258532}
   - component: {fileID: 114584682635257288}
+  - component: {fileID: 114822490276244084}
+  - component: {fileID: 114580456254576862}
+  - component: {fileID: 114081127164357972}
+  - component: {fileID: 114808724880274368}
+  - component: {fileID: 114760469373917334}
+  - component: {fileID: 114733172857321578}
+  - component: {fileID: 114908605707132108}
+  - component: {fileID: 114006357353707764}
+  - component: {fileID: 114610665372911650}
+  - component: {fileID: 114325663012461800}
+  - component: {fileID: 114802011173053738}
+  - component: {fileID: 114544593745130866}
+  - component: {fileID: 114575230400512958}
+  - component: {fileID: 114734684441630610}
+  - component: {fileID: 114798017196232734}
+  - component: {fileID: 114044111276838318}
+  - component: {fileID: 114019670239652432}
+  - component: {fileID: 114079478254805344}
+  - component: {fileID: 114105419804845366}
+  - component: {fileID: 114260708151269100}
+  - component: {fileID: 114934502987173052}
+  - component: {fileID: 114679533451226592}
+  - component: {fileID: 114071615828467248}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -169,7 +206,7 @@ GameObject:
   - component: {fileID: 4317883625402000}
   - component: {fileID: 65633933943331668}
   m_Layer: 0
-  m_Name: Captain_Exit_Position
+  m_Name: EngineRoom_Entree_Position
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -191,6 +228,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4125160137360126
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355319614813164}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4681051142442410}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4256982397628874
 Transform:
   m_ObjectHideFlags: 1
@@ -237,11 +287,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1680388942988976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 14}
+  m_LocalPosition: {x: 0, y: 3.485, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4681051142442410}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4545609760586714
 Transform:
@@ -270,6 +320,7 @@ Transform:
   - {fileID: 4304439188422868}
   - {fileID: 4273338930695140}
   - {fileID: 4545609760586714}
+  - {fileID: 4125160137360126}
   - {fileID: 4317883625402000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -308,7 +359,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65706302403417526
 BoxCollider:
@@ -322,6 +373,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65886318887779952
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355319614813164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114006357353707764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 84
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: OpenEngineRoomDoor
+  delay: 0
 --- !u!114 &114016645393195540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,6 +427,22 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114019670239652432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 94
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: EnablePlayerMovement
+  delay: 0
 --- !u!114 &114042141759972304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,7 +473,32 @@ MonoBehaviour:
   - {fileID: 114207762800833020}
   - {fileID: 114944892226084602}
   - {fileID: 114964449666913390}
-  - {fileID: 114366929645357888}
+  - {fileID: 114105419804845366}
+--- !u!114 &114044111276838318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 90
+  indentLevel: 0
+  storyText: Schnell.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114062855996019686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -456,6 +576,72 @@ MonoBehaviour:
   commandList:
   - {fileID: 114381739045427328}
   - {fileID: 114952561826311054}
+--- !u!114 &114071615828467248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114521297363000532}
+  waitForFrames: 1
+--- !u!114 &114079478254805344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 677.4281
+    y: 844.67096
+    width: 151
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 93
+  blockName: Captain_Diary_End
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 114019670239652432}
+  - {fileID: 114679533451226592}
+--- !u!114 &114081127164357972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1006.01025
+    y: 486.9206
+    width: 155
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 78
+  blockName: Engineroom_Entree
+  description: 
+  eventHandler: {fileID: 114580456254576862}
+  commandList:
+  - {fileID: 114760469373917334}
+  - {fileID: 114808724880274368}
+  - {fileID: 114733172857321578}
 --- !u!114 &114090472719569152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -507,6 +693,26 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114105419804845366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 96
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 114079478254805344}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
 --- !u!114 &114118219596224270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -742,13 +948,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _SAIwAController: {fileID: 0}
+  _player: {fileID: 0}
   _shutter: {fileID: 0}
   LookOutEntree: {fileID: 4256982397628874}
   CaptainEntree: {fileID: 4545609760586714}
-  CaptainExit: {fileID: 4317883625402000}
-  _captainIdCard: {fileID: 1806727298637184, guid: c645b82b7175b4b849de6e35657027fe,
-    type: 2}
+  CaptainExit: {fileID: 4125160137360126}
+  _engineRoomEntree: {fileID: 4317883625402000}
+  _captainIdCard: {fileID: 0}
   _captainDoor: {fileID: 0}
+  _engineRoomDoor: {fileID: 0}
+  _brokenEngineRoom: {fileID: 0}
 --- !u!114 &114182664610300450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -926,6 +1135,22 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114260708151269100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 92
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: DisablePlayerMovement
+  delay: 0
 --- !u!114 &114269275271777180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1044,6 +1269,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114067946166922206}
   message: LookOut_Take_ID_Card
+--- !u!114 &114325663012461800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 86
+  indentLevel: 0
+  soundClip: {fileID: 8300000, guid: 440e1a8eadac74d7c903a47bdc937dde, type: 3}
+  volume: 1
+  waitUntilFinished: 1
 --- !u!114 &114335400058597406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1145,22 +1386,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114189634446433732}
   message: LookOut_Earth
---- !u!114 &114366929645357888
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 69
-  indentLevel: 0
-  targetObject: {fileID: 1952306719512844}
-  methodName: AddCaptainExitTrigger
-  delay: 0
 --- !u!114 &114374276000466610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1341,7 +1566,7 @@ MonoBehaviour:
   itemId: 0
   blockName: Start
   description: 
-  eventHandler: {fileID: 114648789406692720}
+  eventHandler: {fileID: 114071615828467248}
   commandList:
   - {fileID: 114314951973421180}
   - {fileID: 114149332581736474}
@@ -1441,6 +1666,19 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: LookAtCaptainEntree
   delay: 0
+--- !u!114 &114544593745130866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114610665372911650}
+  message: Engineroom_Repair
 --- !u!114 &114550651272953264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1490,7 +1728,46 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114603692808536952}
   commandList:
+  - {fileID: 114260708151269100}
   - {fileID: 114633201257103978}
+--- !u!114 &114575230400512958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 89
+  indentLevel: 0
+  storyText: "Nun zur\xFCck in den Tiefschlaf."
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &114580456254576862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114081127164357972}
+  message: Engineroom_Entree
 --- !u!114 &114584682635257288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1536,6 +1813,32 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: LookAtReset
   delay: 0
+--- !u!114 &114610665372911650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1003.31226
+    y: 588.0857
+    width: 155
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 85
+  blockName: Engineroom_Repair
+  description: 
+  eventHandler: {fileID: 114544593745130866}
+  commandList:
+  - {fileID: 114325663012461800}
+  - {fileID: 114802011173053738}
 --- !u!114 &114632511265872848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1582,19 +1885,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
---- !u!114 &114648789406692720
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 114521297363000532}
-  waitForFrames: 1
 --- !u!114 &114656678421294030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1681,16 +1971,35 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1005.5659
     y: 364.24014
-    width: 142
+    width: 146
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 70
-  blockName: Motorroom_Start
+  blockName: Engineroom_Start
   description: 
   eventHandler: {fileID: 114720587646101474}
   commandList:
   - {fileID: 114090472719569152}
+  - {fileID: 114908605707132108}
+  - {fileID: 114822490276244084}
+  - {fileID: 114006357353707764}
+--- !u!114 &114679533451226592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 95
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: AddCaptainExitTrigger
+  delay: 0
 --- !u!114 &114693505060556974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1797,7 +2106,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114669902015984618}
-  message: Motorroom_Start
+  message: Engineroom_Start
+--- !u!114 &114733172857321578
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 81
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: LookAtReset
+  delay: 0
+--- !u!114 &114734684441630610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 996.5684
+    y: 697.3429
+    width: 141
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 88
+  blockName: Engineroom_Exit
+  description: 
+  eventHandler: {fileID: 114934502987173052}
+  commandList:
+  - {fileID: 114575230400512958}
+  - {fileID: 114044111276838318}
+  - {fileID: 114798017196232734}
+--- !u!114 &114760469373917334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 79
+  indentLevel: 0
+  storyText: Gut. Gehe nun zum rechten Antriebsmotor und repariere in schnell.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114777274215798112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1823,6 +2200,47 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114798017196232734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 91
+  indentLevel: 0
+  storyText: Der Sauerstoff ist eben knapp.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &114802011173053738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 87
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: RepairEngineFinished
+  delay: 0
 --- !u!114 &114804869531983920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1836,6 +2254,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _message: LookOut_Start
   _once: 1
+--- !u!114 &114808724880274368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 80
+  indentLevel: 0
+  storyText: "Und dann zur\xFCck in den Tiefschlaf."
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114811311700628762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1887,6 +2330,22 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114822490276244084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 77
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: AddEngineRoomEntreeTrigger
+  delay: 0
 --- !u!114 &114842038503279012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2079,9 +2538,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114189634446433732}
-  selectedCommands:
-  - {fileID: 114584682635257288}
+  - {fileID: 0}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -2093,6 +2551,22 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
+--- !u!114 &114908605707132108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 76
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: LookAtEngineRoom
+  delay: 0
 --- !u!114 &114910836537026150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2145,6 +2619,19 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114934502987173052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114734684441630610}
+  message: Engineroom_Exit
 --- !u!114 &114944892226084602
 MonoBehaviour:
   m_ObjectHideFlags: 1
