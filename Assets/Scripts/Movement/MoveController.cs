@@ -22,7 +22,8 @@ namespace Assets.Scripts.Movement
         private bool _isJumping;
         private bool _previouslyGrounde;
         [SerializeField] private AudioClip[] _footstepSounds;
-
+        [SerializeField] private AudioClip _jumpSound;
+        [SerializeField] private AudioClip _landSound;
         #region Properties
 
         public Vector3 Velocity
@@ -66,7 +67,9 @@ namespace Assets.Scripts.Movement
             _rigidbody = GetComponent<Rigidbody>();
             _capsuleCollider = GetComponent<CapsuleCollider>();
             _gravityController = GetComponent<GravityController>();
+            _audioSource = GetComponent<AudioSource>();
             MouseLook.Init(transform, FpsCamera);
+            _nextStep = _stepCycle / 2f;
         }
 
         private void Update()
@@ -79,6 +82,7 @@ namespace Assets.Scripts.Movement
                 var movementVector = FpsCamera.TransformDirection(new Vector3(x, 0f, y));
                 movementVector = Vector3.ProjectOnPlane(movementVector, transform.up);
                 _movementDirection = movementVector.normalized * Speed;
+                ProgressStepCycle(Speed, x, y);
             }
 
             if (_isGrounded && Input.GetButtonDown("Jump"))
@@ -100,6 +104,8 @@ namespace Assets.Scripts.Movement
                 _jumpForce = Vector3.zero;
                 _jump = false;
                 _isJumping = true;
+                _audioSource.clip = _jumpSound;
+                _audioSource.Play();
             }
             else
             {
@@ -115,8 +121,7 @@ namespace Assets.Scripts.Movement
         {
             _previouslyGrounde = _isGrounded;
             var ray = new Ray(transform.position, transform.TransformDirection(Vector3.down));
-            if (Physics.SphereCast(ray, _capsuleCollider.radius,
-                ((_capsuleCollider.height/2f) - _capsuleCollider.radius) + GroundCheckDistance,
+            if (Physics.SphereCast(ray, _capsuleCollider.radius, ((_capsuleCollider.height/2f) - _capsuleCollider.radius) + GroundCheckDistance,
                 Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
                 _isGrounded = true;
@@ -129,6 +134,7 @@ namespace Assets.Scripts.Movement
             if (!_previouslyGrounde && _isJumping && _isGrounded)
             {
                 _isJumping = false;
+                PlayLandingSound();
             }
         }
 
@@ -196,6 +202,13 @@ namespace Assets.Scripts.Movement
             // move picked sound to index 0 so it's not picked next time
             _footstepSounds[n] = _footstepSounds[0];
             _footstepSounds[0] = _audioSource.clip;
+        }
+
+        private void PlayLandingSound()
+        {
+            _audioSource.clip = _landSound;
+            _audioSource.Play();
+            _nextStep = _stepCycle + .5f;
         }
     }
 }

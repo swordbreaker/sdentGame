@@ -6,17 +6,23 @@ public class BrokenEngineRoom : MonoBehaviour
 {
     [SerializeField] private Animator[] _cylinderAnimator;
 	[SerializeField] private GameObject[] RemoveWhenRepaired;
+    [SerializeField] private GameObject _spark;
+    [SerializeField] private AudioSource _audioSource;
 
 	private void Start ()
     {
         DisableAnimations();
-	}
+        _audioSource.enabled = false;
+    }
 
     public void RepairEngine()
     {
         EnableAnimations();
 		foreach (var go in RemoveWhenRepaired)
 			GameObject.Destroy (go);
+
+        Destroy(_spark);
+        _audioSource.enabled = true;
     }
 
     private void DisableAnimations()
