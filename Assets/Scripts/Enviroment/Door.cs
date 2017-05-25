@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    
-
     [SerializeField] private Color _closedColor = Color.red;
     [SerializeField] private Color _openColor = Color.green;
 
@@ -44,8 +42,8 @@ public class Door : MonoBehaviour
 	    _leftLight = _leftTransform.Find("Light").Find("Spotlight").GetComponent<Light>();
 	    _rightLight = _rightTransform.Find("Light").Find("Spotlight").GetComponent<Light>();
 
-	    _xLeftStart = _leftTransform.position.x;
-	    _xRightStart = _rightTransform.position.x;
+	    _xLeftStart = _leftTransform.localPosition.x;
+	    _xRightStart = _rightTransform.localPosition.x;
 
         IsOpen = _isOpen;
 	}
