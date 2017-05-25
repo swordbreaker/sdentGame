@@ -16,6 +16,9 @@ public class DialogEventManagement : MonoBehaviour {
 	[SerializeField]
 	private Transform CaptainEntree;
 
+	[SerializeField]
+	private Transform CaptainExit;
+
 	public void LookAtLookOutEntree() 
 	{
 		_SAIwAController.LookAt = LookOutEntree;
@@ -40,6 +43,12 @@ public class DialogEventManagement : MonoBehaviour {
 	{
 		var trigger = LookOutEntree.gameObject.AddComponent<FungusTrigger>() as FungusTrigger;
 		trigger.Message = "Captain_Start";
+	}
+
+	public void AddCaptainExitTrigger()
+	{
+		var trigger = CaptainExit.gameObject.AddComponent<FungusTrigger>() as FungusTrigger;
+		trigger.Message = "Motorroom_Start";
 	}
 
 }

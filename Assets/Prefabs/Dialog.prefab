@@ -70,7 +70,23 @@ GameObject:
   m_Component:
   - component: {fileID: 4460464248163570}
   - component: {fileID: 65133790463396658}
-  - component: {fileID: 114489336692415330}
+  m_Layer: 0
+  m_Name: Captain_Exit_Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1878576936503894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4088093552012010}
+  - component: {fileID: 65526232358675378}
+  - component: {fileID: 114208616299155124}
   m_Layer: 0
   m_Name: Captain_Entree_Position
   m_TagString: Untagged
@@ -161,8 +177,11 @@ GameObject:
   - component: {fileID: 114678520490119700}
   - component: {fileID: 114914270468145684}
   - component: {fileID: 114607015798990446}
-  - component: {fileID: 114806854379863822}
   - component: {fileID: 114043641977420888}
+  - component: {fileID: 114782350911191720}
+  - component: {fileID: 114542186886314984}
+  - component: {fileID: 114599085610506852}
+  - component: {fileID: 114747417204444670}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -170,6 +189,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4088093552012010
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1878576936503894}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4636070655321488}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4193091482140768
 Transform:
   m_ObjectHideFlags: 1
@@ -190,11 +222,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774723041169374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 21}
+  m_LocalPosition: {x: 0, y: 4, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4636070655321488}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4636070655321488
 Transform:
@@ -209,6 +241,7 @@ Transform:
   - {fileID: 4193091482140768}
   - {fileID: 4775091853016082}
   - {fileID: 4951717419550090}
+  - {fileID: 4088093552012010}
   - {fileID: 4460464248163570}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -269,6 +302,18 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1768438632439034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65526232358675378
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1878576936503894}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -581,6 +626,19 @@ MonoBehaviour:
   - {fileID: 114518023871799814}
   - {fileID: 114383439430818904}
   - {fileID: 114167077785196062}
+--- !u!114 &114208616299155124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1878576936503894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6ce718cd20a40a5bc3068c30d2b401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _message: Captain_Entree
+  _once: 1
 --- !u!114 &114250883318673444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -696,8 +754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 426.36603
-    y: 315.31662
+    x: 685.20667
+    y: 520.1669
     width: 145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -767,8 +825,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 436.86414
-    y: 170.16638
+    x: 695.70483
+    y: 375.01645
     width: 125
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -976,8 +1034,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 431.72278
-    y: 539.1547
+    x: 688.97546
+    y: 745.59375
     width: 145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -993,6 +1051,7 @@ MonoBehaviour:
   - {fileID: 114199363391690748}
   - {fileID: 114250883318673444}
   - {fileID: 114134717520296538}
+  - {fileID: 114782350911191720}
 --- !u!114 &114423944759956914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1081,8 +1140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 427.829
-    y: 391.44818
+    x: 686.6697
+    y: 596.29926
     width: 145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1160,19 +1219,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114489336692415330
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1774723041169374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6ce718cd20a40a5bc3068c30d2b401, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _message: Captain_Entree
-  _once: 1
 --- !u!114 &114497970563213504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1186,8 +1232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 902.18494
-    y: 277.1895
+    x: 530.5958
+    y: 369.29257
     width: 131
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1198,7 +1244,6 @@ MonoBehaviour:
   eventHandler: {fileID: 114678520490119700}
   commandList:
   - {fileID: 114485783709132264}
-  - {fileID: 114806854379863822}
 --- !u!114 &114511103857395720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1264,6 +1309,31 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
+--- !u!114 &114542186886314984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945439240963480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1017.2257
+    y: 369.23737
+    width: 142
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 70
+  blockName: Motorroom_Start
+  description: 
+  eventHandler: {fileID: 114599085610506852}
+  commandList:
+  - {fileID: 114747417204444670}
 --- !u!114 &114556543085027112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1303,6 +1373,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114786153268674578}
   message: Captain_Start
+--- !u!114 &114599085610506852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945439240963480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114542186886314984}
+  message: Motorroom_Start
 --- !u!114 &114604299440063572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1496,7 +1579,8 @@ MonoBehaviour:
   _SAIwAController: {fileID: 0}
   _shutter: {fileID: 0}
   LookOutEntree: {fileID: 4193091482140768}
-  CaptainEntree: {fileID: 4460464248163570}
+  CaptainEntree: {fileID: 4088093552012010}
+  CaptainExit: {fileID: 4460464248163570}
 --- !u!114 &114658830261268910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1536,8 +1620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 427.8386
-    y: 463.6985
+    x: 686.6793
+    y: 668.54956
     width: 145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1707,6 +1791,31 @@ MonoBehaviour:
   commandList:
   - {fileID: 114943905705230742}
   - {fileID: 114322822237290926}
+--- !u!114 &114747417204444670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945439240963480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 71
+  indentLevel: 0
+  storyText: "AUF MATROSEN DER WIND STEHT G\xFCnstig!"
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114768271391220988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1745,8 +1854,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 426.32013
-    y: 242.43088
+    x: 685.16077
+    y: 447.2809
     width: 145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1788,6 +1897,22 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114782350911191720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945439240963480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 69
+  indentLevel: 0
+  targetObject: {fileID: 1614176229830828}
+  methodName: AddCaptainExitTrigger
+  delay: 0
 --- !u!114 &114786153268674578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1801,8 +1926,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 891.6428
-    y: 76.88837
+    x: 343.78604
+    y: 372.25348
     width: 122
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1814,24 +1939,6 @@ MonoBehaviour:
   commandList:
   - {fileID: 114259332028439698}
   - {fileID: 114351565166164238}
---- !u!114 &114806854379863822
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1945439240963480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43743931d28f43f89eced820d907351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 69
-  indentLevel: 0
-  messageTarget: 0
-  _message:
-    stringRef: {fileID: 0}
-    stringVal: Captain_Diary
-  messageOLD: 
 --- !u!114 &114809731185297300
 MonoBehaviour:
   m_ObjectHideFlags: 1
