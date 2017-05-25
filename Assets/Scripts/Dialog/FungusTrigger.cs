@@ -22,4 +22,12 @@ public class FungusTrigger : MonoBehaviour
 		}
 	}
 
+	public string Message 
+	{
+		set 
+		{
+			_message = value;
+		}
+	}
+
 }

@@ -46,6 +46,15 @@ GameObject:
   - component: {fileID: 114194018980037570}
   - component: {fileID: 114210898872075416}
   - component: {fileID: 114955506069001530}
+  - component: {fileID: 114369104649891848}
+  - component: {fileID: 114636919493734712}
+  - component: {fileID: 114095956462732072}
+  - component: {fileID: 114826072037419118}
+  - component: {fileID: 114877097694531936}
+  - component: {fileID: 114020791435138946}
+  - component: {fileID: 114114347071801286}
+  - component: {fileID: 114386824514305454}
+  - component: {fileID: 114529457797911292}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -66,6 +75,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114020791435138946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524606318518912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 887.1247
+    y: 63.33412
+    width: 122
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 28
+  blockName: Captain_Start
+  description: 
+  eventHandler: {fileID: 114114347071801286}
+  commandList:
+  - {fileID: 114386824514305454}
+  - {fileID: 114529457797911292}
 --- !u!114 &114072648530791948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,6 +142,31 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114095956462732072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524606318518912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 24
+  indentLevel: 0
+  storyText: Gut. Auf zum Kaptinzimmer.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114096821871295116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,6 +192,19 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114114347071801286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524606318518912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114020791435138946}
+  message: Captain_Start
 --- !u!114 &114151223317931382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,6 +309,57 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   methodName: LookAtLookOutEntree
   delay: 0
+--- !u!114 &114369104649891848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524606318518912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 664.23254
+    y: 69.358215
+    width: 176
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 23
+  blockName: LookOut_Take_ID_Card
+  description: 
+  eventHandler: {fileID: 114636919493734712}
+  commandList:
+  - {fileID: 114095956462732072}
+  - {fileID: 114877097694531936}
+--- !u!114 &114386824514305454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524606318518912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 29
+  indentLevel: 0
+  storyText: Das Kaptinzimmer befindet sich hier.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114421208743196172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,6 +432,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114912316373002336}
   message: LookOut_Start
+--- !u!114 &114529457797911292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524606318518912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 30
+  indentLevel: 0
+  targetObject: {fileID: 0}
+  methodName: LookAtCaptainEntree
+  delay: 0
 --- !u!114 &114542293600975854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -436,6 +576,19 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114636919493734712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524606318518912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114369104649891848}
+  message: LookOut_Take_ID_Card
 --- !u!114 &114663464612804882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -589,9 +742,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114827930436226842}
-  selectedCommands:
-  - {fileID: 114072648530791948}
+  - {fileID: 114020791435138946}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -603,6 +755,24 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
+--- !u!114 &114826072037419118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524606318518912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43743931d28f43f89eced820d907351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 26
+  indentLevel: 0
+  messageTarget: 0
+  _message:
+    stringRef: {fileID: 0}
+    stringVal: LookOut_Take_ID_Card
+  messageOLD: 
 --- !u!114 &114827930436226842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -633,6 +803,23 @@ MonoBehaviour:
   - {fileID: 114752593718339274}
   - {fileID: 114194018980037570}
   - {fileID: 114210898872075416}
+  - {fileID: 114826072037419118}
+--- !u!114 &114877097694531936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524606318518912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 27
+  indentLevel: 0
+  targetObject: {fileID: 0}
+  methodName: AddLookOutExitTrigger
+  delay: 0
 --- !u!114 &114912316373002336
 MonoBehaviour:
   m_ObjectHideFlags: 1
