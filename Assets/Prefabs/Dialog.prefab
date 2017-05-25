@@ -746,7 +746,8 @@ MonoBehaviour:
   LookOutEntree: {fileID: 4256982397628874}
   CaptainEntree: {fileID: 4545609760586714}
   CaptainExit: {fileID: 4317883625402000}
-  _captainIdCard: {fileID: 0}
+  _captainIdCard: {fileID: 1806727298637184, guid: c645b82b7175b4b849de6e35657027fe,
+    type: 2}
   _captainDoor: {fileID: 0}
 --- !u!114 &114182664610300450
 MonoBehaviour:
@@ -2079,7 +2080,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 114189634446433732}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 114584682635257288}
   variables: []
   description: 
   stepPause: 0
