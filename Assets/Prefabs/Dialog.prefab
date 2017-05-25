@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4775091853016082}
   - component: {fileID: 65110497231205918}
-  - component: {fileID: 114926693657154666}
+  - component: {fileID: 114989294761246100}
   m_Layer: 0
   m_Name: LookOut_Earth_Side
   m_TagString: Untagged
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4193091482140768}
   - component: {fileID: 65427472007267566}
-  - component: {fileID: 114466175375048774}
+  - component: {fileID: 114418165102245870}
   m_Layer: 0
   m_Name: LookOut_Entree_Position
   m_TagString: Untagged
@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 114542186886314984}
   - component: {fileID: 114599085610506852}
   - component: {fileID: 114747417204444670}
+  - component: {fileID: 114997386577246472}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1021,6 +1022,19 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114418165102245870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768438632439034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6ce718cd20a40a5bc3068c30d2b401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _message: LookOut_Start
+  _once: 1
 --- !u!114 &114418406827892352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1181,19 +1195,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114466175375048774
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1768438632439034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6ce718cd20a40a5bc3068c30d2b401, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _message: LookOut_Start
-  _once: 1
 --- !u!114 &114485783709132264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1510,7 +1511,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 114728032490185602}
   selectedCommands: []
   variables: []
   description: 
@@ -1581,6 +1583,7 @@ MonoBehaviour:
   LookOutEntree: {fileID: 4193091482140768}
   CaptainEntree: {fileID: 4088093552012010}
   CaptainExit: {fileID: 4460464248163570}
+  _captainDoor: {fileID: 0}
 --- !u!114 &114658830261268910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1938,6 +1941,7 @@ MonoBehaviour:
   eventHandler: {fileID: 114561054565839850}
   commandList:
   - {fileID: 114259332028439698}
+  - {fileID: 114997386577246472}
   - {fileID: 114351565166164238}
 --- !u!114 &114809731185297300
 MonoBehaviour:
@@ -2132,19 +2136,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114926693657154666
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1438854670368462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6ce718cd20a40a5bc3068c30d2b401, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _message: LookOut_Earth
-  _once: 1
 --- !u!114 &114927966906150708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2256,3 +2247,32 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114989294761246100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438854670368462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6ce718cd20a40a5bc3068c30d2b401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _message: LookOut_Earth
+  _once: 1
+--- !u!114 &114997386577246472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945439240963480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 73
+  indentLevel: 0
+  targetObject: {fileID: 1614176229830828}
+  methodName: OpenCaptainDoor
+  delay: 0
