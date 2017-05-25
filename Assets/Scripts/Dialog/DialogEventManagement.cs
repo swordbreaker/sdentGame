@@ -38,6 +38,9 @@ public class DialogEventManagement : MonoBehaviour {
 	[SerializeField]
 	private BrokenEngineRoom _brokenEngineRoom;
 
+	[SerializeField]
+	private AlarmController _alarm;
+
 	public void LookAtLookOutEntree() 
 	{
 		_SAIwAController.LookAt = LookOutEntree;
@@ -119,6 +122,11 @@ public class DialogEventManagement : MonoBehaviour {
 	public void EnablePlayerMovement() 
 	{
 		this._player.CanMove = true;
+	}
+
+	public void StartAlarm() 
+	{
+		this._alarm.Alarm = true;
 	}
 
 }

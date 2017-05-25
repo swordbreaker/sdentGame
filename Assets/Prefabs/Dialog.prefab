@@ -171,7 +171,8 @@ GameObject:
   - component: {fileID: 114260708151269100}
   - component: {fileID: 114934502987173052}
   - component: {fileID: 114679533451226592}
-  - component: {fileID: 114071615828467248}
+  - component: {fileID: 114398439962572888}
+  - component: {fileID: 114218197064390286}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -576,19 +577,6 @@ MonoBehaviour:
   commandList:
   - {fileID: 114381739045427328}
   - {fileID: 114952561826311054}
---- !u!114 &114071615828467248
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 114521297363000532}
-  waitForFrames: 1
 --- !u!114 &114079478254805344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -958,6 +946,7 @@ MonoBehaviour:
   _captainDoor: {fileID: 0}
   _engineRoomDoor: {fileID: 0}
   _brokenEngineRoom: {fileID: 0}
+  _alarm: {fileID: 0}
 --- !u!114 &114182664610300450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1079,6 +1068,19 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114218197064390286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114521297363000532}
+  waitForFrames: 1
 --- !u!114 &114230777181776736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1436,6 +1438,22 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114398439962572888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 97
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: StartAlarm
+  delay: 0
 --- !u!114 &114420600999588466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1566,7 +1584,7 @@ MonoBehaviour:
   itemId: 0
   blockName: Start
   description: 
-  eventHandler: {fileID: 114071615828467248}
+  eventHandler: {fileID: 114218197064390286}
   commandList:
   - {fileID: 114314951973421180}
   - {fileID: 114149332581736474}
@@ -1826,7 +1844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1003.31226
+    x: 1001.7541
     y: 588.0857
     width: 155
     height: 40
@@ -1839,6 +1857,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 114325663012461800}
   - {fileID: 114802011173053738}
+  - {fileID: 114398439962572888}
 --- !u!114 &114632511265872848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2526,19 +2545,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -76.64859, y: -51.24092}
+  scrollPos: {x: 92.70206, y: 22.653732}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 401
-  zoom: 0.74136895
+  zoom: 0.64177054
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 114610665372911650}
+  selectedBlocks: []
   selectedCommands: []
   variables: []
   description: 
