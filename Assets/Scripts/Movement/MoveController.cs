@@ -10,6 +10,8 @@ namespace Assets.Scripts.Movement
         public float JumpForce;
         public float GroundCheckDistance = 0.1f;
         public MouseLook MouseLook = new MouseLook();
+        private bool _canMove = true;
+
         private Vector3 _movementDirection;
         private Rigidbody _rigidbody;
         private bool _isGrounded;
@@ -20,6 +22,8 @@ namespace Assets.Scripts.Movement
         private bool _isJumping;
         private bool _previouslyGrounde;
         [SerializeField] private AudioClip[] _footstepSounds;
+
+        #region Properties
 
         public Vector3 Velocity
         {
@@ -36,6 +40,27 @@ namespace Assets.Scripts.Movement
             get { return false; }
         }
 
+        public bool CanMove
+        {
+            get { return _canMove; }
+            set
+            {
+                _canMove = value;
+                if (!value)
+                {
+                    _rigidbody.velocity = Vector3.zero;
+                }
+            }
+        }
+
+        public Vector3 FootPosition
+        {
+            get { return transform.Find("FootPosition").transform.position; }
+        }
+
+        #endregion
+
+
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
@@ -46,17 +71,21 @@ namespace Assets.Scripts.Movement
 
         private void Update()
         {
-            var x = Input.GetAxis("Horizontal");
-            var y = Input.GetAxisRaw("Vertical");
+            if (CanMove)
+            {
+                var x = Input.GetAxis("Horizontal");
+                var y = Input.GetAxisRaw("Vertical");
+
+                var movementVector = FpsCamera.TransformDirection(new Vector3(x, 0f, y));
+                movementVector = Vector3.ProjectOnPlane(movementVector, transform.up);
+                _movementDirection = movementVector.normalized * Speed;
+            }
 
             if (_isGrounded && Input.GetButtonDown("Jump"))
             {
                 _jump = true;
             }
 
-            var movementVector = FpsCamera.TransformDirection(new Vector3(x, 0f, y));
-            movementVector = Vector3.ProjectOnPlane(movementVector, transform.up);
-            _movementDirection = movementVector.normalized * Speed;
             RotateView();
         }
 
@@ -75,7 +104,7 @@ namespace Assets.Scripts.Movement
             else
             {
                 CheckIsGrounded();
-                if (!_isJumping && _isGrounded)
+                if (!_isJumping && _isGrounded && CanMove)
                 {
                     _rigidbody.velocity = _movementDirection;
                 }
