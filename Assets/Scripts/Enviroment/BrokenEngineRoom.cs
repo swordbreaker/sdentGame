@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EngineRoomLeft : MonoBehaviour
+public class BrokenEngineRoom : MonoBehaviour
 {
     [SerializeField] private Animator[] _cylinderAnimator;
+	[SerializeField] private GameObject[] RemoveWhenRepaired;
 
 	private void Start ()
     {
@@ -14,6 +15,8 @@ public class EngineRoomLeft : MonoBehaviour
     public void RepairEngine()
     {
         EnableAnimations();
+		foreach (var go in RemoveWhenRepaired)
+			GameObject.Destroy (go);
     }
 
     private void DisableAnimations()
