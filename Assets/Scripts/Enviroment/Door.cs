@@ -17,6 +17,7 @@ public class Door : MonoBehaviour
 
     private float _xLeftStart;
     private float _xRightStart;
+    private AudioSource _audioSource;
     [SerializeField] private bool _isOpen;
 
     public bool IsOpen
@@ -46,6 +47,9 @@ public class Door : MonoBehaviour
 	    _xRightStart = _rightTransform.localPosition.x;
 
         IsOpen = _isOpen;
+
+	    _audioSource = GetComponent<AudioSource>();
+
 	}
 	
 	private void Activate()
@@ -91,6 +95,7 @@ public class Door : MonoBehaviour
 
     private void Open()
     {
+        _audioSource.Play();
         _leftTransform.DOLocalMoveX(-1.95f, 1f);
         _rightTransform.DOLocalMoveX(0.9f, 1f);
     }
