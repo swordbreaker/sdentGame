@@ -41,6 +41,12 @@ public class DialogEventManagement : MonoBehaviour {
 	[SerializeField]
 	private AlarmController _alarm;
 
+	[SerializeField]
+	private CrewMemberController _crewMemberToKill;
+
+	[SerializeField]
+	private GameObject _playerBed;
+
 	public void LookAtLookOutEntree() 
 	{
 		_SAIwAController.LookAt = LookOutEntree;
@@ -106,6 +112,7 @@ public class DialogEventManagement : MonoBehaviour {
 	{
 		this._brokenEngineRoom.RepairEngine ();
 		this.AddEngineRoomExitTrigger ();
+		this.AddDeepSleepEnding ();
 	}
 
 	public void AddEngineRoomExitTrigger() 
@@ -127,6 +134,18 @@ public class DialogEventManagement : MonoBehaviour {
 	public void StartAlarm() 
 	{
 		this._alarm.Alarm = true;
+	}
+
+	public void KillCrewMember() 
+	{
+		_crewMemberToKill.Kill ();
+	}
+
+	public void AddDeepSleepEnding() 
+	{
+		var endingTrigger = this.gameObject.AddComponent<FungusTriggerInteraction>() as FungusTriggerInteraction;
+		endingTrigger.SetName("Zurück zum Tiefschlaf");
+		endingTrigger.Message = "Ending_DeepSleep";
 	}
 
 }
