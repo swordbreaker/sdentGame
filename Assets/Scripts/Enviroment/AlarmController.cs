@@ -1,45 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class AlarmController : MonoBehaviour 
 {
 
 	[SerializeField]
-	private Material material;
+	private SAIwAController _saiwa;
 
 	[SerializeField]
 	private Color _alarmColor = Color.red;
 	private Color _startColor;
-	private Color _fromColor;
-	private Color _toColor;
 
 	private float _timePassed = 0;
 
 	public bool Alarm { set; get; }
 
+	private List<Renderer> _wallRenderers;
+
+	private bool _up = true;
+
 	void Start () 
 	{
-		_startColor = material.color;
-		_fromColor = _startColor;
-		_toColor = _alarmColor;
+		_wallRenderers = GameObject.FindGameObjectsWithTag("ShipWall").Select (x => x.GetComponent<Renderer> ()).ToList();
+		_startColor = _wallRenderers[0].material.GetColor("_EmissionColor");
 	}
 	
 	void Update () 
 	{
 		if (Alarm) 
 		{
-			// #0967FF	
-			/*_timePassed += Time.deltaTime;
-			material.SetColor("_EmissionColor", Color.Lerp(_fromColor, _toColor, _timePassed));
-			if (material.GetColor("_EmissionColor") == _toColor) 
+			if (_up) _timePassed += Time.deltaTime;
+			else _timePassed -= Time.deltaTime;
+
+			_wallRenderers.ForEach (x => x.material.SetColor ("_EmissionColor", Color.Lerp (_startColor, _alarmColor, _timePassed)));
+			_saiwa.UpdateAlarmColor (_timePassed);
+
+			if (_timePassed <= 0 || 1 <= _timePassed) 
 			{
-				_timePassed = 0;
-				var temp = _toColor;
-				_toColor = _fromColor;
-				_fromColor = temp;
-			}*/
-			Debug.Log ("Alarm");
+				_up = !_up;
+			}
 		}
 	}
 }

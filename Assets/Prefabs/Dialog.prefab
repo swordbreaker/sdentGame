@@ -174,10 +174,6 @@ GameObject:
   - component: {fileID: 114398439962572888}
   - component: {fileID: 114358961214672718}
   - component: {fileID: 114163050510682554}
-  - component: {fileID: 114049224281007176}
-  - component: {fileID: 114251987325187406}
-  - component: {fileID: 114325282931212520}
-  - component: {fileID: 114363104890374628}
   - component: {fileID: 114203909271326464}
   - component: {fileID: 114316729992813080}
   - component: {fileID: 114604876274110960}
@@ -186,6 +182,7 @@ GameObject:
   - component: {fileID: 114900689890990916}
   - component: {fileID: 114514431439965246}
   - component: {fileID: 114172352621466248}
+  - component: {fileID: 114202489240965298}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -526,26 +523,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114049224281007176
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 101
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 114669902015984618}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 0
 --- !u!114 &114062855996019686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1120,6 +1097,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114604876274110960}
   message: Death_Start
+--- !u!114 &114202489240965298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114521297363000532}
+  waitForFrames: 1
 --- !u!114 &114203909271326464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1252,19 +1242,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114251987325187406
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 114325282931212520}
-  waitForFrames: 1
 --- !u!114 &114260708151269100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1425,31 +1402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114067946166922206}
   message: LookOut_Take_ID_Card
---- !u!114 &114325282931212520
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 842.4731
-    y: 175.03252
-    width: 120
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 100
-  blockName: New Block
-  description: 
-  eventHandler: {fileID: 114251987325187406}
-  commandList:
-  - {fileID: 114049224281007176}
 --- !u!114 &114325663012461800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1581,32 +1533,6 @@ MonoBehaviour:
   itemId: 98
   indentLevel: 0
   storyText: Wir haben bereits zu wenig Sauerstoff
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
---- !u!114 &114363104890374628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 103
-  indentLevel: 0
-  storyText: "Wie bereits erw\xE4hnt: der Sauerstoff ist knapp. Nicht alle Besatzungsmitglieder
-    k\xF6nnen das Ziel erreichen. "
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -1831,7 +1757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 68
+    x: 64.087166
     y: 69
     width: 120
     height: 40
@@ -1840,7 +1766,7 @@ MonoBehaviour:
   itemId: 0
   blockName: Start
   description: 
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 114202489240965298}
   commandList:
   - {fileID: 114314951973421180}
   - {fileID: 114149332581736474}
@@ -2084,8 +2010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1320.4847
-    y: 143.65236
+    x: 1322.4412
+    y: 145.60878
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2095,7 +2021,6 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114195041178118164}
   commandList:
-  - {fileID: 114363104890374628}
   - {fileID: 114316729992813080}
   - {fileID: 114514431439965246}
   - {fileID: 114203909271326464}
@@ -2843,9 +2768,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114325282931212520}
+  - {fileID: 114604876274110960}
   selectedCommands:
-  - {fileID: 114049224281007176}
+  - {fileID: 114316729992813080}
   variables: []
   description: 
   stepPause: 0
