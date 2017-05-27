@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - projectile
-  - FxTemporaire
+  - ShipWall
   layers:
   - Default
   - TransparentFX
@@ -19,6 +18,7 @@ TagManager:
   - Player
   - PlayerInteraction
   - Teleport
+  - 
   - 
   - 
   - 

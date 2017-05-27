@@ -7,10 +7,37 @@ public class SAIwAController : MonoBehaviour
 	public Transform Player;
 	private Transform _lookAtTarget;
 
+	[SerializeField]
+	private Color _alarmColor = Color.red;
+
+	[SerializeField]
+	private Light _spotLight;
+
+	[SerializeField]
+	private GameObject _core;
+
+	private Color _spotLightStartColor;
+	private Color _coreStartColor;
+
+	private Renderer _coreRenderer;
+
+	void Start() 
+	{
+		this._spotLightStartColor = _spotLight.GetComponent<Light> ().color;
+		this._coreRenderer = _core.GetComponent<Renderer> ();
+		this._coreStartColor = _coreRenderer.material.color;
+	}
+
 	void Update () 
 	{
 		var newRot = Quaternion.LookRotation(LookAt.position - this.transform.position);
 		transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime);
+	}
+
+	public void UpdateAlarmColor(float timePassed) 
+	{
+		_spotLight.color = Color.Lerp(_spotLightStartColor, _alarmColor, timePassed);
+		_coreRenderer.material.color = Color.Lerp(_coreStartColor, _alarmColor, timePassed);
 	}
 
 	public Transform LookAt 

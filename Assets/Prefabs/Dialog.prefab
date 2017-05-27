@@ -172,7 +172,17 @@ GameObject:
   - component: {fileID: 114934502987173052}
   - component: {fileID: 114679533451226592}
   - component: {fileID: 114398439962572888}
-  - component: {fileID: 114218197064390286}
+  - component: {fileID: 114358961214672718}
+  - component: {fileID: 114163050510682554}
+  - component: {fileID: 114203909271326464}
+  - component: {fileID: 114316729992813080}
+  - component: {fileID: 114604876274110960}
+  - component: {fileID: 114195041178118164}
+  - component: {fileID: 114006255814175634}
+  - component: {fileID: 114900689890990916}
+  - component: {fileID: 114514431439965246}
+  - component: {fileID: 114172352621466248}
+  - component: {fileID: 114202489240965298}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -386,6 +396,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114006255814175634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114900689890990916}
+  message: Ending_DeepSleep
 --- !u!114 &114006357353707764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -924,6 +947,47 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114163050510682554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 99
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: KillCrewMember
+  delay: 0
+--- !u!114 &114172352621466248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 108
+  indentLevel: 0
+  storyText: Spielende!
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114181008272078526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -947,6 +1011,8 @@ MonoBehaviour:
   _engineRoomDoor: {fileID: 0}
   _brokenEngineRoom: {fileID: 0}
   _alarm: {fileID: 0}
+  _crewMemberToKill: {fileID: 0}
+  _playerBed: {fileID: 0}
 --- !u!114 &114182664610300450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1018,6 +1084,58 @@ MonoBehaviour:
   - {fileID: 114524524903493984}
   - {fileID: 114861853321720692}
   - {fileID: 114584682635257288}
+--- !u!114 &114195041178118164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114604876274110960}
+  message: Death_Start
+--- !u!114 &114202489240965298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114521297363000532}
+  waitForFrames: 1
+--- !u!114 &114203909271326464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 105
+  indentLevel: 0
+  storyText: "Dank seinem Tod haben wir eine h\xF6here Wahrscheinlichkeit, dass die
+    Menschheit \xFCberlebt. Nichts darf die Mission gef\xE4hrden."
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114207762800833020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1068,19 +1186,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114218197064390286
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 114521297363000532}
-  waitForFrames: 1
 --- !u!114 &114230777181776736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1258,6 +1363,32 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114316729992813080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 104
+  indentLevel: 0
+  storyText: "Besatzungsmitglied 35 musste sterben - Sauerstoff muss f\xFCr den Rest
+    der Reise gespart werden."
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114318297971886600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1388,6 +1519,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114189634446433732}
   message: LookOut_Earth
+--- !u!114 &114358961214672718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 98
+  indentLevel: 0
+  storyText: Wir haben bereits zu wenig Sauerstoff
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114374276000466610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1562,6 +1718,32 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
+--- !u!114 &114514431439965246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 106
+  indentLevel: 0
+  storyText: "Besatzungsmitglied 35 hat seinen Dienst bereits erbracht. Er wird f\xFCr
+    die restliche Mission nicht ben\xF6tigt."
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114521297363000532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1575,7 +1757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 68
+    x: 64.087166
     y: 69
     width: 120
     height: 40
@@ -1584,7 +1766,7 @@ MonoBehaviour:
   itemId: 0
   blockName: Start
   description: 
-  eventHandler: {fileID: 114218197064390286}
+  eventHandler: {fileID: 114202489240965298}
   commandList:
   - {fileID: 114314951973421180}
   - {fileID: 114149332581736474}
@@ -1815,6 +1997,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114558866119919476}
   message: Captain_Diary
+--- !u!114 &114604876274110960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1322.4412
+    y: 145.60878
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 102
+  blockName: Death_Start
+  description: 
+  eventHandler: {fileID: 114195041178118164}
+  commandList:
+  - {fileID: 114316729992813080}
+  - {fileID: 114514431439965246}
+  - {fileID: 114203909271326464}
 --- !u!114 &114605533910258532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2167,8 +2376,10 @@ MonoBehaviour:
   eventHandler: {fileID: 114934502987173052}
   commandList:
   - {fileID: 114575230400512958}
+  - {fileID: 114163050510682554}
   - {fileID: 114044111276838318}
   - {fileID: 114798017196232734}
+  - {fileID: 114358961214672718}
 --- !u!114 &114760469373917334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2545,19 +2756,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 92.70206, y: 22.653732}
+  scrollPos: {x: -702.7038, y: 453.37497}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 401
-  zoom: 0.64177054
+  zoom: 0.5111387
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 114604876274110960}
+  selectedCommands:
+  - {fileID: 114316729992813080}
   variables: []
   description: 
   stepPause: 0
@@ -2569,6 +2782,31 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
+--- !u!114 &114900689890990916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1330.9194
+    y: 335.28143
+    width: 148
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 107
+  blockName: Ending_DeepSleep
+  description: 
+  eventHandler: {fileID: 114006255814175634}
+  commandList:
+  - {fileID: 114172352621466248}
 --- !u!114 &114908605707132108
 MonoBehaviour:
   m_ObjectHideFlags: 1
