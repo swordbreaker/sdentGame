@@ -33,6 +33,9 @@ ModelImporter:
     100050: MainOuter
     100052: ControlPanel
     100054: Booster
+    100056: ControlPanel_001
+    100058: LeftWingBottom
+    100060: LeftWingTop
     400000: BezierCircle
     400002: Circle
     400004: Cube
@@ -61,6 +64,9 @@ ModelImporter:
     400050: MainOuter
     400052: ControlPanel
     400054: Booster
+    400056: ControlPanel_001
+    400058: LeftWingBottom
+    400060: LeftWingTop
     2300000: BezierCircle
     2300002: Circle
     2300004: Cube
@@ -88,6 +94,9 @@ ModelImporter:
     2300048: MainOuter
     2300050: ControlPanel
     2300052: Booster
+    2300054: ControlPanel_001
+    2300056: LeftWingBottom
+    2300058: LeftWingTop
     3300000: BezierCircle
     3300002: Circle
     3300004: Cube
@@ -115,6 +124,9 @@ ModelImporter:
     3300048: MainOuter
     3300050: ControlPanel
     3300052: Booster
+    3300054: ControlPanel_001
+    3300056: LeftWingBottom
+    3300058: LeftWingTop
     4300000: Torus
     4300002: BezierCircle
     4300004: Cube_005
@@ -142,6 +154,9 @@ ModelImporter:
     4300048: MainOuter
     4300050: ControlPanel
     4300052: Booster
+    4300054: ControlPanel_001
+    4300056: LeftWingBottom
+    4300058: LeftWingTop
     7400000: Default Take
     9500000: //RootNode
   materials:
