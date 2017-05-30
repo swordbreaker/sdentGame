@@ -57,8 +57,8 @@ namespace Assets.Scripts.Capsule
             while (playerAudio.volume < 1)
             {
                 playerAudio.volume += 0.01f;
-                playerRadialBlur.BlurStrength += 0.05f;
-                playerRadialBlur.BlurWidth += 0.02f;
+                playerRadialBlur.BlurStrength += 0.1f;
+                playerRadialBlur.BlurWidth += 0.001f;
                 yield return new WaitForSeconds(0.1f);
             }
 
