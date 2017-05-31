@@ -170,7 +170,6 @@ GameObject:
   - component: {fileID: 114105419804845366}
   - component: {fileID: 114260708151269100}
   - component: {fileID: 114934502987173052}
-  - component: {fileID: 114679533451226592}
   - component: {fileID: 114398439962572888}
   - component: {fileID: 114358961214672718}
   - component: {fileID: 114163050510682554}
@@ -183,6 +182,10 @@ GameObject:
   - component: {fileID: 114514431439965246}
   - component: {fileID: 114172352621466248}
   - component: {fileID: 114202489240965298}
+  - component: {fileID: 114705840318750796}
+  - component: {fileID: 114241211585472050}
+  - component: {fileID: 114158259524416874}
+  - component: {fileID: 114757337187594250}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -480,7 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 688.97546
+    x: 547.9916
     y: 746.9426
     width: 145
     height: 40
@@ -613,8 +616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 677.4281
-    y: 844.67096
+    x: 547.12476
+    y: 833.9904
     width: 151
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -625,7 +628,6 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 114019670239652432}
-  - {fileID: 114679533451226592}
 --- !u!114 &114081127164357972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,7 +828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 686.6697
+    x: 545.6858
     y: 596.29926
     width: 145
     height: 40
@@ -881,7 +883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 685.20667
+    x: 544.2228
     y: 520.1669
     width: 145
     height: 40
@@ -922,6 +924,31 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114158259524416874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 756.95374
+    y: 373.8969
+    width: 171
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 110
+  blockName: Captain_Take_ID_Card
+  description: 
+  eventHandler: {fileID: 114241211585472050}
+  commandList:
+  - {fileID: 114757337187594250}
 --- !u!114 &114162189785231146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1026,7 +1053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 343.78604
+    x: 202.80219
     y: 372.25348
     width: 122
     height: 40
@@ -1037,9 +1064,9 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114284843662632438}
   commandList:
-  - {fileID: 114347002597528870}
   - {fileID: 114297127409947046}
   - {fileID: 114537519704816942}
+  - {fileID: 114347002597528870}
 --- !u!114 &114186083430925654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1199,7 +1226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 685.16077
+    x: 544.1769
     y: 447.2809
     width: 145
     height: 40
@@ -1217,6 +1244,19 @@ MonoBehaviour:
   - {fileID: 114910836537026150}
   - {fileID: 114526730090032856}
   - {fileID: 114968265294355762}
+--- !u!114 &114241211585472050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114158259524416874}
+  message: Captain_Take_ID_Card
 --- !u!114 &114250112008322398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1681,7 +1721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 686.6793
+    x: 545.69543
     y: 668.54956
     width: 145
     height: 40
@@ -1917,7 +1957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 695.70483
+    x: 554.72095
     y: 375.01645
     width: 125
     height: 40
@@ -2212,22 +2252,6 @@ MonoBehaviour:
   - {fileID: 114908605707132108}
   - {fileID: 114822490276244084}
   - {fileID: 114006357353707764}
---- !u!114 &114679533451226592
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 95
-  indentLevel: 0
-  targetObject: {fileID: 1952306719512844}
-  methodName: AddCaptainExitTrigger
-  delay: 0
 --- !u!114 &114693505060556974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2256,6 +2280,22 @@ MonoBehaviour:
   - {fileID: 114842038503279012}
   - {fileID: 114269275271777180}
   - {fileID: 114459803843815668}
+--- !u!114 &114705840318750796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 109
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: LookAtReset
+  delay: 0
 --- !u!114 &114707963214936048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2365,7 +2405,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 996.5684
-    y: 697.3429
+    y: 699.479
     width: 141
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2377,9 +2417,26 @@ MonoBehaviour:
   commandList:
   - {fileID: 114575230400512958}
   - {fileID: 114163050510682554}
+  - {fileID: 114705840318750796}
   - {fileID: 114044111276838318}
   - {fileID: 114798017196232734}
   - {fileID: 114358961214672718}
+--- !u!114 &114757337187594250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 111
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: AddCaptainExitTrigger
+  delay: 0
 --- !u!114 &114760469373917334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2705,7 +2762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 530.5958
+    x: 389.612
     y: 369.29257
     width: 131
     height: 40
@@ -2756,11 +2813,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -702.7038, y: 453.37497}
+  scrollPos: {x: 388.00668, y: 262.6667}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 401
-  zoom: 0.5111387
+  zoom: 0.46813855
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -2768,9 +2825,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114604876274110960}
-  selectedCommands:
-  - {fileID: 114316729992813080}
+  - {fileID: 114158259524416874}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
