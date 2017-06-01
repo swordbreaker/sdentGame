@@ -5,6 +5,9 @@ namespace Assets.Scripts.Interaction.Capsule
 {
     public class CapsuleSeatInteraction : IInteraction
     {
+        public delegate void TakeCapsuleSeat();
+        public static event TakeCapsuleSeat OnTakeCapsuleSeat;
+
         public override string Name
         {
             get { return "Platz nehmen"; }
@@ -14,9 +17,12 @@ namespace Assets.Scripts.Interaction.Capsule
         {
             if (interacter.tag == "Player")
             {
+                Interactable = false;
+                interacter.transform.parent = transform.parent.parent;
                 interacter.transform.position = this.transform.position;
                 interacter.transform.forward = -this.transform.up;
                 interacter.GetComponent<MoveController>().CanMove = false;
+                if (OnTakeCapsuleSeat != null) OnTakeCapsuleSeat();
             }
         }
     }

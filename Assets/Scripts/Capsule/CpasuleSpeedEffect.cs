@@ -45,7 +45,9 @@ namespace Assets.Scripts.Capsule
         private ColorOverlay colorOverlay;
 
         private LerpHelper<Vector3> playerLockLerp;
+        private LerpHelper<Quaternion> playerCameraLockLerp;
         private bool playerLockLerpGoalReached;
+        private bool playerCameraLockLerpGoalReached;
 
         public void Start()
         {
@@ -54,7 +56,7 @@ namespace Assets.Scripts.Capsule
             colorOverlay = GetComponent<ColorOverlay>();
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
             var velocity = capsuleEngine.Velocity.magnitude;
             if (velocity > minVelocity)
@@ -62,11 +64,19 @@ namespace Assets.Scripts.Capsule
                 if (playerMoveController.enabled)
                 {
                     playerLockLerp = new LerpHelper<Vector3>(playerMoveController.transform.forward, Vector3.forward, 2);
+                    playerCameraLockLerp = new LerpHelper<Quaternion>(Camera.main.transform.rotation, Quaternion.identity, 2);
                     playerMoveController.enabled = false;
                 }
-                else if (!playerLockLerpGoalReached)
+                else
                 {
-                    playerMoveController.transform.forward = playerLockLerp.CurrentValue(out playerLockLerpGoalReached);
+                    if (!playerLockLerpGoalReached)
+                    {
+                        playerMoveController.transform.forward = playerLockLerp.CurrentValue(out playerLockLerpGoalReached);
+                    }
+                    if (!playerCameraLockLerpGoalReached)
+                    {
+                        Camera.main.transform.rotation = playerCameraLockLerp.CurrentValue(out playerCameraLockLerpGoalReached);
+                    }
                 }
                 var relativeVelocity = Math.Min(velocity, maxtVelocity) - minVelocity;
                 var relativeMaxVelocity = maxtVelocity - minVelocity;
