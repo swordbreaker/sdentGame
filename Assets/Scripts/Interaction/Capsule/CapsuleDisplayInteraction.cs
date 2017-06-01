@@ -1,26 +1,79 @@
-﻿using Assets.Scripts.Capsule;
+﻿using System;
+using Assets.Scripts.Capsule;
 using UnityEngine;
+using System.Collections;
 
 namespace Assets.Scripts.Interaction.Capsule
 {
+    internal class DisplayState
+    {
+        public delegate void Interaction();
+
+        private readonly Interaction ineraction;
+        private readonly DisplayState nextState;
+        private readonly string name;
+
+        public DisplayState(string name, Interaction ineraction, DisplayState nextState)
+        {
+            this.ineraction = ineraction;
+            this.nextState = nextState;
+            this.name = name;
+        }
+
+        public string Name()
+        {
+            return name;
+        }
+
+        public DisplayState Interact()
+        {
+            ineraction();
+            return nextState;
+        }
+    }
+
     public class CapsuleDisplayInteraction : IInteraction
     {
-        public GameObject SpaceShip;
-        private CapsuleEngine engine;
+        public delegate void Undock(CapsuleDisplayInteraction sender);
+        public static event Undock OnUndock;
 
-        public void Start()
+        public delegate void BoosterIgnition(CapsuleDisplayInteraction sender);
+        public static event BoosterIgnition OnBoosterIgnition;
+
+        private readonly DisplayState idleState;
+        private readonly DisplayState undockState;
+        private readonly DisplayState boosterIgnitionState;
+
+        private DisplayState state;
+
+        public CapsuleDisplayInteraction()
         {
-            engine = SpaceShip.GetComponent<CapsuleEngine>();
+            var self = this;
+            idleState = new DisplayState("", () => { }, idleState);
+
+            boosterIgnitionState = new DisplayState("Antrieb starten", () =>
+            {
+                Interactable = false;
+                if (OnBoosterIgnition != null) OnBoosterIgnition(self);
+            }, idleState);
+
+            undockState = new DisplayState("Kapsel abdocken", () =>
+            {
+                Interactable = false;
+                if (OnUndock != null) OnUndock(self);
+            }, boosterIgnitionState);
+
+            state = undockState;
         }
 
         public override string Name
         {
-            get { return "Kapsel abdocken"; }
+            get { return state.Name(); }
         }
 
         public override void Interact(GameObject interacter)
         {
-            engine.StartEngine();
+            state = state.Interact();
         }
     }
 }

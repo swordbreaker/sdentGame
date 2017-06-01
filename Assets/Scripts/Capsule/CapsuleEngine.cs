@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Assets.Scripts.Interaction.Capsule;
 using Assets.Scripts.Visuals;
 using DG.Tweening;
 using UnityEngine;
@@ -8,61 +9,85 @@ namespace Assets.Scripts.Capsule
 {
     public class CapsuleEngine : MonoBehaviour
     {
-        private GameObject player;
-        private RadialBlur playerRadialBlur;
+        [SerializeField]
         private AudioSource engineAudio;
-        private AudioSource playerAudio;
-        [SerializeField] private AudioClip outroAudioClip;
+
+        private bool running;
+
+        public Vector3 Velocity { get; set; }
+
+        [SerializeField]
+        private Vector3 acceleration = new Vector3(0, 0, 5);
+
+        public Vector3 Acceleration
+        {
+            get { return acceleration; }
+            set { acceleration = value; }
+        }
+        
+        public CapsuleEngine()
+        {
+            Velocity = Vector3.zero;
+        }
 
         public void Start()
         {
-            engineAudio = GetComponent<AudioSource>();
             engineAudio.mute = true;
-            engineAudio.volume = 0;
-            player = GameObject.FindGameObjectWithTag("Player");
-            playerAudio = player.GetComponent<AudioSource>();
-            playerRadialBlur = player.GetComponentInChildren<RadialBlur>();
+            CapsuleDisplayInteraction.OnBoosterIgnition += sender => StartEngine();
         }
 
         public void FixedUpdate()
         {
-            if (engineAudio.mute == false && engineAudio.volume < 1)
+            if (transform.position.z > 10000)
             {
-                engineAudio.volume += 0.2f * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x, transform.position.y, 500);
             }
-            else if (engineAudio.mute == false && engineAudio.volume > 0)
+            if (running)
             {
-                engineAudio.volume -= 0.2f * Time.deltaTime;
+                Velocity += Acceleration * Time.deltaTime;
             }
-
-
+            transform.position += Velocity * Time.deltaTime;
         }
 
         public void StartEngine()
         {
-            transform.DOMoveZ(100000, 360);
-            engineAudio.mute = false;
-            this.StartCoroutine(_invoke(3));
+            StartCoroutine(StartBoosterSound());
+            running = true;
+        }
 
+        public void StopEngine()
+        {
+            StartCoroutine(StopBoosterSound());
+            running = false;
+        }
+
+        private IEnumerator StartBoosterSound(float fadeDuration = 1.5f, float increaseInterval = 0.1f)
+        {
+            yield return null;
+            engineAudio.volume = 0;
+            engineAudio.mute = false;
+            engineAudio.Play();
+            var step = increaseInterval / fadeDuration;
+            while (engineAudio.volume < 1 - step)
+            {
+                engineAudio.volume += step;
+                yield return new WaitForSeconds(increaseInterval);
+            }
+            engineAudio.volume = 1;
         }
 
 
-        private IEnumerator _invoke(float delay)
+        private IEnumerator StopBoosterSound(float fadeDuration = 0.5f, float decreaseInterval = 0.01f)
         {
-            yield return new WaitForSeconds(1);
-
-            playerAudio.volume = 0.0f;
-            playerAudio.PlayOneShot(outroAudioClip, 1);
-
-            while (playerAudio.volume < 1)
-            {
-                playerAudio.volume += 0.01f;
-                playerRadialBlur.BlurStrength += 0.1f;
-                playerRadialBlur.BlurWidth += 0.001f;
-                yield return new WaitForSeconds(0.1f);
-            }
-
             yield return null;
+            var step = decreaseInterval / fadeDuration;
+            while (engineAudio.volume > 0 + step)
+            {
+                engineAudio.volume -= step;
+                yield return new WaitForSeconds(decreaseInterval);
+            }
+            engineAudio.volume = 0;
+            engineAudio.mute = true;
         }
     }
 }

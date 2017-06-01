@@ -8,7 +8,7 @@ namespace Assets.Scripts.Visuals
         private Shader shader;
 
         [SerializeField]
-        private float blurStrength = 0;
+        private float blurStrength = 0.0f;
 
         [SerializeField]
         private float blurWidth = 0.0f;

@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Assets.Scripts.Interaction.Capsule;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Assets.Scripts.Capsule
@@ -26,6 +27,12 @@ namespace Assets.Scripts.Capsule
             xRightStart = rightTransform.localPosition.x;
 
             IsOpen = isOpen;
+
+            CapsuleDisplayInteraction.OnUndock += sender =>
+            {
+                isOpen = false;
+                doorAudio.Play();
+            };
         }
 
         private void OnTriggerEnter(Collider other)
