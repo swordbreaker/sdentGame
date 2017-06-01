@@ -29,8 +29,14 @@ namespace Assets.Scripts.Capsule
                 StartCoroutine(FadeIn(endingAudio, 5, 0.1f, 18)); //12
                 StartCoroutine(FadeOutSounds(5, 0.1f, 22));
                 StartCoroutine(SwitchScene("CapsuleEnding", 27));
-                starParticles.Play();
+                StartCoroutine(StartParticleEmission(starParticles, 1));
             };
+        }
+
+        private IEnumerator StartParticleEmission(ParticleSystem particles, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            particles.Play();
         }
 
         private IEnumerator FadeOutSounds(float fadeDuration = 1.5f, float increaseInterval = 0.1f, float delay = 0)
