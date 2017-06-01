@@ -163,8 +163,6 @@ GameObject:
   - component: {fileID: 114544593745130866}
   - component: {fileID: 114575230400512958}
   - component: {fileID: 114734684441630610}
-  - component: {fileID: 114798017196232734}
-  - component: {fileID: 114044111276838318}
   - component: {fileID: 114019670239652432}
   - component: {fileID: 114079478254805344}
   - component: {fileID: 114105419804845366}
@@ -194,6 +192,10 @@ GameObject:
   - component: {fileID: 114593382046493772}
   - component: {fileID: 114436808269349088}
   - component: {fileID: 114959410757959242}
+  - component: {fileID: 114723788255022636}
+  - component: {fileID: 114218490357001782}
+  - component: {fileID: 114045407399879234}
+  - component: {fileID: 114563768628004112}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -570,7 +572,7 @@ MonoBehaviour:
   - {fileID: 114944892226084602}
   - {fileID: 114964449666913390}
   - {fileID: 114105419804845366}
---- !u!114 &114044111276838318
+--- !u!114 &114045407399879234
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -581,16 +583,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 90
+  itemId: 121
   indentLevel: 0
-  storyText: Schnell.
+  storyText: Gut.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 0fe37085205dc402e8f37eabbbf759aa, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 9f73f3e3ac8e944f2a3d43b8bcea4e49, type: 3}
   showAlways: 1
   showCount: 1
-  extendPrevious: 0
+  extendPrevious: 1
   fadeWhenDone: 1
   waitForClick: 1
   stopVoiceover: 1
@@ -710,7 +712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1006.01025
+    x: 1003.2228
     y: 486.9206
     width: 155
     height: 40
@@ -740,9 +742,9 @@ MonoBehaviour:
   storyText: Der Motorraum liegt auf der anderen Seite. Mit dem Lift runter und schon
     sind Sie da.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 0359065ca569e4f749d7793c61b20740, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 1f331260b1b584f1aa3fdb385ae8714f, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -763,7 +765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 17
   indentLevel: 0
-  storyText: Ohhh. Die Erde sollten Sie so nicht sehen.
+  storyText: Oh. Die Erde sollten Sie so nicht sehen.
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
@@ -1031,7 +1033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 32
   indentLevel: 0
-  storyText: "Im Zimmer sollte Sie die Sicherheitskarte des Kapit\xE4n finden."
+  storyText: "Im Zimmer sollten Sie die Sicherheitskarte des Kapit\xE4n finden."
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
@@ -1122,7 +1124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 202.80219
+    x: 199.92854
     y: 372.25348
     width: 122
     height: 40
@@ -1225,7 +1227,7 @@ MonoBehaviour:
   storyText: "Dank seinem Tod haben wir eine h\xF6here Wahrscheinlichkeit, dass die
     Menschheit \xFCberlebt. Nichts darf die Mission gef\xE4hrden."
   description: 
-  character: {fileID: 0}
+  character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: d33b866ff284a4a389aef1aa9a3609db, type: 3}
   showAlways: 1
@@ -1285,6 +1287,22 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114218490357001782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 120
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: LookAtReset
+  delay: 0
 --- !u!114 &114230777181776736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1298,7 +1316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 544.1769
+    x: 541.4941
     y: 447.2809
     width: 145
     height: 40
@@ -1491,7 +1509,7 @@ MonoBehaviour:
   storyText: "Besatzungsmitglied 35 musste sterben - Sauerstoff muss f\xFCr den Rest
     der Reise gespart werden."
   description: 
-  character: {fileID: 0}
+  character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 99a2f590d566e46b3a901c371fee3a32, type: 3}
   showAlways: 1
@@ -1644,11 +1662,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 98
   indentLevel: 0
-  storyText: Wir haben bereits zu wenig Sauerstoff
+  storyText: "Schnell. Verlieren Sie nicht unn\xF6tig Zeit."
   description: 
-  character: {fileID: 0}
+  character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: ac4e01581efa84f38ac78f81c3cc1b29, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 4900b282d1d1243bab99543f730fad72, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -1914,7 +1932,7 @@ MonoBehaviour:
   storyText: "Besatzungsmitglied 35 hat seinen Dienst bereits erbracht. Er wird f\xFCr
     die restliche Mission nicht ben\xF6tigt."
   description: 
-  character: {fileID: 0}
+  character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: ddadfe69b2c1d4151a81875808ff7be6, type: 3}
   showAlways: 1
@@ -2100,7 +2118,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 554.72095
-    y: 375.01645
+    y: 372.22897
     width: 125
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2112,6 +2130,31 @@ MonoBehaviour:
   commandList:
   - {fileID: 114260708151269100}
   - {fileID: 114633201257103978}
+--- !u!114 &114563768628004112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 122
+  indentLevel: 0
+  storyText: "Sauerstoff ist eben sehr knapp, also gehen Sie zur\xFCck in den Tiefschlaf."
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 0fe37085205dc402e8f37eabbbf759aa, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114575230400512958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2125,9 +2168,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 89
   indentLevel: 0
-  storyText: "Nun zur\xFCck in den Tiefschlaf."
+  storyText: Haben Sie keine Angst. Ich habe den Alarm gestartet.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 2f3384eb74bc0497ba8e92692cfbe752, type: 3}
   showAlways: 1
@@ -2444,6 +2487,9 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114720587646101474}
   commandList:
+  - {fileID: 114218490357001782}
+  - {fileID: 114723788255022636}
+  - {fileID: 114045407399879234}
   - {fileID: 114090472719569152}
   - {fileID: 114908605707132108}
   - {fileID: 114822490276244084}
@@ -2571,6 +2617,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114669902015984618}
   message: Engineroom_Start
+--- !u!114 &114723788255022636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 119
+  indentLevel: 0
+  storyText: "Haben Sie den Schl\xFCssel gefunden?"
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 0359065ca569e4f749d7793c61b20740, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114733172857321578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2601,7 +2672,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 996.5684
-    y: 699.479
+    y: 703.1055
     width: 141
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2611,11 +2682,10 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114934502987173052}
   commandList:
-  - {fileID: 114575230400512958}
-  - {fileID: 114163050510682554}
   - {fileID: 114705840318750796}
-  - {fileID: 114044111276838318}
-  - {fileID: 114798017196232734}
+  - {fileID: 114163050510682554}
+  - {fileID: 114575230400512958}
+  - {fileID: 114563768628004112}
   - {fileID: 114358961214672718}
 --- !u!114 &114757337187594250
 MonoBehaviour:
@@ -2646,9 +2716,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 79
   indentLevel: 0
-  storyText: Gut. Gehe nun zum rechten Antriebsmotor und repariere in schnell.
+  storyText: Gehe nun zum rechten Antriebsmotor und repariere in schnell.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 25df5c38009bd4133a84ff97c7da807f, type: 3}
   showAlways: 1
@@ -2676,31 +2746,6 @@ MonoBehaviour:
   character: {fileID: 0}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 64fe56d93d916441bad5ef9eb39d13b0, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
---- !u!114 &114798017196232734
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 91
-  indentLevel: 0
-  storyText: Der Sauerstoff ist eben knapp.
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 4900b282d1d1243bab99543f730fad72, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2776,9 +2821,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 80
   indentLevel: 0
-  storyText: "Und dann zur\xFCck in den Tiefschlaf."
+  storyText: "Und anschliessend zur\xFCck in den Tiefschlaf."
   description: 
-  character: {fileID: 0}
+  character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 6ec3ee17dcea34577a9065f487a10311, type: 3}
   showAlways: 1
@@ -2801,7 +2846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 36
   indentLevel: 0
-  storyText: Doch sind wir uns den Kosten alle bewusste.
+  storyText: Doch sind wir uns den Kosten alle bewusst.
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -3028,7 +3073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 58
   indentLevel: 0
-  storyText: Erreichen wir das Ziel wird SAIwA obsolet. Ich denke das wird ihr mehr
+  storyText: Erreichen wir das Ziel wird SAIwA obsolete. Ich denke das wird ihr mehr
     und mehr bewusst.
   description: 
   character: {fileID: 0}
@@ -3053,11 +3098,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 484.94684, y: 381.8617}
+  scrollPos: {x: 525.83453, y: 440.36105}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 401
-  zoom: 0.34799027
+  zoom: 0.27574533
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -3065,8 +3110,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114189634446433732}
-  selectedCommands: []
+  - {fileID: 114521297363000532}
+  selectedCommands:
+  - {fileID: 114930424557672688}
   variables: []
   description: 
   stepPause: 0
@@ -3195,7 +3241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 115
   indentLevel: 0
-  storyText: "- die Mission darf nicht gef\xE4hrdet werden."
+  storyText: "- Nichts darf die Mission gef\xE4hrden"
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
