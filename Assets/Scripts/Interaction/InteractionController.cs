@@ -34,7 +34,7 @@ public class InteractionController : MonoBehaviour
                     interactionText.text = string.Format("[E] {0}", interaction.Name);
                 if (Input.GetKeyDown (KeyCode.E)) 
                 {
-                    interaction.Interact (gameObject);
+					interactions.ForEach(x => x.Interact (gameObject));
                 }
             }
         }
