@@ -13,13 +13,13 @@ public class CrewMemberController : MonoBehaviour
 
 	private AudioSource _deathAudio;
 
-	private FungusTriggerInteraction _deathTrigger;
+	private FungusTriggerInteraction deathTrigger;
 
 	public void Start() 
 	{
 		_deathAudio = GetComponent<AudioSource> ();
-		_deathTrigger = GetComponent<FungusTriggerInteraction> ();
-		Assert.IsFalse (_deathTrigger.Interactable);
+		deathTrigger = GetComponent<FungusTriggerInteraction> ();
+		Assert.IsFalse (deathTrigger.Interactable);
 	}
 
 	public void Update() 
@@ -37,7 +37,7 @@ public class CrewMemberController : MonoBehaviour
 	{
 		_color = _deathColor;
 		this._deathAudio.Play ();
-		_deathTrigger.Interactable = true;
+		deathTrigger.Interactable = true;
 	}
 
 }

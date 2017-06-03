@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Interaction.Capsule
 {
-    public class CapsuleSeatInteraction : IInteraction
+    public class CapsuleSeatInteraction : AbstractInteraction
     {
         public delegate void TakeCapsuleSeat();
         public static event TakeCapsuleSeat OnTakeCapsuleSeat;

@@ -33,7 +33,7 @@ namespace Assets.Scripts.Capsule
         public void Start()
         {
             engineAudio.mute = true;
-            CapsuleDisplayInteraction.OnBoosterIgnition += sender => StartEngine();
+            BoostInteraction.OnBoosterIgnition += StartEngine;
         }
 
         public void FixedUpdate()

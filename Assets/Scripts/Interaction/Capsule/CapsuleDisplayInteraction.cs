@@ -5,78 +5,153 @@ using System.Collections;
 
 namespace Assets.Scripts.Interaction.Capsule
 {
-    internal class DisplayState
+    public abstract class DisplayState
     {
-        public delegate void Interaction();
+        protected CapsuleDisplayInteraction DisplayInteraction { get; private set; }
+        public string Name { get; private set; }
 
-        private readonly Interaction ineraction;
-        private readonly DisplayState nextState;
-        private readonly string name;
-
-        public DisplayState(string name, Interaction ineraction, DisplayState nextState)
+        protected DisplayState(CapsuleDisplayInteraction displayInteraction, string name)
         {
-            this.ineraction = ineraction;
-            this.nextState = nextState;
-            this.name = name;
+            DisplayInteraction = displayInteraction;
+            Name = name;
         }
 
-        public string Name()
+        public virtual void Enter()
         {
-            return name;
         }
 
-        public DisplayState Interact()
+        public virtual void Exit()
         {
-            ineraction();
-            return nextState;
+        }
+
+        public abstract void Interact();
+    }
+
+    public sealed class UndockInteraction : DisplayState
+    {
+        public delegate void Undock();
+        public static event Undock OnUndock;
+
+        public UndockInteraction(CapsuleDisplayInteraction displayInteraction) : base(displayInteraction, "Kapsel abdocken")
+        {
+        }
+
+        public override void Enter()
+        {
+            DisplayInteraction.Interactable = true;
+        }
+
+        public override void Interact()
+        {
+            DisplayInteraction.State = new UndockingInteraction(DisplayInteraction);
+            if (OnUndock != null) OnUndock();
         }
     }
 
-    public class CapsuleDisplayInteraction : IInteraction
+    public sealed class UndockingInteraction : DisplayState
     {
-        public delegate void Undock(CapsuleDisplayInteraction sender);
-        public static event Undock OnUndock;
+        public UndockingInteraction(CapsuleDisplayInteraction displayInteraction) : base(displayInteraction, "Am Abdocken ...")
+        {
+        }
 
-        public delegate void BoosterIgnition(CapsuleDisplayInteraction sender);
+        public override void Enter()
+        {
+            DisplayInteraction.Interactable = true;
+            CapsuleDoor.OnUndockingCompleted += OnUndockingComplete;
+        }
+
+        public override void Exit()
+        {
+            CapsuleDoor.OnUndockingCompleted -= OnUndockingComplete;
+        }
+
+        public void OnUndockingComplete()
+        {
+            DisplayInteraction.State = new BoostInteraction(DisplayInteraction);
+
+        }
+
+        public override void Interact()
+        {
+        }
+    }
+
+    public sealed class BoostInteraction : DisplayState
+    {
+        public delegate void BoosterIgnition();
         public static event BoosterIgnition OnBoosterIgnition;
 
-        private readonly DisplayState idleState;
-        private readonly DisplayState undockState;
-        private readonly DisplayState boosterIgnitionState;
+        public BoostInteraction(CapsuleDisplayInteraction displayInteraction) : base(displayInteraction, "Antrieb starten")
+        {
+        }
 
+        public override void Enter()
+        {
+            DisplayInteraction.Interactable = true;
+        }
+
+        public override void Interact()
+        {
+            DisplayInteraction.State = new IdleInteraction(DisplayInteraction);
+            if (OnBoosterIgnition != null) OnBoosterIgnition();
+        }
+    }
+
+    public sealed class IdleInteraction : DisplayState
+    {
+        public IdleInteraction(CapsuleDisplayInteraction displayInteraction) : base(displayInteraction, "")
+        {
+        }
+
+        public override void Enter()
+        {
+            DisplayInteraction.Interactable = false;
+            CapsuleSeatInteraction.OnTakeCapsuleSeat += OnTakeCapsuleSeat;
+        }
+
+        public override void Exit()
+        {
+            CapsuleSeatInteraction.OnTakeCapsuleSeat -= OnTakeCapsuleSeat;
+        }
+
+        public void OnTakeCapsuleSeat()
+        {
+            DisplayInteraction.State = new UndockInteraction(DisplayInteraction);
+        }
+
+        public override void Interact()
+        {
+        }
+    }
+
+    public sealed class CapsuleDisplayInteraction : MonoBehaviour, IInteraction
+    {
         private DisplayState state;
-
-        public CapsuleDisplayInteraction()
-        {
-            var self = this;
-            idleState = new DisplayState("", () => { }, idleState);
-
-            boosterIgnitionState = new DisplayState("Antrieb starten", () =>
+        public DisplayState State {
+            get { return state; }
+            internal set
             {
-                Interactable = false;
-                if (OnBoosterIgnition != null) OnBoosterIgnition(self);
-            }, idleState);
-
-            undockState = new DisplayState("Kapsel abdocken", () =>
-            {
-                Interactable = false;
-                if (OnUndock != null) OnUndock(self);
-            }, boosterIgnitionState);
-
-            state = undockState;
-
-            Interactable = false;
-            CapsuleSeatInteraction.OnTakeCapsuleSeat += () => Interactable = true;
+                if (state != null) state.Exit();
+                if (value != null) value.Enter();
+                state = value;
+            }
         }
 
-        public override string Name
+        public bool Interactable { get; set; }
+
+        public string Name
         {
-            get { return state.Name(); }
+            get { return State.Name; }
         }
 
-        public override void Interact(GameObject interacter)
+        public void Start()
         {
-            state = state.Interact();
+            State = new IdleInteraction(this);
+        }
+
+        public void Interact(GameObject interacter)
+        {
+            State.Interact();
         }
     }
 }

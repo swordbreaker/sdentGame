@@ -98,7 +98,7 @@ public class DialogEventManagement : MonoBehaviour {
 
 	public void MakeCaptainIDInteractable() 
 	{
-		foreach (var interaction in _captainIdCard.GetComponents<IInteraction>()) 
+		foreach (var interaction in _captainIdCard.GetComponents<AbstractInteraction>()) 
 		{
 			interaction.Interactable = true;
 		}

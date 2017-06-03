@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowMeInteraction : IInteraction {
+public class ThrowMeInteraction : AbstractInteraction {
 
 	public override string Name 
 	{

@@ -20,17 +20,18 @@ namespace Assets.Scripts.Capsule
 
         public void Start()
         {
-            CapsuleDisplayInteraction.OnUndock += interaction =>
-            {
-                interaction.Interactable = true;
-            };
-            CapsuleDisplayInteraction.OnBoosterIgnition += interaction =>
-            {
-                StartCoroutine(FadeIn(endingAudio, 5, 0.1f, 18)); //12
-                StartCoroutine(FadeOutSounds(5, 0.1f, 22));
-                StartCoroutine(SwitchScene("CapsuleEnding", 27));
-                StartCoroutine(StartParticleEmission(starParticles, 1));
-            };
+            // UndockInteraction.OnUndock += interaction =>
+            // {
+            // };
+            BoostInteraction.OnBoosterIgnition += StartTransition;
+        }
+
+        private void StartTransition()
+        {
+            StartCoroutine(FadeIn(endingAudio, 5, 0.1f, 18)); //12
+            StartCoroutine(FadeOutSounds(5, 0.1f, 22));
+            StartCoroutine(SwitchScene("CapsuleEnding", 27));
+            StartCoroutine(StartParticleEmission(starParticles, 1));
         }
 
         private IEnumerator StartParticleEmission(ParticleSystem particles, float delay)
