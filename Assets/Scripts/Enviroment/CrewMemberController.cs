@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class CrewMemberController : MonoBehaviour 
 {
@@ -9,6 +10,17 @@ public class CrewMemberController : MonoBehaviour
 	private Color _deathColor = Color.red;
 
 	private Color? _color = null;
+
+	private AudioSource _deathAudio;
+
+	private FungusTriggerInteraction _deathTrigger;
+
+	public void Start() 
+	{
+		_deathAudio = GetComponent<AudioSource> ();
+		_deathTrigger = GetComponent<FungusTriggerInteraction> ();
+		Assert.IsFalse (_deathTrigger.Interactable);
+	}
 
 	public void Update() 
 	{
@@ -24,9 +36,8 @@ public class CrewMemberController : MonoBehaviour
 	public void Kill() 
 	{
 		_color = _deathColor;
-		var deathTrigger = this.gameObject.AddComponent<FungusTriggerInteraction>() as FungusTriggerInteraction;
-		deathTrigger.SetName("Untersuchen");
-		deathTrigger.Message = "Death_Start";
+		this._deathAudio.Play ();
+		_deathTrigger.Interactable = true;
 	}
 
 }

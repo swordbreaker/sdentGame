@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Movement;
+using System.Linq;
+using Fungus;
 
 public class DialogEventManagement : MonoBehaviour {
+
+	[SerializeField]
+	private Flowchart _flowchart;
 
 	[SerializeField]
 	private SAIwAController _SAIwAController;
@@ -42,7 +47,8 @@ public class DialogEventManagement : MonoBehaviour {
 	private AlarmController _alarm;
 
 	[SerializeField]
-	private CrewMemberController _crewMemberToKill;
+	private CrewMemberController[] _crewMembersToKill;
+	private int _nextCrewMemberToKillIndex = 0;
 
 	[SerializeField]
 	private GameObject _playerBed;
@@ -73,6 +79,12 @@ public class DialogEventManagement : MonoBehaviour {
 		trigger.Message = "Captain_Start";
 	}
 
+	void CaptainStart() 
+	{
+		this.CaptainEntree.GetComponent<FungusTrigger> ().Active = true;
+		this.OpenCaptainDoor ();
+	} 
+
 	public void OpenCaptainDoor() 
 	{
 		_captainDoor.IsOpen = true;
@@ -97,10 +109,10 @@ public class DialogEventManagement : MonoBehaviour {
 		_SAIwAController.LookAt = _engineRoomEntree;
 	}
 
-	public void AddEngineRoomEntreeTrigger() 
+	public void StartEngineroom() 
 	{
-		var trigger = CaptainExit.gameObject.AddComponent<FungusTrigger>() as FungusTrigger;
-		trigger.Message = "Engineroom_Entree";
+		this._engineRoomEntree.GetComponent<FungusTrigger> ().Active = true;
+		this.OpenEngineRoomDoor ();
 	}
 
 	public void OpenEngineRoomDoor() 
@@ -124,11 +136,13 @@ public class DialogEventManagement : MonoBehaviour {
 	public void DisablePlayerMovement() 
 	{
 		this._player.CanMove = false;
+		this._player.CanJump = false;
 	}
 
 	public void EnablePlayerMovement() 
 	{
 		this._player.CanMove = true;
+		this._player.CanJump = true;
 	}
 
 	public void StartAlarm() 
@@ -136,9 +150,15 @@ public class DialogEventManagement : MonoBehaviour {
 		this._alarm.Alarm = true;
 	}
 
-	public void KillCrewMember() 
+	public void KillNextCrewMember() 
 	{
-		_crewMemberToKill.Kill ();
+		if (_nextCrewMemberToKillIndex == _crewMembersToKill.Count()) 
+		{
+			_flowchart.SetBooleanVariable ("CrewMembersKilled", true);
+		} else 
+		{
+			_crewMembersToKill [_nextCrewMemberToKillIndex++].Kill ();
+		}
 	}
 
 	public void AddDeepSleepEnding() 

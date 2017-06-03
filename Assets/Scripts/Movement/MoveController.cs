@@ -11,6 +11,7 @@ namespace Assets.Scripts.Movement
         public float GroundCheckDistance = 0.1f;
         public MouseLook MouseLook = new MouseLook();
         private bool _canMove = true;
+		private bool _canJump = true;
 
         private Vector3 _movementDirection;
         private Rigidbody _rigidbody;
@@ -54,6 +55,15 @@ namespace Assets.Scripts.Movement
             }
         }
 
+		public bool CanJump 
+		{
+			get { return _canJump; }
+			set 
+			{
+				_canJump = value;
+			}
+		}
+
         public Vector3 FootPosition
         {
             get { return transform.Find("FootPosition").transform.position; }
@@ -85,7 +95,7 @@ namespace Assets.Scripts.Movement
                 ProgressStepCycle(Speed, x, y);
             }
 
-            if (_isGrounded && Input.GetButtonDown("Jump"))
+			if (CanJump && _isGrounded && Input.GetButtonDown("Jump"))
             {
                 _jump = true;
             }

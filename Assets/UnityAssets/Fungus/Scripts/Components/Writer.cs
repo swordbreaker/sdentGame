@@ -260,8 +260,6 @@ namespace Fungus
 
             TokenType previousTokenType = TokenType.Invalid;
 
-            visibleCharacterCount = 0;
-
             for (int i = 0; i < tokens.Count; ++i)
             {
                 // Pause between tokens if Paused is set
@@ -899,8 +897,9 @@ namespace Fungus
         public virtual IEnumerator Write(string content, bool clear, bool waitForInput, bool stopAudio, AudioClip audioClip, Action onComplete)
         {
             if (clear)
-            {
-                this.Text = "";
+			{
+				this.Text = "";
+				visibleCharacterCount = 0;
             }
 
             if (!HasTextObject())
