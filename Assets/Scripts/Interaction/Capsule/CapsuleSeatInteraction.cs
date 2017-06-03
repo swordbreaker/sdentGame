@@ -15,7 +15,6 @@ namespace Assets.Scripts.Interaction.Capsule
 
         public override void Interact(GameObject interacter)
         {
-			Debug.Log (interacter);
 			interacter = interacter.transform.parent.gameObject;
             if (interacter.tag == "Player")
             {

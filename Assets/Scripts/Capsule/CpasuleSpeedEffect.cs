@@ -44,7 +44,7 @@ namespace Assets.Scripts.Capsule
         private Shake shake;
         private ColorOverlay colorOverlay;
 
-        private LerpHelper<Vector3> playerLockLerp;
+        private LerpHelper<Quaternion> playerLockLerp;
         private LerpHelper<Quaternion> playerCameraLockLerp;
         private bool playerLockLerpGoalReached;
         private bool playerCameraLockLerpGoalReached;
@@ -63,15 +63,15 @@ namespace Assets.Scripts.Capsule
             {
                 if (playerMoveController.enabled)
                 {
-                    playerLockLerp = new LerpHelper<Vector3>(playerMoveController.transform.forward, Vector3.forward, 2);
-                    playerCameraLockLerp = new LerpHelper<Quaternion>(Camera.main.transform.rotation, Quaternion.identity, 2);
+                    playerLockLerp = new LerpHelper<Quaternion>(playerMoveController.transform.rotation, Quaternion.LookRotation(Vector3.right, -Vector3.up), 2);
+                    playerCameraLockLerp = new LerpHelper<Quaternion>(Camera.main.transform.rotation, Quaternion.LookRotation(Vector3.right, -Vector3.up), 2);
                     playerMoveController.enabled = false;
-                }
+                } 
                 else
                 {
                     if (!playerLockLerpGoalReached)
                     {
-                        playerMoveController.transform.forward = playerLockLerp.CurrentValue(out playerLockLerpGoalReached);
+                        playerMoveController.transform.rotation = playerLockLerp.CurrentValue(out playerLockLerpGoalReached);
                     }
                     if (!playerCameraLockLerpGoalReached)
                     {
