@@ -58,25 +58,29 @@ VR: OpenVR Error! OpenVR failed initialization with error code VRInitError_Init_
  
 (Filename:  Line: 1028)
 
-UnloadTime: 0.760685 ms
+UnloadTime: 0.768000 ms
 Setting up 6 worker threads for Enlighten.
-  Thread -> id: f68 -> priority: 1 
-  Thread -> id: 58c0 -> priority: 1 
-  Thread -> id: e90 -> priority: 1 
-  Thread -> id: 6b1c -> priority: 1 
-  Thread -> id: 72b0 -> priority: 1 
-  Thread -> id: 2440 -> priority: 1 
+  Thread -> id: 4ca8 -> priority: 1 
+  Thread -> id: 3920 -> priority: 1 
+  Thread -> id: 5624 -> priority: 1 
+  Thread -> id: 6728 -> priority: 1 
+  Thread -> id: 2bd4 -> priority: 1 
+  Thread -> id: 3f60 -> priority: 1 
 Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.734401 ms
+UnloadTime: 5.978113 ms
 
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 1117.
-Total: 1.824768 ms (FindLiveObjects: 0.043300 ms CreateObjectMapping: 0.031305 ms MarkObjects: 0.306614 ms  DeleteObjects: 1.442962 ms)
+Unloading 103 unused Assets to reduce memory usage. Loaded Objects now: 1118.
+Total: 4.371310 ms (FindLiveObjects: 0.048859 ms CreateObjectMapping: 0.033645 ms MarkObjects: 0.332653 ms  DeleteObjects: 3.955274 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.341138 ms
+UnloadTime: 0.310710 ms
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 462)
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 3466.
-Total: 2.304000 ms (FindLiveObjects: 0.132534 ms CreateObjectMapping: 0.063195 ms MarkObjects: 1.997385 ms  DeleteObjects: 0.110299 ms)
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 3676.
+Total: 2.290542 ms (FindLiveObjects: 0.114102 ms CreateObjectMapping: 0.064950 ms MarkObjects: 2.018450 ms  DeleteObjects: 0.091867 ms)
 
 Disable FungerTrigger LookOut_Start for LookOut_Entree_Position (UnityEngine.GameObject)
  
@@ -102,18 +106,6 @@ open
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Disable FungerTrigger Engineroom_Start for Captain_Exit_Position (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Disable FungerTrigger Engineroom_Start for Captain_Exit_Position (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Disable FungerTrigger Engineroom_Entree for EngineRoom_Entree_Position (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
 open
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
@@ -122,7 +114,11 @@ open
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Disable FungerTrigger Engineroom_Exit for EngineRoom_Entree_Position (UnityEngine.GameObject)
+Disable FungerTrigger Engineroom_Start for Captain_Exit_Position (UnityEngine.GameObject)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Disable FungerTrigger Engineroom_Start for Captain_Exit_Position (UnityEngine.GameObject)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
