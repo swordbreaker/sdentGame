@@ -64,6 +64,9 @@ namespace Assets.Scripts.Interaction.Capsule
             }, boosterIgnitionState);
 
             state = undockState;
+
+            Interactable = false;
+            CapsuleSeatInteraction.OnTakeCapsuleSeat += () => Interactable = true;
         }
 
         public override string Name

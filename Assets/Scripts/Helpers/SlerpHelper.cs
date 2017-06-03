@@ -39,7 +39,7 @@ namespace Assets.Script.Helpers
             }
             else
             {
-                t = Time.time / (_startTime + _travelTime);
+                t = (Time.time - _startTime) / _travelTime;
             }
             
             if (t >= 1) goalReached = true;
