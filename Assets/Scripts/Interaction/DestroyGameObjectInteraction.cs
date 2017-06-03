@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class DestroyGameObjectInteraction : OneTimeInteraction 
 {
-	
+
+	[SerializeField]
+	private Renderer _renderer;
+
 	public override string Name 
 	{
 		get 
@@ -16,7 +19,7 @@ public class DestroyGameObjectInteraction : OneTimeInteraction
 	public override void Interact (GameObject interacter)
 	{
 		base.Interact (interacter);
-		GetComponent<Renderer>().enabled = false;
+		_renderer.enabled = false;
 	}
 
 }
