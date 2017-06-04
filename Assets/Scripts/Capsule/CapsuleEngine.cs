@@ -38,6 +38,14 @@ namespace Assets.Scripts.Capsule
 
         public void FixedUpdate()
         {
+            if (transform.position.x > 10000)
+            {
+                transform.position = new Vector3(500, transform.position.y, transform.position.z);
+            }
+            if (transform.position.y > 10000)
+            {
+                transform.position = new Vector3(transform.position.x, 500, transform.position.z);
+            }
             if (transform.position.z > 10000)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, 500);
