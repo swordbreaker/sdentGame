@@ -134,17 +134,9 @@ GameObject:
   - component: {fileID: 114633201257103978}
   - component: {fileID: 114968265294355762}
   - component: {fileID: 114859459088296038}
-  - component: {fileID: 114131169058474288}
-  - component: {fileID: 114065868669918924}
-  - component: {fileID: 114656678421294030}
   - component: {fileID: 114466310492842052}
-  - component: {fileID: 114118219596224270}
-  - component: {fileID: 114632511265872848}
-  - component: {fileID: 114707963214936048}
   - component: {fileID: 114777274215798112}
   - component: {fileID: 114661775314443180}
-  - component: {fileID: 114709002631631782}
-  - component: {fileID: 114128444234901742}
   - component: {fileID: 114888317301546118}
   - component: {fileID: 114374276000466610}
   - component: {fileID: 114872270146478776}
@@ -231,6 +223,10 @@ GameObject:
   - component: {fileID: 114037727286422374}
   - component: {fileID: 114635750219938388}
   - component: {fileID: 114266073079977192}
+  - component: {fileID: 114447663416245840}
+  - component: {fileID: 114249442053760206}
+  - component: {fileID: 114945870008558866}
+  - component: {fileID: 114265437020988304}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -654,7 +650,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 541.9401
-    y: 676.3423
+    y: 674.32513
     width: 145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -669,6 +665,7 @@ MonoBehaviour:
   - {fileID: 114816698020685318}
   - {fileID: 114207762800833020}
   - {fileID: 114944892226084602}
+  - {fileID: 114265437020988304}
   - {fileID: 114964449666913390}
   - {fileID: 114105419804845366}
 --- !u!114 &114045407399879234
@@ -747,31 +744,6 @@ MonoBehaviour:
   commandList:
   - {fileID: 114717417250295264}
   - {fileID: 114550651272953264}
---- !u!114 &114065868669918924
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 50
-  indentLevel: 0
-  storyText: Logbuch-Eintrag 3
-  description: 
-  character: {fileID: 114360229556461414}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 4f013dcc1b5fc456c80b19283bb38747, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114066658691421750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -824,8 +796,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 537.039
-    y: 759.35583
+    x: 535.02185
+    y: 761.373
     width: 151
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -951,31 +923,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
---- !u!114 &114118219596224270
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 53
-  indentLevel: 0
-  storyText: Einzig SAIwA's Stimme gibt mir Trost - ein Hauch echter Interakion.
-  description: 
-  character: {fileID: 114360229556461414}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114125452945200496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1015,60 +962,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114128444234901742
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 59
-  indentLevel: 0
-  storyText: "Ihre Nutzen ist dann vorbei. F\xFCrchtet sie sich davor?"
-  description: 
-  character: {fileID: 114360229556461414}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 5e12e655e76964ab68b3dc54afacaadd, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
---- !u!114 &114131169058474288
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 283.45544
-    y: 594.2821
-    width: 145
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 48
-  blockName: Captain_Diary_03
-  description: 
-  eventHandler: {fileID: 0}
-  commandList:
-  - {fileID: 114065868669918924}
-  - {fileID: 114707963214936048}
-  - {fileID: 114632511265872848}
-  - {fileID: 114118219596224270}
-  - {fileID: 114656678421294030}
 --- !u!114 &114144426377108552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1492,7 +1385,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 541.4941
-    y: 447.2809
+    y: 445.26376
     width: 145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1538,6 +1431,31 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: CaptainStart
   delay: 0
+--- !u!114 &114249442053760206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 153
+  indentLevel: 0
+  storyText: "Unser Erfolg ist Ihr Ende. Simuliert sie mir ihre Loyalit\xE4t vor?"
+  description: 
+  character: {fileID: 114360229556461414}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114250112008322398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1579,6 +1497,31 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: DisablePlayerMovement
   delay: 0
+--- !u!114 &114265437020988304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 155
+  indentLevel: 0
+  storyText: Ich muss die Mission SAIwA anvertrauen.
+  description: 
+  character: {fileID: 114360229556461414}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114266073079977192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1749,7 +1692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 64
   indentLevel: 0
-  storyText: Logbuch-Eintrag 5
+  storyText: Logbuch-Eintrag 4
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -2057,6 +2000,32 @@ MonoBehaviour:
   - {fileID: 114049500528595832}
   - {fileID: 114003916437877768}
   - {fileID: 114629030717794058}
+--- !u!114 &114447663416245840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 152
+  indentLevel: 0
+  storyText: Sie verfolgt starr jeden meiner Schritte - Nur hier, in meinem Zimmer
+    bin ich vor ihrem kalten Auge sicher.
+  description: 
+  character: {fileID: 114360229556461414}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114459803843815668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2099,11 +2068,12 @@ MonoBehaviour:
   commandList:
   - {fileID: 114777274215798112}
   - {fileID: 114661775314443180}
+  - {fileID: 114447663416245840}
   - {fileID: 114888317301546118}
   - {fileID: 114720670669530894}
   - {fileID: 114509177547205852}
-  - {fileID: 114128444234901742}
-  - {fileID: 114709002631631782}
+  - {fileID: 114945870008558866}
+  - {fileID: 114249442053760206}
   - {fileID: 114872270146478776}
 --- !u!114 &114470654293288496
 MonoBehaviour:
@@ -2666,32 +2636,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114407496064222224}
   message: Captain_Take_ID_Card
---- !u!114 &114632511265872848
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 52
-  indentLevel: 0
-  storyText: "Auf der Erde liebte ich, brauchte ich Zeit f\xFCr mich. Hier nagt es
-    an mir."
-  description: 
-  character: {fileID: 114360229556461414}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 2287e31cca7b74ba2b19b136f5f39e4a, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114633201257103978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2725,26 +2669,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 149
   indentLevel: 0
---- !u!114 &114656678421294030
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 55
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 114466310492842052}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 0
 --- !u!114 &114661775314443180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2758,7 +2682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 57
   indentLevel: 0
-  storyText: "Immer st\xE4rker hinterfrage ich SAIwA."
+  storyText: "Immer st\xE4rker misstraue ich SAIwA."
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -2783,7 +2707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 45
   indentLevel: 0
-  storyText: Wie geplant sind die anderen Besatzungsmitglieder im Tiefschlaf.
+  storyText: Wie geplant begaben sich die anderen Besatzungsmitglieder in den Tiefschlaf.
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -2869,56 +2793,6 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: LookAtReset
   delay: 0
---- !u!114 &114707963214936048
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 51
-  indentLevel: 0
-  storyText: Die Einsamkeit setzt mir zu.
-  description: 
-  character: {fileID: 114360229556461414}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 6771cc99331244e3e83bc96bc76d69db, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
---- !u!114 &114709002631631782
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 60
-  indentLevel: 0
-  storyText: Kann SAIwA solch komplexe Konzepte greifen?
-  description: 
-  character: {fileID: 114360229556461414}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: f16a777321f0546f5976739b0558bcc2, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114717417250295264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2961,7 +2835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 140
   indentLevel: 0
-  storyText: "Erreichen wir das Ziel, wird SAIwA f\xFCr uns nutzlos."
+  storyText: Erreichen wir das Ziel, wird SAIwA nutzlos.
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -3133,7 +3007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 56
   indentLevel: 0
-  storyText: Logbuch-Eintrag 4
+  storyText: Logbuch-Eintrag 3
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -3291,8 +3165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 36
   indentLevel: 0
-  storyText: "Aber das Schicksal der Zur\xFCckgebliebenen h\xE4ngen wie ein Schatten
-    \xFCber uns."
+  storyText: "Aber das Schicksal der Zur\xFCckgebliebenen h\xE4ngen als Schatten \xFCber
+    uns."
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -3317,8 +3191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 65
   indentLevel: 0
-  storyText: SAIwA hat mich darauf Aufmerksam gemacht, dass der Sauerstoff falsch
-    bemessen wurde.
+  storyText: SAIwA hat mich darauf Aufmerksam gemacht, dass der Sauerstoff beim Start
+    falsch bemessen wurde.
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -3503,7 +3377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 138
   indentLevel: 0
-  storyText: Die Zukunft gibt uns recht!
+  storyText: Die Zukunft wird uns recht geben!
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -3528,7 +3402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 58
   indentLevel: 0
-  storyText: "Ist ihre Loyalit\xE4t zum Missionsziel reine Simulation?"
+  storyText: Sie redet und redet vom Missionziel... aber etwas scheint mir seltsam.
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -3555,7 +3429,7 @@ MonoBehaviour:
   scrollPos: {x: 303.77542, y: 163.70525}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 404
+  blockViewHeight: 405
   zoom: 0.49574715
   scrollViewRect:
     serializedVersion: 2
@@ -3563,31 +3437,7 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 114521297363000532}
-  - {fileID: 114693505060556974}
-  - {fileID: 114062855996019686}
-  - {fileID: 114189634446433732}
-  - {fileID: 114067946166922206}
-  - {fileID: 114182664610300450}
-  - {fileID: 114884248659553206}
-  - {fileID: 114230777181776736}
-  - {fileID: 114153990695779950}
-  - {fileID: 114558866119919476}
-  - {fileID: 114131169058474288}
-  - {fileID: 114466310492842052}
-  - {fileID: 114042141759972304}
-  - {fileID: 114669902015984618}
-  - {fileID: 114081127164357972}
-  - {fileID: 114610665372911650}
-  - {fileID: 114734684441630610}
-  - {fileID: 114079478254805344}
-  - {fileID: 114604876274110960}
-  - {fileID: 114900689890990916}
-  - {fileID: 114158259524416874}
-  - {fileID: 114407496064222224}
-  - {fileID: 114602691690370162}
-  - {fileID: 114436812937442426}
+  selectedBlocks: []
   selectedCommands: []
   variables:
   - {fileID: 114978007602951696}
@@ -3770,8 +3620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 67
   indentLevel: 0
-  storyText: "Es gibt nur eine M\xF6glichkeit: Ich muss auch in den Tiefschlaf, ich
-    muss die Mission SAIwA anvertrauen."
+  storyText: "Es gibt nur eine M\xF6glichkeit: Ich muss auch in den Tiefschlaf."
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
@@ -3779,6 +3628,31 @@ MonoBehaviour:
   showAlways: 1
   showCount: 1
   extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &114945870008558866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 154
+  indentLevel: 0
+  storyText: ' Das muss ihr doch klar sein...'
+  description: 
+  character: {fileID: 114360229556461414}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 1
   fadeWhenDone: 1
   waitForClick: 1
   stopVoiceover: 1
@@ -3901,7 +3775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 68
   indentLevel: 0
-  storyText: Ich muss SAIwA vertrauen.
+  storyText: Ich muss SAIwA vertrauen...
   description: 
   character: {fileID: 114360229556461414}
   portrait: {fileID: 0}
