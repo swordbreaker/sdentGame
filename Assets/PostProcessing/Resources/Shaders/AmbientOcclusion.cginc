@@ -54,12 +54,14 @@ sampler2D _CameraDepthNormalsTexture;
 float4 _CameraDepthTexture_ST;
 
 // Sample count
-#if !defined(SHADER_API_GLES)
-int _SampleCount;
-#else
-// GLES2: In many cases, dynamic looping is not supported.
-static const int _SampleCount = 3;
-#endif
+// #if !defined(SHADER_API_GLES)
+// int _SampleCount;
+// #else
+// // GLES2: In many cases, dynamic looping is not supported.
+// static const int _SampleCount = 3;
+// #endif
+// TODO: This is a workaround preventig flickering; see: https://github.com/Unity-Technologies/PostProcessing/issues/188
+static const int _SampleCount = 10; // medium
 
 // Source texture properties
 sampler2D _OcclusionTexture;
