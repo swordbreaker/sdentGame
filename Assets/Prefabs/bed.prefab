@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 4009700468354388}
   - component: {fileID: 33986712482932498}
   - component: {fileID: 23585328741990848}
-  - component: {fileID: 64550543952211666}
   m_Layer: 0
   m_Name: Cube_MeshPart1
   m_TagString: Untagged
@@ -79,7 +78,6 @@ GameObject:
   - component: {fileID: 4184765626417842}
   - component: {fileID: 33347084070201992}
   - component: {fileID: 23405024580399136}
-  - component: {fileID: 64338898552561228}
   m_Layer: 0
   m_Name: Cube_MeshPart0
   m_TagString: Untagged
@@ -119,13 +117,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1020010218711434}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.40999985, y: 0.48000014, z: 0.36865994}
+  m_LocalRotation: {x: 0.0044428417, y: -0.7070928, z: -0.7070928, w: -0.0044428417}
+  m_LocalPosition: {x: 0.979, y: -0.481, z: 0.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4672597733342992}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: -160.1, z: -20.62}
 --- !u!4 &4672597733342992
 Transform:
   m_ObjectHideFlags: 1
@@ -244,7 +242,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1840945939934506}
-  m_Mesh: {fileID: 4300002, guid: 2934589f91f54864a9532354495c23e9, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 1d423777bbc574a019708463c1b58439, type: 3}
 --- !u!33 &33554941348047000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -273,34 +271,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
---- !u!64 &64338898552561228
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1840945939934506}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 2934589f91f54864a9532354495c23e9, type: 3}
---- !u!64 &64550543952211666
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1258811993322944}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300004, guid: 2934589f91f54864a9532354495c23e9, type: 3}
 --- !u!65 &65995352458378290
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1160,4 +1130,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactable: 0
   _name: Untersuchen
-  _message: Death_Start
+  _message: Death
