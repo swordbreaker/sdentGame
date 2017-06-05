@@ -175,7 +175,6 @@ GameObject:
   - component: {fileID: 114398439962572888}
   - component: {fileID: 114358961214672718}
   - component: {fileID: 114203909271326464}
-  - component: {fileID: 114316729992813080}
   - component: {fileID: 114604876274110960}
   - component: {fileID: 114195041178118164}
   - component: {fileID: 114006255814175634}
@@ -227,6 +226,18 @@ GameObject:
   - component: {fileID: 114249442053760206}
   - component: {fileID: 114945870008558866}
   - component: {fileID: 114265437020988304}
+  - component: {fileID: 114714274343590086}
+  - component: {fileID: 114356917216594962}
+  - component: {fileID: 114711533446511750}
+  - component: {fileID: 114997187906254860}
+  - component: {fileID: 114460359334893818}
+  - component: {fileID: 114665410997010226}
+  - component: {fileID: 114278389907045118}
+  - component: {fileID: 114950009522089810}
+  - component: {fileID: 114230521722842084}
+  - component: {fileID: 114666201436901020}
+  - component: {fileID: 114490072829876996}
+  - component: {fileID: 114931668776802780}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -731,7 +742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 333
+    x: 335.01715
     y: 68
     width: 127
     height: 40
@@ -1001,8 +1012,8 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
+  waitForClick: 0
+  stopVoiceover: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &114153990695779950
 MonoBehaviour:
@@ -1278,7 +1289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114604876274110960}
-  message: Death_Start
+  message: Death
 --- !u!114 &114203909271326464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1291,7 +1302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 105
-  indentLevel: 0
+  indentLevel: 1
   storyText: "Dank seinem Tod haben wir eine h\xF6here Wahrscheinlichkeit, dass die
     Menschheit \xFCberlebt. Nichts darf die Mission gef\xE4hrden."
   description: 
@@ -1371,6 +1382,19 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: LookAtReset
   delay: 0
+--- !u!114 &114230521722842084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa968f01a7f9496bb50e13dfe16760d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 167
+  indentLevel: 0
 --- !u!114 &114230777181776736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1560,6 +1584,31 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114278389907045118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 169
+  indentLevel: 1
+  storyText: "Gehen Sie in den Tiefschlaf! Sonst t\xF6te ich weitere Besatzungsmitglieder!"
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: f23d824177d3444d3bbcf84afb38585b, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114284843662632438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1621,34 +1670,8 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
---- !u!114 &114316729992813080
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 104
-  indentLevel: 0
-  storyText: "Besatzungsmitglied 35 musste sterben - Sauerstoff muss f\xFCr den Rest
-    der Reise gespart werden."
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 99a2f590d566e46b3a901c371fee3a32, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
+  waitForClick: 0
+  stopVoiceover: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &114318297971886600
 MonoBehaviour:
@@ -1769,6 +1792,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114189634446433732}
   message: LookOut_Earth
+--- !u!114 &114356917216594962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 165
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 114714274343590086}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!114 &114358961214672718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2042,6 +2092,31 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: LookAtLookOutEntree
   delay: 0
+--- !u!114 &114460359334893818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 1757.7585
+    y: 35.993362
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 161
+  blockName: Death
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 114665410997010226}
 --- !u!114 &114466310492842052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2094,6 +2169,32 @@ MonoBehaviour:
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 51b530eb2ea9c4d0bb1a791d088e1e77, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &114490072829876996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 181
+  indentLevel: 1
+  storyText: "Auch Besatzungsmitglied 9 wird f\xFCr die restliche Mission nicht mehr
+    ben\xF6tigt."
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: cc66f686c5e434e8a8a27de51286b60d, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2158,7 +2259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 106
-  indentLevel: 0
+  indentLevel: 1
   storyText: "Besatzungsmitglied 35 hat seinen Dienst bereits erbracht. Er wird f\xFCr
     die restliche Mission nicht ben\xF6tigt."
   description: 
@@ -2197,8 +2298,11 @@ MonoBehaviour:
   eventHandler: {fileID: 114066658691421750}
   commandList:
   - {fileID: 114314951973421180}
+  - {fileID: 0}
   - {fileID: 114149332581736474}
+  - {fileID: 0}
   - {fileID: 114470654293288496}
+  - {fileID: 0}
   - {fileID: 114946919306036268}
   - {fileID: 114930424557672688}
   - {fileID: 114424526885704886}
@@ -2537,20 +2641,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1322.4412
-    y: 145.60878
+    x: 1560.4658
+    y: 42.733643
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 102
-  blockName: Death_Start
+  blockName: Death1
   description: 
   eventHandler: {fileID: 114195041178118164}
   commandList:
-  - {fileID: 114316729992813080}
+  - {fileID: 114356917216594962}
+  - {fileID: 114950009522089810}
   - {fileID: 114514431439965246}
   - {fileID: 114203909271326464}
+  - {fileID: 114931668776802780}
+  - {fileID: 114490072829876996}
+  - {fileID: 114666201436901020}
+  - {fileID: 114230521722842084}
+  - {fileID: 114278389907045118}
+  - {fileID: 114711533446511750}
+  - {fileID: 114997187906254860}
 --- !u!114 &114605533910258532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2719,6 +2831,58 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114665410997010226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 162
+  indentLevel: 0
+  variable: {fileID: 114714274343590086}
+  setOperator: 2
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 1
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &114666201436901020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 182
+  indentLevel: 1
+  storyText: Besatzungsmitglied 9 hat einzig noch Sauerstoff verbraucht.
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: d24326bb695a2482c98d3e83b3fd9731, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114669902015984618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2793,6 +2957,33 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: LookAtReset
   delay: 0
+--- !u!114 &114711533446511750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 166
+  indentLevel: 0
+--- !u!114 &114714274343590086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb91b566ceda411bad1e9d3c3243ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: BodiesFound
+  value: 0
 --- !u!114 &114717417250295264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3426,11 +3617,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 303.77542, y: 163.70525}
+  scrollPos: {x: -389.3324, y: 329.09573}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 405
-  zoom: 0.49574715
+  blockViewHeight: 413
+  zoom: 0.42974675
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -3442,6 +3633,7 @@ MonoBehaviour:
   variables:
   - {fileID: 114978007602951696}
   - {fileID: 114922669218412220}
+  - {fileID: 114714274343590086}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -3594,6 +3786,33 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114931668776802780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c5e8d46183346b59f64b820e71f97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 180
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 114714274343590086}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 1
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!114 &114934502987173052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3675,6 +3894,32 @@ MonoBehaviour:
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 29fe11020eb2a4284a39fade0102fe95, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &114950009522089810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 168
+  indentLevel: 1
+  storyText: "Besatzungsmitglied 35 musste sterben - Sauerstoff muss f\xFCr den Rest
+    der Reise gespart werden."
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: dd36fa32f994749d2ac8ffc5d8a8f71e, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -3821,3 +4066,23 @@ MonoBehaviour:
   scope: 1
   key: CrewMembersKilled
   value: 0
+--- !u!114 &114997187906254860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 164
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 114460359334893818}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
