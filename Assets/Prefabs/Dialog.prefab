@@ -238,6 +238,13 @@ GameObject:
   - component: {fileID: 114666201436901020}
   - component: {fileID: 114490072829876996}
   - component: {fileID: 114931668776802780}
+  - component: {fileID: 114941140451028340}
+  - component: {fileID: 114104005805828200}
+  - component: {fileID: 114837396823214516}
+  - component: {fileID: 114412509301056760}
+  - component: {fileID: 114046693263141084}
+  - component: {fileID: 114438817453367312}
+  - component: {fileID: 114256579040097414}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -551,13 +558,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 151
-  indentLevel: 1
+  indentLevel: 2
   storyText: " Jedoch sollten Sie diese nicht verwenden. Schliesslich m\xFCssen Sie
     den rechten Antriebsmotor reparieren."
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: b611165b682f641b681c909d726f2566, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 14746aa598a1e4c6bb5c087e2bae066d, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -704,6 +711,33 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114046693263141084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 183
+  indentLevel: 0
+  variable: {fileID: 114941140451028340}
+  setOperator: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!114 &114049500528595832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -716,12 +750,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 150
-  indentLevel: 1
+  indentLevel: 2
   storyText: Hier befindet sich die Rettungskapsel des Raumschiffes.
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 0bc8024397faf444f946708e90952420, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: b611165b682f641b681c909d726f2566, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -914,6 +948,33 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114104005805828200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 184
+  indentLevel: 1
+  compareOperator: 0
+  variable: {fileID: 114941140451028340}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!114 &114105419804845366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1505,6 +1566,19 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114256579040097414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 185
+  indentLevel: 1
 --- !u!114 &114260708151269100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1953,6 +2027,33 @@ MonoBehaviour:
   eventHandler: {fileID: 114630480520398404}
   commandList:
   - {fileID: 114624419899270278}
+--- !u!114 &114412509301056760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 186
+  indentLevel: 1
+  compareOperator: 0
+  variable: {fileID: 114941140451028340}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!114 &114420600999588466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2046,10 +2147,41 @@ MonoBehaviour:
   commandList:
   - {fileID: 114037727286422374}
   - {fileID: 114529876114444170}
+  - {fileID: 114412509301056760}
+  - {fileID: 114438817453367312}
+  - {fileID: 114837396823214516}
   - {fileID: 114635750219938388}
+  - {fileID: 114104005805828200}
   - {fileID: 114049500528595832}
   - {fileID: 114003916437877768}
+  - {fileID: 114256579040097414}
   - {fileID: 114629030717794058}
+  - {fileID: 114046693263141084}
+--- !u!114 &114438817453367312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 188
+  indentLevel: 2
+  storyText: Es ergibt keinen Sinn zur Rettungskapsel zu gehen.
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 0bc8024397faf444f946708e90952420, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114447663416245840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3413,6 +3545,19 @@ MonoBehaviour:
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 
+--- !u!114 &114837396823214516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 187
+  indentLevel: 1
 --- !u!114 &114842038503279012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3617,23 +3762,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -389.3324, y: 329.09573}
+  scrollPos: {x: 221.1883, y: 135.64299}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 413
-  zoom: 0.42974675
+  zoom: 0.62174743
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 114436812937442426}
   selectedCommands: []
   variables:
   - {fileID: 114978007602951696}
   - {fileID: 114922669218412220}
   - {fileID: 114714274343590086}
+  - {fileID: 114941140451028340}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -3826,6 +3973,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114734684441630610}
   message: Engineroom_Exit
+--- !u!114 &114941140451028340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: SmallShip_Visited
+  value: 0
 --- !u!114 &114944892226084602
 MonoBehaviour:
   m_ObjectHideFlags: 1
