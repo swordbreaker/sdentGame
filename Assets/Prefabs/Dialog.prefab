@@ -87,16 +87,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4273338930695140}
   - component: {fileID: 114892666088814562}
-  - component: {fileID: 114521297363000532}
-  - component: {fileID: 114314951973421180}
-  - component: {fileID: 114946919306036268}
-  - component: {fileID: 114424526885704886}
-  - component: {fileID: 114847875414470148}
-  - component: {fileID: 114959923944651066}
   - component: {fileID: 114693505060556974}
-  - component: {fileID: 114505141886707736}
   - component: {fileID: 114302040916603102}
-  - component: {fileID: 114149332581736474}
   - component: {fileID: 114842038503279012}
   - component: {fileID: 114269275271777180}
   - component: {fileID: 114062855996019686}
@@ -188,8 +180,6 @@ GameObject:
   - component: {fileID: 114630480520398404}
   - component: {fileID: 114407496064222224}
   - component: {fileID: 114624419899270278}
-  - component: {fileID: 114803209801102498}
-  - component: {fileID: 114930424557672688}
   - component: {fileID: 114593382046493772}
   - component: {fileID: 114436808269349088}
   - component: {fileID: 114959410757959242}
@@ -205,10 +195,8 @@ GameObject:
   - component: {fileID: 114593118481535558}
   - component: {fileID: 114794929345597064}
   - component: {fileID: 114144426377108552}
-  - component: {fileID: 114066658691421750}
   - component: {fileID: 114243647914926986}
   - component: {fileID: 114775295868749920}
-  - component: {fileID: 114470654293288496}
   - component: {fileID: 114886741247446224}
   - component: {fileID: 114787904334158388}
   - component: {fileID: 114720670669530894}
@@ -246,6 +234,15 @@ GameObject:
   - component: {fileID: 114438817453367312}
   - component: {fileID: 114256579040097414}
   - component: {fileID: 114567376518930762}
+  - component: {fileID: 114084824609972686}
+  - component: {fileID: 114396104749827520}
+  - component: {fileID: 114472236751819130}
+  - component: {fileID: 114410983645065956}
+  - component: {fileID: 114329677367208900}
+  - component: {fileID: 114119849904844358}
+  - component: {fileID: 114826721804453086}
+  - component: {fileID: 114865358377337622}
+  - component: {fileID: 114565523808654702}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -790,19 +787,6 @@ MonoBehaviour:
   commandList:
   - {fileID: 114717417250295264}
   - {fileID: 114550651272953264}
---- !u!114 &114066658691421750
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 114521297363000532}
-  waitForFrames: 1
 --- !u!114 &114067946166922206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -881,6 +865,31 @@ MonoBehaviour:
   - {fileID: 114760469373917334}
   - {fileID: 114808724880274368}
   - {fileID: 114733172857321578}
+--- !u!114 &114084824609972686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 191
+  indentLevel: 0
+  storyText: Guten Morgen Besatzungsmitglied 17.
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: f4fb046632e8648ae967454794e66488, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114090472719569152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -996,6 +1005,31 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
+--- !u!114 &114119849904844358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 195
+  indentLevel: 0
+  storyText: Ich bin SAIwA, zentrale Robotik-Einheit dieses Raumschiffs.
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 17fe22b0d328b4a08a4c0d516aa28c02, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114125452945200496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1051,32 +1085,6 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: KillNextCrewMember
   delay: 0
---- !u!114 &114149332581736474
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 9
-  indentLevel: 0
-  storyText: "Planwidrig muss ich Sie aus Ihrem Tiefschlaf aufwecken - ich ben\xF6tige
-    Ihren Dienst."
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 4d3a5536126414cbf93d120ccc997095, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 0
-  stopVoiceover: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &114153990695779950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1723,31 +1731,6 @@ MonoBehaviour:
   waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114314951973421180
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 1
-  indentLevel: 0
-  storyText: Guten Morgen Besatzungsmitglied 17.
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 54d135d9983ab4e6389c1fd3f72b6882, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 0
-  stopVoiceover: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &114318297971886600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1777,6 +1760,32 @@ MonoBehaviour:
   soundClip: {fileID: 8300000, guid: 3a7d0e20ce3894064978012f7c29a8f4, type: 3}
   volume: 1
   waitUntilFinished: 1
+--- !u!114 &114329677367208900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 197
+  indentLevel: 0
+  storyText: "Ich ben\xF6tige ihren Reperaturdienst am rechten Antriebsmotor des Raumschiffes.
+    Dieser ist ausgefallen."
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: af792158f12f44b61a2d7688b56dbc92, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114335400058597406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1987,6 +1996,37 @@ MonoBehaviour:
   waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114396104749827520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -137.1801
+    y: 9.943143
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 190
+  blockName: Start1
+  description: 
+  eventHandler: {fileID: 114826721804453086}
+  commandList:
+  - {fileID: 114084824609972686}
+  - {fileID: 114565523808654702}
+  - {fileID: 114410983645065956}
+  - {fileID: 114119849904844358}
+  - {fileID: 114329677367208900}
+  - {fileID: 114865358377337622}
+  - {fileID: 114472236751819130}
 --- !u!114 &114398439962572888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2028,6 +2068,32 @@ MonoBehaviour:
   eventHandler: {fileID: 114630480520398404}
   commandList:
   - {fileID: 114624419899270278}
+--- !u!114 &114410983645065956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 194
+  indentLevel: 0
+  storyText: "Leider k\xF6nnen Sie sich wegen dem Tiefschlaf an nichts erinnern, also
+    stelle ich mich Ihnen gerne vor."
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: c778cffa45cf541a7b10ca693953b266, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114412509301056760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2071,32 +2137,6 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: CloseLookOutShutters
   delay: 2
---- !u!114 &114424526885704886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 3
-  indentLevel: 0
-  storyText: "Leider k\xF6nnen Sie sich wegen dem Tiefschlaf an nichts erinnern, also
-    stelle ich mich Ihnen gerne vor."
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 8068d79af982649bbadae9724ea5a32f, type: 3}
-  showAlways: 0
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114436808269349088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2283,7 +2323,7 @@ MonoBehaviour:
   - {fileID: 114945870008558866}
   - {fileID: 114249442053760206}
   - {fileID: 114872270146478776}
---- !u!114 &114470654293288496
+--- !u!114 &114472236751819130
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2291,24 +2331,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1392511437507262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 137
+  itemId: 198
   indentLevel: 0
-  storyText: Der rechte Antriebsmotor des Raumschiffes ist ausgefallen. Dies verhindert
-    die Weiterreise.
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 51b530eb2ea9c4d0bb1a791d088e1e77, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 0
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 114693505060556974}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
 --- !u!114 &114490072829876996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2335,26 +2369,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114505141886707736
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 7
-  indentLevel: 0
-  targetFlowchart: {fileID: 114892666088814562}
-  targetBlock: {fileID: 114693505060556974}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 0
 --- !u!114 &114509177547205852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2406,43 +2420,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114521297363000532
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 68.359406
-    y: 63.238342
-    width: 120
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 0
-  blockName: Start
-  description: 
-  eventHandler: {fileID: 114066658691421750}
-  commandList:
-  - {fileID: 114314951973421180}
-  - {fileID: 0}
-  - {fileID: 114149332581736474}
-  - {fileID: 0}
-  - {fileID: 114470654293288496}
-  - {fileID: 0}
-  - {fileID: 114946919306036268}
-  - {fileID: 114930424557672688}
-  - {fileID: 114424526885704886}
-  - {fileID: 114959923944651066}
-  - {fileID: 114847875414470148}
-  - {fileID: 114803209801102498}
-  - {fileID: 114505141886707736}
 --- !u!114 &114523867170977880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2616,6 +2593,32 @@ MonoBehaviour:
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 0fe37085205dc402e8f37eabbbf759aa, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &114565523808654702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 192
+  indentLevel: 0
+  storyText: "Planwidrig muss ich sie aus Ihrem Tiefschlaf aufwecken - ich ben\xF6tige
+    Ihren Dienst."
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: f02726ecc98e748b984ecc6773f0642f, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -3087,8 +3090,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 50.17889
-    y: 206.09868
+    x: 40.999256
+    y: 183.14961
     width: 157
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -3439,32 +3442,6 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: RepairEngineFinished
   delay: 0
---- !u!114 &114803209801102498
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 114
-  indentLevel: 0
-  storyText: "Es ist nicht eingeplant, dass ein Besatzungsmitglied w\xE4hrend der
-    Reise aufwacht. Ich alleine bin f\xFCr den Erfolg der Mission verantwortlich."
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 37f95bbcdcecd432d8e1791808639b9b, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114804869531983920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3556,6 +3533,19 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114826721804453086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114396104749827520}
+  waitForFrames: 1
 --- !u!114 &114833657202347166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3612,32 +3602,6 @@ MonoBehaviour:
   waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114847875414470148
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 4
-  indentLevel: 0
-  storyText: "Aber nun m\xFCssen wir uns beeilen. Der Sauerstoff ist f\xFCr unsere
-    Mission knapp bemessen."
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: db41a2b9c7abb48a49430576ff41e365, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114859459088296038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3676,6 +3640,31 @@ MonoBehaviour:
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 232d7647c87974826b3adfc463569fd3, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &114865358377337622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 193
+  indentLevel: 0
+  storyText: "Der Ausfall gef\xE4hrdet die Mission - Nichts darf die MIssion gef\xE4hrden."
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: a0318edf39ecb4d06bdd8da53d65acd8, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -3794,7 +3783,7 @@ MonoBehaviour:
   scrollPos: {x: 403.38953, y: 554.6045}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 413
+  blockViewHeight: 420
   zoom: 0.43574706
   scrollViewRect:
     serializedVersion: 2
@@ -3802,8 +3791,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 114396104749827520}
+  selectedCommands:
+  - {fileID: 114119849904844358}
   variables:
   - {fileID: 114978007602951696}
   - {fileID: 114922669218412220}
@@ -3936,31 +3927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e64d9714bc34530b72df18173e505d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114930424557672688
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 115
-  indentLevel: 0
-  storyText: " - Nichts darf die Mission gef\xE4hrden."
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 0c1acd618132e4265891d30373db1a95, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 1
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114931668776802780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4065,31 +4031,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114946919306036268
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 2
-  indentLevel: 0
-  storyText: "Das Ziel kann so nicht erreicht werden, dies gef\xE4hrdet die Mission"
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 29fe11020eb2a4284a39fade0102fe95, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114950009522089810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4155,31 +4096,6 @@ MonoBehaviour:
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 0
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
---- !u!114 &114959923944651066
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 5
-  indentLevel: 0
-  storyText: Ich bin SAIwA, zentrale Robotik-Einheit dieses Raumschiffs.
-  description: 
-  character: {fileID: 114833657202347166}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: d2cfe729f02a349ebb92a265943bf566, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &114964368582003276
