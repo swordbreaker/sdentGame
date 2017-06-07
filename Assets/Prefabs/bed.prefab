@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 4009700468354388}
   - component: {fileID: 33986712482932498}
   - component: {fileID: 23585328741990848}
+  - component: {fileID: 64019681385343920}
   m_Layer: 0
   m_Name: Cube_MeshPart1
   m_TagString: Untagged
@@ -78,6 +79,7 @@ GameObject:
   - component: {fileID: 4184765626417842}
   - component: {fileID: 33347084070201992}
   - component: {fileID: 23405024580399136}
+  - component: {fileID: 64175623436763988}
   m_Layer: 0
   m_Name: Cube_MeshPart0
   m_TagString: Untagged
@@ -130,9 +132,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259785178487470}
-  m_LocalRotation: {x: -0.50014615, y: -0.4998538, z: -0.4998538, w: -0.50014615}
-  m_LocalPosition: {x: 0.08506012, y: 0.41148567, z: -4.003795}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: -4.09, y: -0.97234344, z: -4.51}
+  m_LocalScale: {x: 1, y: 1.0000005, z: 1.0000005}
   m_Children:
   - {fileID: 4184765626417842}
   - {fileID: 4009700468354388}
@@ -257,6 +259,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1258811993322944}
   m_Mesh: {fileID: 4300004, guid: 2934589f91f54864a9532354495c23e9, type: 3}
+--- !u!64 &64019681385343920
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258811993322944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 2934589f91f54864a9532354495c23e9, type: 3}
 --- !u!64 &64095748139546016
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -271,6 +287,20 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!64 &64175623436763988
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840945939934506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 2934589f91f54864a9532354495c23e9, type: 3}
 --- !u!65 &65995352458378290
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -292,7 +322,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e15cd033e8242884fa44bbbffb3635e4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d1ea51c4ed6254cdb9a342999337b960, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
