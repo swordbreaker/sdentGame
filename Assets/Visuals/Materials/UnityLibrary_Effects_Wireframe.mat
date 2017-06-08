@@ -19,7 +19,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - UseDiscard: 1
-    - _WireThickness: 28
+    - _WireThickness: 1
     m_Colors:
     - _FillColor: {r: 0, g: 0, b: 0, a: 0}
-    - _LineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _LineColor: {r: 0.09411765, g: 0.5372549, b: 0.7372549, a: 1}
