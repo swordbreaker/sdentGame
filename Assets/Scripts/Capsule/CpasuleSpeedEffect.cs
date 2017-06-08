@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using Assets.Script.Helpers;
+using Assets.Scripts.Helpers;
 using Assets.Scripts.Movement;
 using Assets.Scripts.Visuals;
 using UnityEngine;
@@ -63,8 +63,8 @@ namespace Assets.Scripts.Capsule
             {
                 if (playerMoveController.enabled)
                 {
-                    playerLockLerp = new LerpHelper<Quaternion>(playerMoveController.transform.rotation, Quaternion.LookRotation(Vector3.right, -Vector3.up), 2);
-                    playerCameraLockLerp = new LerpHelper<Quaternion>(Camera.main.transform.rotation, Quaternion.LookRotation(Vector3.right, -Vector3.up), 2);
+					playerLockLerp = new LerpHelper<Quaternion>(playerMoveController.transform.rotation, Quaternion.LookRotation(Vector3.right, -Vector3.up), 2, false);
+					playerCameraLockLerp = new LerpHelper<Quaternion>(Camera.main.transform.rotation, Quaternion.LookRotation(Vector3.right, -Vector3.up), 2, false);
                     playerMoveController.enabled = false;
                 } 
                 else

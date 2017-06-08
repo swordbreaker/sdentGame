@@ -1,29 +1,30 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Extensions;
+using UnityEngine;
 
 /** 
  * Author:      Tobias Bollinger
  * Create Date: 15.02.2017
  */
-namespace Assets.Script.Helpers
+namespace Assets.Scripts.Helpers
 {
     /// <summary>
-    /// Abstract class for building an interpolation helper like an linear interpolation.
+    /// Abstract class for building an interpolation helper like a linear interpolation.
     /// </summary>
     /// <typeparam name="T">The type use for interpolation. Can be a Vector, Quaternion or a float</typeparam>
     public abstract class InterpolationHelper<T>
     {
-        protected readonly object _start;
-        protected readonly object _end;
-        protected readonly float _travelTime;
-        protected readonly float interpolationLength;
-        protected readonly float _startTime;
-        protected readonly float _speed;
-        protected readonly bool _useSpeed = false;
+        protected readonly object Start;
+        protected readonly object End;
+        protected readonly float TravelTime;
+        protected readonly float InterpolationLength;
+        protected readonly float StartTime;
+        protected readonly float Speed;
+        protected readonly bool UseSpeed = false;
         protected InterpolationType _InterpolationType;
 
         protected enum InterpolationType
         {
-            Vector, Float, Quaternion
+            Vector, Float, Quaternion, Color
         }
 
         /// <summary>
@@ -31,42 +32,42 @@ namespace Assets.Script.Helpers
         /// </summary>
         /// <param name="start"></param>
         /// <param name="end"></param>
-        /// <param name="travelTime"></param>
-        protected InterpolationHelper(T start, T end, float travelTime)
+        /// <param name="travelTimeOrSpeed"></param>
+        /// <param name="useSpeed">
+        /// True  : The value will be interpolated in the specified speed
+        /// False : The value will reach end in the specified time.
+        /// </param>
+        protected InterpolationHelper(T start, T end, float travelTimeOrSpeed, bool useSpeed)
         {
-            _start = start;
-            _end = end;
-            
-            _travelTime = travelTime;
-            _startTime = Time.time;
-            
-            if (_start is Vector3)
+            Start = start;
+            End = end;
+
+            TravelTime = travelTimeOrSpeed;
+            StartTime = Time.time;
+
+            if (Start is Vector3)
             {
                 _InterpolationType = InterpolationType.Vector;
-                interpolationLength = Vector3.Distance((Vector3)_start, (Vector3)_end);
+                InterpolationLength = Vector3.Distance((Vector3)Start, (Vector3)End);
             }
             else if (typeof(T) == typeof(float))
             {
                 _InterpolationType = InterpolationType.Float;
-                interpolationLength = (float) _end - (float) _start;
+				InterpolationLength = Mathf.Abs((float)End - (float)Start);
             }
             else if (typeof(T) == typeof(Quaternion))
             {
                 _InterpolationType = InterpolationType.Quaternion;
-                interpolationLength = Quaternion.Angle((Quaternion)_start, (Quaternion)_end);
+                InterpolationLength = Quaternion.Angle((Quaternion)Start, (Quaternion)End);
             }
-        }
+            else if (typeof(T) == typeof(Color))
+            {
+                _InterpolationType = InterpolationType.Color;
+                InterpolationLength = ((Color) Start).Distance((Color) End);
+            }
 
-        /// <summary>
-        /// Initialize the helper with a speed, a start value and a end value.
-        /// </summary>
-        /// <param name="speed"></param>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
-        protected InterpolationHelper(float speed, T start, T end) : this(start, end, speed)
-        {
-            _useSpeed = true;
-            _speed = speed;
+            UseSpeed = useSpeed;
+            Speed = travelTimeOrSpeed;
         }
 
         /// <summary>

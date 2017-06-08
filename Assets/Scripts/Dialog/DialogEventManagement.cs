@@ -4,6 +4,9 @@ using UnityEngine;
 using Assets.Scripts.Movement;
 using System.Linq;
 using Fungus;
+using UnityEngine.UI;
+using Assets.Scripts.Helpers;
+using UnityEngine.SceneManagement;
 
 public class DialogEventManagement : MonoBehaviour {
 
@@ -49,6 +52,27 @@ public class DialogEventManagement : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject _playerBed;
+
+	[SerializeField]
+	private Image _deepSleepEndingImage;
+
+	private LerpHelper<Color> _deepSleepLerp;
+	private LerpHelper<float> _globalSoundLerp;
+
+	public void Update() 
+	{
+		if (_deepSleepLerp != null && _globalSoundLerp != null) 
+		{	
+			bool imageGoalReached, audioGoalReached;
+			_deepSleepEndingImage.color = _deepSleepLerp.CurrentValue (out imageGoalReached);
+			Debug.Log (AudioListener.volume);
+			AudioListener.volume = _globalSoundLerp.CurrentValue (out audioGoalReached);
+			if (imageGoalReached && audioGoalReached) 
+			{
+				SceneManager.LoadScene ("Credits");
+			}
+		}
+	}
 
 	public void LookAtLookOutEntree() 
 	{
@@ -162,6 +186,12 @@ public class DialogEventManagement : MonoBehaviour {
 		var endingTrigger = this.gameObject.AddComponent<FungusTriggerInteraction>() as FungusTriggerInteraction;
 		endingTrigger.SetName("Zurück zum Tiefschlaf");
 		endingTrigger.Message = "Ending_DeepSleep";
+	}
+
+	public void DeepSleepEnding() 
+	{
+		_deepSleepLerp = new LerpHelper<Color> (_deepSleepEndingImage.color, Color.black, 2, false);
+		_globalSoundLerp = new LerpHelper<float> (AudioListener.volume, 0, 4, false);
 	}
 
 }

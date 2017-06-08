@@ -5,7 +5,7 @@ using UnityEngine;
  * Author:      Tobias Bollinger
  * Create Date: 15.02.2017
  */
-namespace Assets.Script.Helpers
+namespace Assets.Scripts.Helpers
 {
     /// <summary>
     /// Implementation of the InterpolationHelper with a linear interpolation.
@@ -13,32 +13,26 @@ namespace Assets.Script.Helpers
     /// <typeparam name="T"></typeparam>
     public class LerpHelper<T> : InterpolationHelper<T>
     {
-        public LerpHelper(T start, T end, float travelTime) : base(start, end, travelTime)
-        {
-        }
-
-        public LerpHelper(float speed, T start, T end) : base(speed, start, end)
-        {
-        }
+        public LerpHelper(T start, T end, float travelTimeOrSpeed, bool useSpeed) : base(start, end, travelTimeOrSpeed, useSpeed) { }
 
         public override T CurrentValue(out bool goalReached)
         {
             goalReached = false;
-            if (interpolationLength < Mathf.Epsilon)
+            if (InterpolationLength < Mathf.Epsilon)
             {
                 goalReached = true;
-                return (T)_start;
+                return (T)Start;
             }
 
             float t;
-            if (_useSpeed)
+            if (UseSpeed)
             {
-                var distCovered = (Time.time - _startTime) * _speed;
-                t = distCovered / interpolationLength;
+                var distCovered = (Time.time - StartTime) * Speed;
+                t = distCovered / InterpolationLength;
             }
             else
             {
-                t = (Time.time - _startTime) / _travelTime;
+                t = (Time.time - StartTime) / TravelTime;
             }
 
             if (t >= 1) goalReached = true;
@@ -46,11 +40,14 @@ namespace Assets.Script.Helpers
             switch (_InterpolationType)
             {
                 case InterpolationType.Vector:
-                    return (T) Convert.ChangeType(Vector3.Lerp((Vector3) _start, (Vector3) _end, t), typeof(T));
+                    return (T) Convert.ChangeType(Vector3.Lerp((Vector3) Start, (Vector3) End, t), typeof(T));
                 case InterpolationType.Float:
-                    return (T)Convert.ChangeType(Mathf.Lerp((float)_start, (float)_end, t), typeof(T));
+                    return (T)Convert.ChangeType(Mathf.Lerp((float)Start, (float)End, t), typeof(T));
                 case InterpolationType.Quaternion:
-                    return (T)Convert.ChangeType(Quaternion.Lerp((Quaternion)_start, (Quaternion)_end, t), typeof(T));
+                    return (T)Convert.ChangeType(Quaternion.Lerp((Quaternion)Start, (Quaternion)End, t), typeof(T));
+                case InterpolationType.Color:
+                    return (T) Convert.ChangeType(Color.Lerp((Color) Start, (Color) End, t), typeof(T));
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }

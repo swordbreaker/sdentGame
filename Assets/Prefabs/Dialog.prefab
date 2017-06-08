@@ -172,7 +172,6 @@ GameObject:
   - component: {fileID: 114006255814175634}
   - component: {fileID: 114900689890990916}
   - component: {fileID: 114514431439965246}
-  - component: {fileID: 114172352621466248}
   - component: {fileID: 114705840318750796}
   - component: {fileID: 114241211585472050}
   - component: {fileID: 114158259524416874}
@@ -248,6 +247,8 @@ GameObject:
   - component: {fileID: 114918044470785460}
   - component: {fileID: 114622252586279218}
   - component: {fileID: 114124860164324352}
+  - component: {fileID: 114292784610372346}
+  - component: {fileID: 114517830660180876}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1234,31 +1235,6 @@ MonoBehaviour:
   waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114172352621466248
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 108
-  indentLevel: 0
-  storyText: Spielende!
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: fd0826138174240408e3b361e0f2e467, type: 3}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  setSayDialog: {fileID: 0}
 --- !u!114 &114181008272078526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1289,6 +1265,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _playerBed: {fileID: 0}
+  _deepSleepEndingImage: {fileID: 0}
 --- !u!114 &114182664610300450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1749,6 +1726,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114182664610300450}
   message: Captain_Start
+--- !u!114 &114292784610372346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 207
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: DeepSleepEnding
+  delay: 0
 --- !u!114 &114302040916603102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2463,6 +2456,31 @@ MonoBehaviour:
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &114517830660180876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 206
+  indentLevel: 0
+  storyText: Ich werde das Missionsziel erreichen. Gehen Sie schlafen.
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &114523867170977880
@@ -3903,7 +3921,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 1316.4131
-    y: 369.25177
+    y: 366.95685
     width: 148
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -3913,7 +3931,8 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114006255814175634}
   commandList:
-  - {fileID: 114172352621466248}
+  - {fileID: 114517830660180876}
+  - {fileID: 114292784610372346}
 --- !u!114 &114908605707132108
 MonoBehaviour:
   m_ObjectHideFlags: 1

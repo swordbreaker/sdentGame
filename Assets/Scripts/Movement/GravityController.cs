@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Assets.Script;
-using Assets.Script.Helpers;
+using Assets.Scripts.Helpers;
 using UnityEngine;
 
 public class GravityController : MonoBehaviour
