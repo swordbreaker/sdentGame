@@ -5796,17 +5796,9 @@ MonoBehaviour:
     areaError: 15
   asset_guid: 
   dontDestroyMeshOnDelete: 0
-  m_selectedFaces: 03000000
-  m_SelectedEdges:
-  - x: 12
-    y: 13
-  - x: 14
-    y: 12
-  - x: 13
-    y: 15
-  - x: 15
-    y: 14
-  m_selectedTriangles: 0c0000000d0000000e0000000d0000000f0000000e000000
+  m_selectedFaces: 
+  m_SelectedEdges: []
+  m_selectedTriangles: 
 --- !u!114 &114574212645008734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5886,7 +5878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c337205d27cce34599a62e7b1960240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holograMaterial: {fileID: 2100000, guid: 674299999962ba94abee00486cd29dd8, type: 2}
+  materialIndex: 1
   alarmAlbeldo: {r: 0.9411765, g: 0.27058825, b: 0.27058825, a: 0.40392157}
   alarmEmission: {r: 1, g: 0.28627452, b: 0.28627452, a: 1}
   interval: 1

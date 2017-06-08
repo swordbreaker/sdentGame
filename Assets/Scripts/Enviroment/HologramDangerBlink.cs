@@ -6,7 +6,9 @@ using UnityEngine;
 public class HologramDangerBlink : MonoBehaviour
 {
 
-    [SerializeField] private Material holograMaterial;
+    private Material holograMaterial;
+
+    [SerializeField] private int materialIndex;
 
     [SerializeField] private Color alarmAlbeldo;
 
@@ -24,6 +26,7 @@ public class HologramDangerBlink : MonoBehaviour
 
     public void Start()
     {
+        holograMaterial = gameObject.GetComponent<Renderer>().materials[materialIndex];
         defaultAlbeldo = holograMaterial.color;
         defaultEmission = holograMaterial.GetColor("_EmissionColor");
     }
