@@ -8,7 +8,8 @@ public abstract class AbstractInteraction : MonoBehaviour, IInteraction
 	[SerializeField]
 	private bool _interactable = true;
 
-	public abstract string Name {
+	public abstract string Name 
+	{
 		get;
 	}
 

@@ -17,11 +17,6 @@ public class BrokenEngineRoom : MonoBehaviour
 
     public void RepairEngine()
     {
-        EnableAnimations();
-		foreach (var go in RemoveWhenRepaired)
-			GameObject.Destroy (go);
-
-        Destroy(_spark);
         _audioSource.enabled = true;
     }
 

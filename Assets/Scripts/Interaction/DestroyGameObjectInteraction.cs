@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyGameObjectInteraction : OneTimeInteraction 
+public class DestroyGameObjectInteraction : AbstractInteraction 
 {
 	
 	public override string Name 
@@ -15,7 +15,6 @@ public class DestroyGameObjectInteraction : OneTimeInteraction
 
 	public override void Interact (GameObject interacter)
 	{
-		base.Interact (interacter);
 		this.gameObject.SetActive(false);
 	}
 

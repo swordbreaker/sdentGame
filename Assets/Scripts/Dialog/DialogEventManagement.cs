@@ -41,9 +41,6 @@ public class DialogEventManagement : MonoBehaviour {
 	private Door _engineRoomDoor;
 
 	[SerializeField]
-	private BrokenEngineRoom _brokenEngineRoom;
-
-	[SerializeField]
 	private AlarmController _alarm;
 
 	[SerializeField]
@@ -122,7 +119,6 @@ public class DialogEventManagement : MonoBehaviour {
 
 	public void RepairEngineFinished() 
 	{
-		this._brokenEngineRoom.RepairEngine ();
 		this.AddEngineRoomExitTrigger ();
 		this.AddDeepSleepEnding ();
 	}

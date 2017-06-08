@@ -11,6 +11,23 @@ public class FungusTriggerInteraction : AbstractInteraction
 	[SerializeField]
 	private string _message;
 
+	[SerializeField]
+	private bool once = false;
+
+	private bool _interacted = false;
+
+	public override bool Interactable
+	{
+		get 
+		{
+			return !(once && _interacted) && base.Interactable;
+		}
+		set 
+		{
+			base.Interactable = value;
+		}
+	}
+
 	public string Message 
 	{
 		get 
@@ -38,6 +55,7 @@ public class FungusTriggerInteraction : AbstractInteraction
 
 	public override void Interact (GameObject interacter)
 	{
+		_interacted = true;
 		Fungus.Flowchart.BroadcastFungusMessage (_message);
 	}
 
