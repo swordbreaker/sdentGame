@@ -13,6 +13,9 @@ public class SAIwAController : MonoBehaviour
 	[SerializeField]
 	private Light _spotLight;
 
+    [SerializeField]
+    private Light _pointLight;
+
 	[SerializeField]
 	private GameObject _core;
 
@@ -36,8 +39,11 @@ public class SAIwAController : MonoBehaviour
 
 	public void UpdateAlarmColor(float timePassed) 
 	{
-		_spotLight.color = Color.Lerp(_spotLightStartColor, _alarmColor, timePassed);
-		_coreRenderer.material.color = Color.Lerp(_coreStartColor, _alarmColor, timePassed);
+        var color = Color.Lerp(_spotLightStartColor, _alarmColor, timePassed);
+        _spotLight.color = color;
+	    _pointLight.color = color;
+
+        _coreRenderer.material.color = Color.Lerp(_coreStartColor, _alarmColor, timePassed);
 	}
 
 	public Transform LookAt 
