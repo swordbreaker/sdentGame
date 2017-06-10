@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 public class AlarmController : MonoBehaviour 
 {
@@ -21,13 +22,16 @@ public class AlarmController : MonoBehaviour
 
 	private bool _up = true;
 
-	void Start () 
+	private void Start () 
 	{
-		_wallRenderers = GameObject.FindGameObjectsWithTag("ShipWall").Select (x => x.GetComponent<Renderer> ()).ToList();
+		_wallRenderers = GameObject.FindGameObjectsWithTag("ShipWall")
+            .Select(x => x.GetComponent<Renderer>())
+            .Where(r => r != null)
+            .ToList();
 		_startColor = _wallRenderers[0].material.GetColor("_EmissionColor");
 	}
 	
-	void Update () 
+	private void Update () 
 	{
 		if (Alarm) 
 		{
