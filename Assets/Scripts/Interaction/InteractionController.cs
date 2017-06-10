@@ -30,7 +30,7 @@ public class InteractionController : MonoBehaviour
             if (interactions.Any())
             {
                 var interaction = interactions.First();
-                if (interactionText != null)
+                if (interactionText != null && interaction.Name != null)
                     interactionText.text = string.Format("[E] {0}", interaction.Name);
                 if (Input.GetKeyDown (KeyCode.E)) 
                 {
