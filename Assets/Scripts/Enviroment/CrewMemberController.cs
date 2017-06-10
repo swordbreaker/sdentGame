@@ -28,7 +28,9 @@ public class CrewMemberController : MonoBehaviour
 		{
 			foreach (var rend in GetComponentsInChildren<Renderer>()) 
 			{
-				rend.material.color = Color.Lerp (rend.material.color, _color.Value, Time.deltaTime);
+                var color = Color.Lerp(rend.material.color, _color.Value, Time.deltaTime);
+                rend.material.color = color;
+                rend.material.SetColor("_EmissionColor", color);
 			}
 		}
 	}

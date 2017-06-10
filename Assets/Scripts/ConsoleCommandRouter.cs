@@ -23,6 +23,9 @@ namespace Assets.Scripts
             _repo.RegisterCommand("openDoors", OpenDoors);
             _repo.RegisterCommand("repairEngine", RepairEngine);
             _repo.RegisterCommand("movementSpeed", MovementSpeed);
+            _repo.RegisterCommand("movementSpeed", MovementSpeed);
+            _repo.RegisterCommand("beginSlaughter", BeginSlaughter);
+            _repo.RegisterCommand("broadcastFungus", BroadcastFungus);
         }
 
         public string Help(params string[] args)
@@ -90,6 +93,23 @@ namespace Assets.Scripts
             {
                 return "Cannot parse " + args[0] + " to a number";
             }
+        }
+
+        public string BeginSlaughter(params string[] args)
+        {
+            Fungus.Flowchart.BroadcastFungusMessage("Engineroom_Exit");
+            return "May the Slaughter begin";
+        }
+
+        public string BroadcastFungus(params string[] args)
+        {
+            if (args.Length < 1)
+            {
+                return "usage broadcastFungus [string]";
+            }
+
+            Fungus.Flowchart.BroadcastFungusMessage(args[0]);
+            return "Fungus message broadcasted";
         }
     }
 }
