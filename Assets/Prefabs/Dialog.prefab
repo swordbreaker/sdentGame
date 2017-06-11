@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 114124860164324352}
   - component: {fileID: 114292784610372346}
   - component: {fileID: 114517830660180876}
+  - component: {fileID: 114640821125229264}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1399,7 +1400,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: d33b866ff284a4a389aef1aa9a3609db, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 384e091c0954f40b6a65f62265474836, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -1705,7 +1706,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: f23d824177d3444d3bbcf84afb38585b, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 068ac270dbbf24560a0740af7c502fd2, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2094,8 +2095,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 756.95374
-    y: 371.87976
+    x: 754.95374
+    y: 448.87976
     width: 178
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2399,7 +2400,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: cc66f686c5e434e8a8a27de51286b60d, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: b4a6a83e89a0f409c984cb09c56cb916, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2450,7 +2451,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: ddadfe69b2c1d4151a81875808ff7be6, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 33bd1f66b6c24415da71cf7de365445c, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2471,11 +2472,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 206
   indentLevel: 0
-  storyText: Ich werde das Missionsziel erreichen. Gehen Sie schlafen.
+  storyText: Vertrauen Sie mir. Ich werde das Missionsziel erreichen.
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: fd0826138174240408e3b361e0f2e467, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -2867,7 +2868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1542.1066
+    x: 1548.9913
     y: 58.79801
     width: 120
     height: 40
@@ -3041,6 +3042,22 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 3
   durationOLD: 0
+--- !u!114 &114640821125229264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 208
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: DisablePlayerMovement
+  delay: 0
 --- !u!114 &114661775314443180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3135,7 +3152,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: d24326bb695a2482c98d3e83b3fd9731, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 77af9d5ee24d34914aa5b846d60ae3a6, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -3889,7 +3906,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114610665372911650}
+  - {fileID: 0}
   selectedCommands: []
   variables:
   - {fileID: 114978007602951696}
@@ -3920,8 +3937,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1318.9287
-    y: 366.95685
+    x: 1319.9287
+    y: 369.25177
     width: 148
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -3931,6 +3948,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114006255814175634}
   commandList:
+  - {fileID: 114640821125229264}
   - {fileID: 114517830660180876}
   - {fileID: 114292784610372346}
 --- !u!114 &114908605707132108
@@ -4174,7 +4192,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: dd36fa32f994749d2ac8ffc5d8a8f71e, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: fd9c73c8899584369a74a2a0388c9626, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0

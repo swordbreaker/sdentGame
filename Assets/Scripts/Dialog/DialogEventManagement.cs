@@ -65,7 +65,7 @@ public class DialogEventManagement : MonoBehaviour {
 		{	
 			bool imageGoalReached, audioGoalReached;
 			_deepSleepEndingImage.color = _deepSleepLerp.CurrentValue (out imageGoalReached);
-			Debug.Log (AudioListener.volume);
+			Debug.Log (_deepSleepEndingImage.color);
 			AudioListener.volume = _globalSoundLerp.CurrentValue (out audioGoalReached);
 			if (imageGoalReached && audioGoalReached) 
 			{
