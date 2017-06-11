@@ -46,6 +46,8 @@ namespace Assets.Scripts.Helpers
                     throw new NotSupportedException("Float cannot be slerped");
                 case InterpolationType.Quaternion:
                     return (T)Convert.ChangeType(Quaternion.Slerp((Quaternion)Start, (Quaternion)End, t), typeof(T));
+                case InterpolationType.Color:
+                    return (T)Convert.ChangeType(Color.Lerp((Color)Start, (Color)End, t), typeof(T));
                 default:
                     throw new ArgumentOutOfRangeException();
             }
