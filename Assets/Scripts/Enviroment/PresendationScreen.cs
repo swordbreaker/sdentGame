@@ -67,7 +67,7 @@ namespace Assets.Scripts.Enviroment
         {
             if(!_isActive) return;
 
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 if (presendationId <= 0) return;
 
@@ -76,7 +76,7 @@ namespace Assets.Scripts.Enviroment
                 _material.SetTexture("_EmissionMap", _presendationTextures[presendationId]);
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 if (presendationId >= _presendationTextures.Length - 1) return;
 
