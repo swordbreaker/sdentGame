@@ -65,20 +65,22 @@ namespace Assets.Scripts.Enviroment
 
         private void Update()
         {
+            if(!_isActive) return;
+
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.A))
-            {
-                if (presendationId >= _presendationTextures.Length - 1) return;
-
-                _material.SetTexture("_MainTex", _presendationTextures[++presendationId]);
-                _material.SetTexture("_EmissionMap", _presendationTextures[presendationId]);
-            }
-
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 if (presendationId <= 0) return;
 
                 Interactable = true;
                 _material.SetTexture("_MainTex", _presendationTextures[--presendationId]);
+                _material.SetTexture("_EmissionMap", _presendationTextures[presendationId]);
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.D))
+            {
+                if (presendationId >= _presendationTextures.Length - 1) return;
+
+                _material.SetTexture("_MainTex", _presendationTextures[++presendationId]);
                 _material.SetTexture("_EmissionMap", _presendationTextures[presendationId]);
             }
         }
