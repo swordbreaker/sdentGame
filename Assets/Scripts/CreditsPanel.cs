@@ -6,12 +6,12 @@ public class CreditsPanel : MonoBehaviour
 {
     private void Start()
     {
-        GetComponent<RectTransform>().DOLocalMoveY(1080f, 20f);
-        Invoke("BackToMainMenu", 21f);
+		GetComponent<RectTransform>().DOLocalMoveY(8000f, 200f);
+        Invoke("BackToMainMenu", 201f);
     }
 
     private void BackToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+		SceneManager.LoadScene("MainMenu");
     }
 }
