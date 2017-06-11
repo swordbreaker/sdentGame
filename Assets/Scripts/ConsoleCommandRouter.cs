@@ -26,6 +26,7 @@ namespace Assets.Scripts
             _repo.RegisterCommand("movementSpeed", MovementSpeed);
             _repo.RegisterCommand("beginSlaughter", BeginSlaughter);
             _repo.RegisterCommand("broadcastFungus", BroadcastFungus);
+            _repo.RegisterCommand("goto", Goto);
         }
 
         public string Help(params string[] args)
@@ -87,7 +88,7 @@ namespace Assets.Scripts
             if (float.TryParse(speed, out speedF))
             {
                 FindObjectOfType<MoveController>().Speed = speedF;
-                return "Set movementspeed to " + speedF;
+                return "Set movement speed to " + speedF;
             }
             else
             {
@@ -110,6 +111,26 @@ namespace Assets.Scripts
 
             Fungus.Flowchart.BroadcastFungusMessage(args[0]);
             return "Fungus message broadcasted";
+        }
+
+        public string Goto(params string[] args)
+        {
+            if (args.Length < 3)
+            {
+                return "usage goto x y z";
+            }
+
+            float x, y, z;
+
+            if (float.TryParse(args[0], out x) && float.TryParse(args[1], out y) && float.TryParse(args[2], out z))
+            {
+                FindObjectOfType<MoveController>().transform.position = new Vector3(x, y, z);
+                return "Player moved to position " + x + " " + y + " " + z;
+            }
+            else
+            {
+                return "Cannot parse coordinate to a number";
+            } 
         }
     }
 }
