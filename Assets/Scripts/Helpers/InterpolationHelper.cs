@@ -27,6 +27,9 @@ namespace Assets.Scripts.Helpers
             Vector, Float, Quaternion, Color
         }
 
+        public T StartValue { get { return (T)Start; } }
+        public T EndValue { get { return (T)End; } }
+
         /// <summary>
         /// Initialize the helper with a start value, a end value and a travelTime
         /// </summary>
