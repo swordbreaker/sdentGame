@@ -6,8 +6,8 @@ public class CreditsPanel : MonoBehaviour
 {
     private void Start()
     {
-		GetComponent<RectTransform>().DOLocalMoveY(8000f, 200f);
-        Invoke("BackToMainMenu", 201f);
+		GetComponent<RectTransform>().DOLocalMoveY(4600f, 100f).SetEase(Ease.Linear);
+        Invoke("BackToMainMenu", 101f);
     }
 
     private void BackToMainMenu()
