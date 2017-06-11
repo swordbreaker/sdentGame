@@ -250,6 +250,13 @@ GameObject:
   - component: {fileID: 114292784610372346}
   - component: {fileID: 114517830660180876}
   - component: {fileID: 114640821125229264}
+  - component: {fileID: 114399124469746888}
+  - component: {fileID: 114402354715004968}
+  - component: {fileID: 114813077445382520}
+  - component: {fileID: 114655569927268742}
+  - component: {fileID: 114629952294551448}
+  - component: {fileID: 114156388286250748}
+  - component: {fileID: 114434927816712164}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1161,6 +1168,22 @@ MonoBehaviour:
   - {fileID: 114923951502489168}
   - {fileID: 114787904334158388}
   - {fileID: 114859459088296038}
+--- !u!114 &114156388286250748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 214
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: DisablePlayerMovement
+  delay: 0
 --- !u!114 &114157435730344396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1739,7 +1762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 207
-  indentLevel: 0
+  indentLevel: 1
   targetObject: {fileID: 1952306719512844}
   methodName: DeepSleepEnding
   delay: 0
@@ -2058,6 +2081,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114622252586279218}
   commandList:
+  - {fileID: 114156388286250748}
   - {fileID: 114637712321395340}
   - {fileID: 114084824609972686}
   - {fileID: 114565523808654702}
@@ -2082,6 +2106,46 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: StartAlarm
   delay: 0
+--- !u!114 &114399124469746888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 209
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 114938314422971756}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &114402354715004968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa968f01a7f9496bb50e13dfe16760d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 210
+  indentLevel: 0
 --- !u!114 &114407496064222224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2176,6 +2240,22 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: CloseLookOutShutters
   delay: 2
+--- !u!114 &114434927816712164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 215
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: EnablePlayerMovement
+  delay: 0
 --- !u!114 &114436808269349088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2471,7 +2551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 206
-  indentLevel: 0
+  indentLevel: 1
   storyText: Vertrauen Sie mir. Ich werde das Missionsziel erreichen.
   description: 
   character: {fileID: 114833657202347166}
@@ -2979,6 +3059,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 147
   indentLevel: 0
+--- !u!114 &114629952294551448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 213
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: AddEndingDeepSleepPossibility
+  delay: 0
 --- !u!114 &114630480520398404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3054,10 +3150,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 208
-  indentLevel: 0
+  indentLevel: 1
   targetObject: {fileID: 1952306719512844}
   methodName: DisablePlayerMovement
   delay: 0
+--- !u!114 &114655569927268742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 212
+  indentLevel: 1
+  storyText: Bitte reparieren Sie zuerst den rechten Antriebsmotor.
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 99fa7d76d708d4ec1936d5a60df701d7, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114661775314443180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3218,6 +3339,8 @@ MonoBehaviour:
   - {fileID: 114842038503279012}
   - {fileID: 114269275271777180}
   - {fileID: 114459803843815668}
+  - {fileID: 114629952294551448}
+  - {fileID: 114434927816712164}
 --- !u!114 &114705840318750796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3634,6 +3757,19 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114813077445382520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 211
+  indentLevel: 0
 --- !u!114 &114816698020685318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3894,7 +4030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -863.4009, y: 242.49648}
+  scrollPos: {x: 116.52561, y: 210.36772}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 420
@@ -3906,8 +4042,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 0}
-  selectedCommands: []
+  - {fileID: 114693505060556974}
+  selectedCommands:
+  - {fileID: 114459803843815668}
   variables:
   - {fileID: 114978007602951696}
   - {fileID: 114714274343590086}
@@ -3937,8 +4074,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1319.9287
-    y: 369.25177
+    x: 1290.0948
+    y: 353.18738
     width: 148
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -3948,9 +4085,13 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114006255814175634}
   commandList:
+  - {fileID: 114399124469746888}
   - {fileID: 114640821125229264}
   - {fileID: 114517830660180876}
   - {fileID: 114292784610372346}
+  - {fileID: 114402354715004968}
+  - {fileID: 114655569927268742}
+  - {fileID: 114813077445382520}
 --- !u!114 &114908605707132108
 MonoBehaviour:
   m_ObjectHideFlags: 1

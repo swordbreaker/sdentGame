@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Capsule
 {
@@ -11,6 +12,12 @@ namespace Assets.Scripts.Capsule
         public void Start ()
         {
             engine.Velocity = capsuleVelocity;
+			Invoke ("LoadCreditsScene", 45);
         }
+
+		private void LoadCreditsScene() 
+		{
+			SceneManager.LoadScene("Credits");
+		}
     }
 }

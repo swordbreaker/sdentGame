@@ -74,6 +74,11 @@ public class DialogEventManagement : MonoBehaviour {
 		}
 	}
 
+	public void AddEndingDeepSleepPossibility() 
+	{
+		_playerBed.GetComponent<FungusTriggerInteraction> ().Interactable = true;
+	}
+
 	public void LookAtLookOutEntree() 
 	{
 		_SAIwAController.LookAt = LookOutEntree;
