@@ -255,8 +255,9 @@ GameObject:
   - component: {fileID: 114813077445382520}
   - component: {fileID: 114655569927268742}
   - component: {fileID: 114629952294551448}
-  - component: {fileID: 114156388286250748}
-  - component: {fileID: 114434927816712164}
+  - component: {fileID: 114507483520284128}
+  - component: {fileID: 114777720273555040}
+  - component: {fileID: 114425859086563690}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1168,22 +1169,6 @@ MonoBehaviour:
   - {fileID: 114923951502489168}
   - {fileID: 114787904334158388}
   - {fileID: 114859459088296038}
---- !u!114 &114156388286250748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 214
-  indentLevel: 0
-  targetObject: {fileID: 1952306719512844}
-  methodName: DisablePlayerMovement
-  delay: 0
 --- !u!114 &114157435730344396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1834,7 +1819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 197
   indentLevel: 0
-  storyText: "Ich ben\xF6tige ihren Reperaturdienst am rechten Antriebsmotor des Raumschiffes.
+  storyText: "Ich ben\xF6tige Ihren Reperaturdienst am rechten Antriebsmotor des Raumschiffes.
     Dieser ist ausgefallen."
   description: 
   character: {fileID: 114833657202347166}
@@ -2070,7 +2055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -137.1801
+    x: -137.18008
     y: 7.6107645
     width: 120
     height: 40
@@ -2081,7 +2066,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114622252586279218}
   commandList:
-  - {fileID: 114156388286250748}
+  - {fileID: 114507483520284128}
   - {fileID: 114637712321395340}
   - {fileID: 114084824609972686}
   - {fileID: 114565523808654702}
@@ -2240,7 +2225,7 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: CloseLookOutShutters
   delay: 2
---- !u!114 &114434927816712164
+--- !u!114 &114425859086563690
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2251,10 +2236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 215
-  indentLevel: 0
+  itemId: 218
+  indentLevel: 1
   targetObject: {fileID: 1952306719512844}
-  methodName: EnablePlayerMovement
+  methodName: DeepSleepEndingPre
   delay: 0
 --- !u!114 &114436808269349088
 MonoBehaviour:
@@ -2397,7 +2382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1757.7585
+    x: 1760.0535
     y: 54.35264
     width: 120
     height: 40
@@ -2488,6 +2473,22 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114507483520284128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 216
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: DisablePlayerMovement
+  delay: 0
 --- !u!114 &114509177547205852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3340,7 +3341,7 @@ MonoBehaviour:
   - {fileID: 114269275271777180}
   - {fileID: 114459803843815668}
   - {fileID: 114629952294551448}
-  - {fileID: 114434927816712164}
+  - {fileID: 114777720273555040}
 --- !u!114 &114705840318750796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3624,6 +3625,22 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114777720273555040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 217
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: EnablePlayerMovement
+  delay: 0
 --- !u!114 &114787904334158388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4042,9 +4059,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114693505060556974}
-  selectedCommands:
-  - {fileID: 114459803843815668}
+  - {fileID: 114900689890990916}
+  selectedCommands: []
   variables:
   - {fileID: 114978007602951696}
   - {fileID: 114714274343590086}
@@ -4086,6 +4102,7 @@ MonoBehaviour:
   eventHandler: {fileID: 114006255814175634}
   commandList:
   - {fileID: 114399124469746888}
+  - {fileID: 114425859086563690}
   - {fileID: 114640821125229264}
   - {fileID: 114517830660180876}
   - {fileID: 114292784610372346}
