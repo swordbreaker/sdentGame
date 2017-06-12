@@ -19,6 +19,15 @@ namespace Assets.Scripts.Sound
             }
         }
 
+        public static void DestroyInstance()
+        {
+            if (Instance != null)
+            {
+                Destroy(Instance.gameObject);
+                Instance = null;
+            }
+        }
+
         public void FixedUpdate()
         {
             transform.position = Camera.main.transform.position;

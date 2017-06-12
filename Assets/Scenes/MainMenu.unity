@@ -552,7 +552,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d8d90c84f726d074bb4e759b890c9e6c, type: 2}
+  - {fileID: 2100000, guid: 853edf08190ab3d44a3da827d60a3d5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -724,7 +724,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2147893e67f803d4e89bbcfd001905ee, type: 2}
+  - {fileID: 2100000, guid: 0b2748903db43944b9c69866f09e25a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -795,7 +795,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2147893e67f803d4e89bbcfd001905ee, type: 2}
+  - {fileID: 2100000, guid: 0b2748903db43944b9c69866f09e25a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1267,7 +1267,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2147893e67f803d4e89bbcfd001905ee, type: 2}
+  - {fileID: 2100000, guid: 0b2748903db43944b9c69866f09e25a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1958,6 +1958,7 @@ MonoBehaviour:
   _interactable: 1
   _name: "Zur\xFCck zum Tiefschlaf"
   _message: Ending_DeepSleep
+  once: 0
 --- !u!95 &1388222288
 Animator:
   serializedVersion: 3
@@ -2188,7 +2189,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh169550
+  m_Name: pb_Mesh52576
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2964,7 +2965,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2147893e67f803d4e89bbcfd001905ee, type: 2}
+  - {fileID: 2100000, guid: 0b2748903db43944b9c69866f09e25a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3053,7 +3054,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d8d90c84f726d074bb4e759b890c9e6c, type: 2}
+  - {fileID: 2100000, guid: 853edf08190ab3d44a3da827d60a3d5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3929,6 +3930,7 @@ MonoBehaviour:
   Player: {fileID: 1388222289}
   _alarmColor: {r: 1, g: 0, b: 0, a: 1}
   _spotLight: {fileID: 1571816497}
+  _pointLight: {fileID: 0}
   _core: {fileID: 1374801234}
 --- !u!114 &2010327068
 MonoBehaviour:
