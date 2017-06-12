@@ -259,8 +259,8 @@ GameObject:
   - component: {fileID: 114777720273555040}
   - component: {fileID: 114425859086563690}
   - component: {fileID: 114022646922266424}
-  - component: {fileID: 114949750110844362}
-  - component: {fileID: 114319844479660760}
+  - component: {fileID: 114587257682005850}
+  - component: {fileID: 114608716112587450}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -585,7 +585,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &114006255814175634
@@ -1738,7 +1738,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 169
   indentLevel: 1
-  storyText: "Gehen Sie in den Tiefschlaf! Sonst t\xF6te ich weitere Besatzungsmitglieder!"
+  storyText: "Gehen Sie in den Tiefschlaf! Sonst muss ich weitere Besatzungsmitglieder
+    t\xF6ten!"
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
@@ -1818,22 +1819,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114067946166922206}
   message: LookOut_Take_ID_Card
---- !u!114 &114319844479660760
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 220
-  indentLevel: 1
-  soundClip: {fileID: 8300000, guid: d1ea51c4ed6254cdb9a342999337b960, type: 3}
-  volume: 0.6
-  waitUntilFinished: 1
 --- !u!114 &114325663012461800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2324,7 +2309,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -35.583145
-    y: 510.43408
+    y: 508.22046
     width: 141
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2368,7 +2353,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &114447663416245840
@@ -2896,6 +2881,23 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: MakeCaptainIDInteractable
   delay: 0
+--- !u!114 &114587257682005850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 222
+  indentLevel: 1
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
 --- !u!114 &114593118481535558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3031,6 +3033,22 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: LookAtReset
   delay: 0
+--- !u!114 &114608716112587450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 223
+  indentLevel: 1
+  soundClip: {fileID: 8300000, guid: d1ea51c4ed6254cdb9a342999337b960, type: 3}
+  volume: 0.6
+  waitUntilFinished: 1
 --- !u!114 &114610665372911650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4091,11 +4109,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 116.52561, y: 210.36772}
+  scrollPos: {x: -49.002243, y: 73.05526}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 420
-  zoom: 0.43574706
+  zoom: 0.45174727
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -4103,8 +4121,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114900689890990916}
-  selectedCommands: []
+  - {fileID: 114436812937442426}
+  selectedCommands:
+  - {fileID: 114529876114444170}
   variables:
   - {fileID: 114978007602951696}
   - {fileID: 114714274343590086}
@@ -4151,8 +4170,8 @@ MonoBehaviour:
   - {fileID: 114292784610372346}
   - {fileID: 114517830660180876}
   - {fileID: 114022646922266424}
-  - {fileID: 114949750110844362}
-  - {fileID: 114319844479660760}
+  - {fileID: 114587257682005850}
+  - {fileID: 114608716112587450}
   - {fileID: 114402354715004968}
   - {fileID: 114655569927268742}
   - {fileID: 114813077445382520}
@@ -4379,23 +4398,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114949750110844362
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 221
-  indentLevel: 1
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  durationOLD: 0
 --- !u!114 &114950009522089810
 MonoBehaviour:
   m_ObjectHideFlags: 1
