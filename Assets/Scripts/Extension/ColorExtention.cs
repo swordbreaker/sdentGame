@@ -14,7 +14,7 @@ namespace Assets.Scripts.Extensions
             float dist = 0f;
             for (int i = 0; i < 4; i++)
             {
-                dist = Mathf.Abs(color[i] - otherColor[i]);
+                dist += Mathf.Abs(color[i] - otherColor[i]);
             }
             return dist;
         }

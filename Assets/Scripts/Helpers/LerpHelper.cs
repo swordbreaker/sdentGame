@@ -18,6 +18,7 @@ namespace Assets.Scripts.Helpers
         public override T CurrentValue(out bool goalReached)
         {
             goalReached = false;
+
             if (InterpolationLength < Mathf.Epsilon)
             {
                 goalReached = true;

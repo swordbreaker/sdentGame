@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Helpers;
 
 public class SAIwAController : MonoBehaviour
 {
@@ -24,17 +25,35 @@ public class SAIwAController : MonoBehaviour
 
 	private Renderer _coreRenderer;
 
+	private LerpHelper<Color> _turnOnLights;
+
 	void Start() 
 	{
-		this._spotLightStartColor = _spotLight.GetComponent<Light> ().color;
-		this._coreRenderer = _core.GetComponent<Renderer> ();
-		this._coreStartColor = _coreRenderer.material.color;
+		_spotLightStartColor = _spotLight.GetComponent<Light> ().color;
+		_coreRenderer = _core.GetComponent<Renderer> ();
+		_coreStartColor = _coreRenderer.material.color;
+		_turnOnLights = new LerpHelper<Color> (Color.black, _pointLight.color, 2f, false);
+		_pointLight.color = Color.black;
 	}
 
 	void Update () 
 	{
+		UpdateTurnOnLights ();
 		var newRot = Quaternion.LookRotation(LookAt.position - this.transform.position);
 		transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime);
+	}
+
+	private void UpdateTurnOnLights() 
+	{
+		if (_turnOnLights == null) return;
+
+		Debug.Log ("Turn on lights");
+
+		bool done;
+		bool doneEmission;
+		_pointLight.color = _turnOnLights.CurrentValue(out done);
+
+		if (done) _turnOnLights = null;
 	}
 
 	public void UpdateAlarmColor(float timePassed) 
@@ -42,8 +61,6 @@ public class SAIwAController : MonoBehaviour
         var color = Color.Lerp(_spotLightStartColor, _alarmColor, timePassed);
         _spotLight.color = color;
 	    _pointLight.color = color;
-
-        _coreRenderer.material.color = Color.Lerp(_coreStartColor, _alarmColor, timePassed);
 	}
 
 	public Transform LookAt 
