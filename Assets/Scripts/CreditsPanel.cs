@@ -11,6 +11,8 @@ public class CreditsPanel : MonoBehaviour
 		GetComponent<RectTransform>().DOLocalMoveY(4600f, 30f).SetEase(Ease.Linear);
         StartCoroutine(FadeOutAudioListener(2, 0.1f, 29));
         Invoke("BackToMainMenu", 32f);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void BackToMainMenu()

@@ -25,31 +25,16 @@ namespace Assets.Scripts.Enviroment
 
         public override void Interact(GameObject interacter)
         {
-            //if (presendationId >= _presendationTextures.Length)
-            //{
-            //    Interactable = false;
-            //    return;
-            //}
-
-            if (_isActive)
+            print("Interact : " + _isActive);
+            if (!_isActive)
             {
-                _moveController.CanJump = true;
-                _moveController.CanMove = true;
-                AudioListener.volume = 1;
-                _camera.gameObject.SetActive(false);
-                _isActive = false;
-            }
-            else
-            {
+                print("Do it");
                 _moveController.CanJump = false;
                 _moveController.CanMove = false;
                 _camera.gameObject.SetActive(true);
                 AudioListener.volume = 0;
-                _isActive = true;
+                Invoke("Activate", 0.2f);
             }
-
-            //_material.SetTexture("_MainTex", _presendationTextures[++presendationId]);
-            //_material.SetTexture("_EmissionMap", _presendationTextures[presendationId]);
         }
 
         private void Start()
@@ -84,6 +69,25 @@ namespace Assets.Scripts.Enviroment
                 _material.SetTexture("_MainTex", _presendationTextures[++presendationId]);
                 _material.SetTexture("_EmissionMap", _presendationTextures[presendationId]);
             }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _moveController.CanJump = true;
+                _moveController.CanMove = true;
+                AudioListener.volume = 1;
+                _camera.gameObject.SetActive(false);
+                Invoke("Deactivate", 0.2f);
+            }
+        }
+
+        private void Deactivate()
+        {
+            _isActive = false;
+        }
+
+        private void Activate()
+        {
+            _isActive = true;
         }
     }
 }
