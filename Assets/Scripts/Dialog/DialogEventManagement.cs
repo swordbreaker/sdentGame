@@ -65,7 +65,7 @@ public class DialogEventManagement : MonoBehaviour {
 		{	
 			bool imageGoalReached, audioGoalReached;
 			_deepSleepEndingImage.color = _deepSleepLerp.CurrentValue (out imageGoalReached);
-			Debug.Log (_deepSleepEndingImage.color);
+			Debug.Log (AudioListener.volume);
 			AudioListener.volume = _globalSoundLerp.CurrentValue (out audioGoalReached);
 			if (imageGoalReached && audioGoalReached) 
 			{
@@ -200,8 +200,8 @@ public class DialogEventManagement : MonoBehaviour {
 
 	public void DeepSleepEnding() 
 	{
-		_deepSleepLerp = new LerpHelper<Color> (_deepSleepEndingImage.color, Color.black, 2, false);
-		_globalSoundLerp = new LerpHelper<float> (AudioListener.volume, 0, 4, false);
+		_deepSleepLerp = new LerpHelper<Color> (_deepSleepEndingImage.color, Color.black, 5, false);
+		_globalSoundLerp = new LerpHelper<float> (AudioListener.volume, 0, 9, false);
 	}
 
 }

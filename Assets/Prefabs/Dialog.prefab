@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 114507483520284128}
   - component: {fileID: 114777720273555040}
   - component: {fileID: 114425859086563690}
+  - component: {fileID: 114022646922266424}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -640,6 +641,31 @@ MonoBehaviour:
   targetObject: {fileID: 1952306719512844}
   methodName: EnablePlayerMovement
   delay: 0
+--- !u!114 &114022646922266424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 219
+  indentLevel: 1
+  storyText: Gehen Sie nun schlafen.
+  description: 
+  character: {fileID: 114833657202347166}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 99fa7d76d708d4ec1936d5a60df701d7, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!114 &114037727286422374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3172,7 +3198,7 @@ MonoBehaviour:
   description: 
   character: {fileID: 114833657202347166}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 8300000, guid: 99fa7d76d708d4ec1936d5a60df701d7, type: 3}
+  voiceOverClip: {fileID: 8300000, guid: 777dbeb6307294f3c85247d3d5ec9f27, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
@@ -4058,8 +4084,7 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 114900689890990916}
+  selectedBlocks: []
   selectedCommands: []
   variables:
   - {fileID: 114978007602951696}
@@ -4104,8 +4129,9 @@ MonoBehaviour:
   - {fileID: 114399124469746888}
   - {fileID: 114425859086563690}
   - {fileID: 114640821125229264}
-  - {fileID: 114517830660180876}
   - {fileID: 114292784610372346}
+  - {fileID: 114517830660180876}
+  - {fileID: 114022646922266424}
   - {fileID: 114402354715004968}
   - {fileID: 114655569927268742}
   - {fileID: 114813077445382520}
