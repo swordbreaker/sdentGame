@@ -18,7 +18,7 @@ namespace Assets.Scripts.Console.Parameters
             return float.TryParse(s, out tmp);
         };
 
-        public NumericParameter(string name, Func<string, T> parser, bool optional) : base(name, parser, CanParsePredicate, optional: optional)
+        public NumericParameter(string name, Func<string, T> parser, bool optional) : base(name, s => parser(s), CanParsePredicate, optional: optional)
         {
             ValidationPredicate = s =>
             {

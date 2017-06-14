@@ -1,34 +1,60 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using Assets.Scripts.Console;
-using UnityEngine;
+using System.Reflection;
+using Assets.Scripts.Console.Parameters;
 
-public class ClassAnalyzer : MonoBehaviour {
-
-	// Use this for initialization
-	void Start ()
+namespace Assets.Scripts.Console
+{
+    public static class ClassAnalyzer
     {
-	    PrintPublicMethods(typeof(DialogEventManagement));   
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
-    private void PrintPublicMethods(Type t)
-    {
-        foreach (var methodInfo in t.GetMethods())
+        private static Dictionary<Type, Type> _defaultParameters = new Dictionary<Type, Type>()
         {
-            if (methodInfo.GetCustomAttributes(true).Any(o => o.GetType() == typeof(ConsoleCommandAttribute)))
+            {typeof(float), typeof(FloatParameter) },
+            {typeof(double), typeof(DoubleParameter) },
+            {typeof(string), typeof(StringParameter) }
+        };
+
+        public static List<IConsoleCommand> GetCommands(Type t, object obj)
+        {
+            var className = t.Name;
+            var commands = new List<IConsoleCommand>();
+
+            foreach (var methodInfo in t.GetMethods())
             {
-                print(methodInfo.Name);
-                foreach (var parameterInfo in methodInfo.GetParameters())
+                if (methodInfo.GetCustomAttributes(true).Any(o => o.GetType() == typeof(ConsoleCommandAttribute)))
                 {
-                    print(parameterInfo.Name);
+                    var commandName = className + "." + methodInfo.Name;
+                    var parameters = methodInfo.GetParameters().Select(ConstructParameter).ToList();
+
+                    var mInfo = methodInfo;
+                    commands.Add(new ConsoleCommand(commandName, arguments => mInfo.Invoke(obj, arguments), parameters.ToArray()));
                 }
             }
+
+            return commands;
+        }
+
+        private static IParameter ConstructParameter(ParameterInfo pInfo)
+        {
+            var t = _defaultParameters[pInfo.ParameterType];
+            var o = t.Assembly.CreateInstance
+            (
+                typeName: t.FullName,
+                ignoreCase: true,
+                bindingAttr: BindingFlags.ExactBinding,
+                binder: null,
+                args: new object[]
+                {
+                    pInfo.Name,
+                    pInfo.IsOptional
+                },
+                culture: CultureInfo.CurrentCulture,
+                activationAttributes: null
+            );
+
+            return (IParameter) o;
         }
     }
 }

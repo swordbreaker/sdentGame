@@ -11,7 +11,6 @@ namespace Assets.Scripts.Console.Parameters
 
         public override void Validate(string value)
         {
-            return;
         }
 
         public override Type GetParamType()

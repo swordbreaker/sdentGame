@@ -7,16 +7,30 @@ using Assets.Scripts.Console.Parameters;
 
 namespace Assets.Scripts.Console
 {
-    public class ConsoleCommand
+    public class ConsoleCommand : IConsoleCommand
     {
-        public delegate object ConsoleAction(params object[] arguments);
+        public delegate void ConsoleAction(object[] arguments);
         
-        public ConsoleAction Action { get; set; }
-        public string CommandName { get; set; }
-        public IParameter[] Parameters { get; set; }
+        public ConsoleAction Action { get; private set; }
+        public string CommandName { get; private set; }
+        public IParameter[] Parameters { get; private set; }
+
+        public ConsoleCommand(string name, ConsoleAction action)
+        {
+            CommandName = name;
+            Action = action;
+            Parameters = new IParameter[0];
+        }
+
+        public ConsoleCommand(string name, ConsoleAction action, IParameter[] parameters) : this(name, action)
+        {
+            Parameters = parameters;
+        }
 
         public void Execute(params string[] arguments)
         {
+            if(arguments == null) arguments = new string[0];
+
             if (arguments.Length > Parameters.Length)
             {
                 throw new CommandException("To many Arguments for this command", this);
@@ -28,12 +42,16 @@ namespace Assets.Scripts.Console
             {
                 args.Add(Parameters[i].Parse(arguments[i]));
             }
-            if (Parameters.Skip(arguments.Length).Any(parameter => !parameter.Optional))
+
+            foreach (var parameter in Parameters.Skip(arguments.Length))
             {
-                //TODO params required 
+                if (!parameter.Optional)
+                {
+                    throw new CommandException(string.Format("Parameter {0} is required", parameter.Name), this);
+                }
             }
 
-            Action.Invoke(args);
+            Action.Invoke(args.ToArray());
         }
     }
 }

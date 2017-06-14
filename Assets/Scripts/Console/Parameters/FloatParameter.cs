@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using Assets.Scripts.Console.Exceptions;
-
-namespace Assets.Scripts.Console.Parameters
+﻿namespace Assets.Scripts.Console.Parameters
 {
     public class FloatParameter : NumericParameter<float>
     {

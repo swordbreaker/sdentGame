@@ -9,6 +9,7 @@ namespace Assets.Scripts.Console.Parameters
     public interface IParameter
     {
         bool Optional { get; }
+        string Name { get; }
 
         bool CanParse(string value);
 
