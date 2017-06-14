@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Movement;
 using System.Linq;
+using Assets.Scripts.Console;
 using Fungus;
 using UnityEngine.UI;
 using Assets.Scripts.Helpers;
@@ -74,7 +75,8 @@ public class DialogEventManagement : MonoBehaviour {
 		}
 	}
 
-	public void AddEndingDeepSleepPossibility() 
+    [ConsoleCommand]
+	public void AddEndingDeepSleepPossibility()
 	{
 		_playerBed.GetComponent<FungusTriggerInteraction> ().Interactable = true;
 	}
