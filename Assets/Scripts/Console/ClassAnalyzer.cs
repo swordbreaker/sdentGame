@@ -9,28 +9,43 @@ namespace Assets.Scripts.Console
 {
     public static class ClassAnalyzer
     {
-        private static Dictionary<Type, Type> _defaultParameters = new Dictionary<Type, Type>()
+        public enum ImportType
+        {
+            All, PublicOnly, Marked
+        }
+
+        private static readonly Dictionary<Type, Type> DefaultParameters = new Dictionary<Type, Type>()
         {
             {typeof(float), typeof(FloatParameter) },
             {typeof(double), typeof(DoubleParameter) },
             {typeof(string), typeof(StringParameter) }
         };
 
-        public static List<IConsoleCommand> GetCommands(Type t, object obj)
+        public static List<IConsoleCommand> GetCommands(Type t, object obj, ImportType importType)
         {
             var className = t.Name;
             var commands = new List<IConsoleCommand>();
 
             foreach (var methodInfo in t.GetMethods())
             {
-                if (methodInfo.GetCustomAttributes(true).Any(o => o.GetType() == typeof(ConsoleCommandAttribute)))
-                {
-                    var commandName = className + "." + methodInfo.Name;
-                    var parameters = methodInfo.GetParameters().Select(ConstructParameter).ToList();
+                //Check if it is private
+                if(importType == ImportType.PublicOnly && methodInfo.IsPrivate) continue;
 
-                    var mInfo = methodInfo;
-                    commands.Add(new ConsoleCommand(commandName, arguments => mInfo.Invoke(obj, arguments), parameters.ToArray()));
-                }
+                //Check for ConsoleCommandAttribite
+                if (importType == ImportType.Marked && 
+                    methodInfo
+                    .GetCustomAttributes(true)
+                    .All(o => o.GetType() != typeof(ConsoleCommandAttribute))
+                    )
+                    continue;
+                
+                var commandName = className + "." + methodInfo.Name;
+                var parameters = methodInfo.GetParameters().Select(ConstructParameter).ToList();
+
+                var mInfo = methodInfo;
+                commands.Add(
+                    new ConsoleCommand(commandName, arguments => mInfo.Invoke(obj, arguments), parameters.ToArray())
+                    );                
             }
 
             return commands;
@@ -38,7 +53,7 @@ namespace Assets.Scripts.Console
 
         private static IParameter ConstructParameter(ParameterInfo pInfo)
         {
-            var t = _defaultParameters[pInfo.ParameterType];
+            var t = DefaultParameters[pInfo.ParameterType];
             var o = t.Assembly.CreateInstance
             (
                 typeName: t.FullName,

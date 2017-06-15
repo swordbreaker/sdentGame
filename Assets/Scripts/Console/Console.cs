@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Assets.Scripts.Console.Exceptions;
+using Assets.Scripts.Console.Parameters;
 using Sprache;
 
 namespace Assets.Scripts.Console
@@ -10,6 +11,7 @@ namespace Assets.Scripts.Console
     public class TestClass
     {
         [ConsoleCommand]
+        [ConsoleParameter("message", ParameterType = typeof(float))]
         public void PrintMe(string message)
         {
             Debug.Log(message);
@@ -96,9 +98,9 @@ namespace Assets.Scripts.Console
             
         }
 
-        public void RegisterClass<T>(object instance)
+        public void RegisterClass<T>(object instance, ClassAnalyzer.ImportType importType = ClassAnalyzer.ImportType.Marked)
         {
-            foreach (var cmd in ClassAnalyzer.GetCommands(typeof(T), instance))
+            foreach (var cmd in ClassAnalyzer.GetCommands(typeof(T), instance, importType))
             {
                 RegisterCommand(cmd);
             }
