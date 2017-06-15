@@ -1,3 +1,45 @@
+# ProBuilder 2.9.1f0
+
+## Features
+
+- New PLY model exporter.
+- OBJ export rewritten, now supports:
+	- Multiple texture maps
+	- Vertex colors (MeshLab format)
+	- Texture map offset / scale
+	- Local or world space mesh coordinates
+	- PBR maps (http://exocortex.com/blog/extending_wavefront_mtl_to_support_pbr)
+- Improve Mesh Asset export dialog and options.
+
+## Bug Fixes
+
+- Fix ProBuilder preferences sometimes not loading.
+- Fix deprecated method warnings in 2017.1 beta.
+- Fix occasionally flipped UV axis on merged faces.
+- Don't crash if ProBuilder folder has been renamed.
+
+# ProBuilder 2.9.0f3
+
+## Features
+
+- Support for saving and loading custom Material Palettes.
+- ProBuilder now able to store preferences per-project as well as globally.
+- Significantly improve performance of Weld Vertices function.
+
+## Bug Fixes
+
+- Preferences Window now renders correctly in Unity 5.6 and up.
+- Exit Bezier Shape editing when Esc is pressed.
+- Quell unnecessary errors when ProGrids interface fails to load UnityEditor assembly.
+- Fix potentially ambiguous reference to Axis enum in API examples.
+- Fix mesh leak when exporting STL files.
+
+## Changes
+
+- Move pb_Constant into ProBuilder2.Common namespace.
+- Move pb_Lightmapping class in EditorCommon namespace.
+- Improve wording of warning when shortcut preferences are reset.
+
 # ProBuilder 2.8.1f0
 
 ## Features

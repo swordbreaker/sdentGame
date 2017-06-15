@@ -1,3 +1,4 @@
+using ProBuilder2.Common;
 using UnityEditor;
 using UnityEngine;
 using ProBuilder2.EditorCommon;

@@ -12,7 +12,7 @@ namespace Assets.Scripts.Console.Parameters
     {
         public Range<T>? Range { get; private set; }
 
-        public static readonly Predicate<string> CanParsePredicate = s =>
+        private static readonly Predicate<string> CanParsePredicate = s =>
         {
             float tmp;
             return float.TryParse(s, out tmp);
