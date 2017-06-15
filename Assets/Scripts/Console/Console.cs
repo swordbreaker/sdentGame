@@ -26,6 +26,12 @@ namespace Assets.Scripts.Console
         {
             Debug.Log("pong");
         }
+
+        [ConsoleCommand]
+        public static void StaticTest()
+        {
+            Debug.Log("static");
+        }
     }
 
     public class Console
@@ -35,6 +41,17 @@ namespace Assets.Scripts.Console
 
         private static Console _instance;
         public readonly ConsoleHistoryManager HistoryManager = new ConsoleHistoryManager();
+
+        private readonly Color _infoColor = Color.black;
+        private readonly Color _warningColor = Color.yellow;
+        private readonly Color _errorColor = Color.red;
+
+        private enum LogType
+        {
+            Info,
+            Warning,
+            Error
+        }
 
         public class ConsoleLogEventArgs : EventArgs
         {
@@ -81,7 +98,6 @@ namespace Assets.Scripts.Console
 
         public void RegisterClass<T>(object instance)
         {
-            var commands = ClassAnalyzer.GetCommands(typeof(T), instance);
             foreach (var cmd in ClassAnalyzer.GetCommands(typeof(T), instance))
             {
                 RegisterCommand(cmd);
@@ -112,7 +128,7 @@ namespace Assets.Scripts.Console
 
             var argumentWithoutQuoatParser =
                 from first in Parse.WhiteSpace.Many()
-                from argumen in Parse.LetterOrDigit.Many()
+                from argumen in Parse.LetterOrDigit.Many().Or(Parse.Char('?').Once())
                 select new string(argumen.ToArray());
 
             var argumentParser = argumenWithQuoatParser.Or(argumentWithoutQuoatParser);
@@ -134,22 +150,32 @@ namespace Assets.Scripts.Console
                 {
                     try
                     {
-                        _registeredCommands[cmd].Execute(tuple.V2.ToArray());
-                        Log("Command executed");
+                        if (string.Equals(tuple.V2.FirstOrDefault(), "?", StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            Log(_registeredCommands[cmd].GetCommandSyntax());
+                        }
+                        else
+                        {
+                            _registeredCommands[cmd].Execute(tuple.V2.ToArray());
+                            if (_registeredCommands[cmd].ReturnMessage != null)
+                            {
+                                Log(_registeredCommands[cmd].ReturnMessage);
+                            }
+                        }
                     }
                     catch (ConsoleException e)
                     {
-                        Log(e.Message);
+                        Log(e.Message, LogType.Error);
                     }
                 }
                 else
                 {
-                    Log("Command not found");
+                    Log("Command not found", LogType.Error);
                 }
             }
             else
             {
-                Log("Cannot parse your comment");
+                Log("Cannot parse your comment", LogType.Error);
             }
 
         }
@@ -167,9 +193,29 @@ namespace Assets.Scripts.Console
             }
         }
 
-        private void Log(string msg)
+        private void Log(string msg, LogType logType = LogType.Info)
         {
-            if (OnLog != null) OnLog(this, new ConsoleLogEventArgs(msg));
+            if (OnLog != null)
+            {
+                var color = "";
+                switch (logType)
+                {
+                    case LogType.Info:
+                        
+                        color = string.Format("<color=#{0}>", ColorUtility.ToHtmlStringRGBA(_infoColor));
+                        break;
+                    case LogType.Warning:
+                        color = string.Format("<color=#{0}>", ColorUtility.ToHtmlStringRGBA(_warningColor));
+                        break;
+                    case LogType.Error:
+                        color = string.Format("<color=#{0}>", ColorUtility.ToHtmlStringRGBA(_errorColor));
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException("logType", logType, null);
+                }
+
+                OnLog(this, new ConsoleLogEventArgs(color + msg + "</color>"));
+            }
         }
     }
 }

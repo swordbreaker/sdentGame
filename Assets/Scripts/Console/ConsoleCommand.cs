@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using Assets.Scripts.Console.Exceptions;
 using Assets.Scripts.Console.Parameters;
@@ -14,17 +15,30 @@ namespace Assets.Scripts.Console
         public ConsoleAction Action { get; private set; }
         public string CommandName { get; private set; }
         public IParameter[] Parameters { get; private set; }
+        public string ReturnMessage { get; set; }
 
         public ConsoleCommand(string name, ConsoleAction action)
         {
             CommandName = name;
             Action = action;
             Parameters = new IParameter[0];
+            ReturnMessage = "Command executed";
         }
 
         public ConsoleCommand(string name, ConsoleAction action, IParameter[] parameters) : this(name, action)
         {
             Parameters = parameters;
+            ReturnMessage = "Command executed";
+        }
+
+        public ConsoleCommand(string name, ConsoleAction action, string returnMessage) : this(name, action)
+        {
+            ReturnMessage = returnMessage;
+        }
+
+        public ConsoleCommand(string name, ConsoleAction action, IParameter[] parameters, string returnMessage) : this(name, action, parameters)
+        {
+            ReturnMessage = returnMessage;
         }
 
         public void Execute(params string[] arguments)
@@ -47,11 +61,24 @@ namespace Assets.Scripts.Console
             {
                 if (!parameter.Optional)
                 {
-                    throw new CommandException(string.Format("Parameter {0} is required", parameter.Name), this);
+                    throw new CommandException(string.Format("Parameter {0} is required: {1}", parameter.Name, GetCommandSyntax()), this);
                 }
             }
 
             Action.Invoke(args.ToArray());
+        }
+
+        public string GetCommandSyntax()
+        {
+            var sb = new StringBuilder();
+            sb.Append(CommandName);
+
+            foreach (var parameter in Parameters)
+            {
+                sb.Append(string.Format(" {0}:{1}", parameter.GetParamType().Name, parameter.Name));
+            }
+
+            return sb.ToString();
         }
     }
 }

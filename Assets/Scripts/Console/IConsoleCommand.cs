@@ -8,6 +8,9 @@ namespace Assets.Scripts.Console
     public interface IConsoleCommand
     {
         string CommandName { get;}
+        string ReturnMessage { get; set; }
         void Execute(params string[] arguments);
+        string GetCommandSyntax();
+
     }
 }

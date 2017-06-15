@@ -19,6 +19,7 @@ namespace Assets.Scripts.Console
         {
             Console.Instance.RegisterCommand(new ConsoleCommand("help", arguments => Console.Instance.Help()));
             Console.Instance.RegisterCommand(new ConsoleCommand("test", arguments => print("test" + arguments[0] + " " + arguments[1]), new IParameter[] { new FloatParameter("par1"), new StringParameter("par2") }));
+            Console.Instance.RegisterCommand(new ConsoleCommand("cls", arguments => Clear(), ""));
             var testClass = new TestClass();
             Console.Instance.RegisterClass<TestClass>(testClass);
 
@@ -28,7 +29,7 @@ namespace Assets.Scripts.Console
 
         private void Update()
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
             {
                 Console.Instance.HistoryManager.AddToHistory(_inputField.text);
                 Console.Instance.Execute(_inputField.text);
@@ -91,6 +92,11 @@ namespace Assets.Scripts.Console
             {
                 Event.current.Use();
             }
+        }
+
+        private void Clear()
+        {
+            _textField.text = "";
         }
     }
 }
