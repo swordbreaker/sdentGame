@@ -12,30 +12,39 @@ namespace Assets.Scripts.Console.Parameters
     {
         public Range<T>? Range { get; private set; }
 
-        private static readonly Predicate<string> CanParsePredicate = s =>
+        private readonly Func<string, T> _parser;
+
+        public NumericParameter(string name, Func<string, T> parser, bool optional) : base(name, optional)
+        {
+            _parser = parser;
+        }
+
+        protected override object ParseValue(string s)
+        {
+            return _parser(s);
+        }
+
+        public override bool CanParse(string value)
         {
             float tmp;
-            return float.TryParse(s, out tmp);
-        };
+            return float.TryParse(value, out tmp);
+        }
 
-        public NumericParameter(string name, Func<string, T> parser, bool optional) : base(name, s => parser(s), CanParsePredicate, optional: optional)
+        public override bool IsValid(string value)
         {
-            ValidationPredicate = s =>
+            if (Range.HasValue)
             {
-                if (Range.HasValue)
+                if (CanParse(value))
                 {
-                    if (CanParse(s))
-                    {
-                        T f = (T)Parse(s);
-                        return Range.Value.IsInRange(f);
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    T f = (T)Parse(value, false);
+                    return Range.Value.IsInRange(f);
                 }
-                return true;
-            };
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public override void Validate(string value)
@@ -48,7 +57,7 @@ namespace Assets.Scripts.Console.Parameters
 
         public void SetRange(T from, T till)
         {
-            Range = new Range<T>(from, till, (value, range) => (value.CompareTo(range.Form) >= 0 && value.CompareTo(range.Till) < 0));
+            Range = new Range<T>(from, till, (value, range) => (value.CompareTo(range.Form) >= 0 && value.CompareTo(range.Till) <= 0));
         }
 
         public override Type GetParamType()

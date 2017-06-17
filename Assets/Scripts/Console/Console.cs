@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Console.Attributes;
 using UnityEngine;
 using Assets.Scripts.Console.Exceptions;
-using Assets.Scripts.Console.Parameters;
 using Sprache;
 
 namespace Assets.Scripts.Console
@@ -11,7 +11,6 @@ namespace Assets.Scripts.Console
     public class TestClass
     {
         [ConsoleCommand]
-        [ConsoleParameter("message", ParameterType = typeof(float))]
         public void PrintMe(string message)
         {
             Debug.Log(message);
@@ -34,12 +33,36 @@ namespace Assets.Scripts.Console
         {
             Debug.Log("static");
         }
+
+        [ConsoleCommand]
+        public void Vector2Test(Vector2 v2)
+        {
+            Debug.Log(v2);
+        }
+
+        [ConsoleCommand]
+        public void Vector3Test(Vector3 v3)
+        {
+            Debug.Log(v3);
+        }
+
+        [ConsoleCommand]
+        public void RangeTest([ConsoleNumericParameter(0f, 1f, ParameterName = "other Name")]float r)
+        {
+            
+        }
+
+        [ConsoleCommand(Name = "Hambbe", Global = true)]
+        public void ColorTest(Color c)
+        {
+            Debug.Log(c);
+        }
     }
 
     public class Console
     {
         private readonly Dictionary<string, IConsoleCommand> _registeredCommands = new Dictionary<string, IConsoleCommand>();
-        private readonly HashSet<string> _autocompleteSet = new HashSet<string>();
+        private readonly AutoCompleteManger _autoCompleteManger = new AutoCompleteManger();
 
         private static Console _instance;
         public readonly ConsoleHistoryManager HistoryManager = new ConsoleHistoryManager();
@@ -47,8 +70,27 @@ namespace Assets.Scripts.Console
         private readonly Color _infoColor = Color.black;
         private readonly Color _warningColor = Color.yellow;
         private readonly Color _errorColor = Color.red;
+        private bool _isAcitve;
 
-        private enum LogType
+
+        public bool IsAcitve
+        {
+            get { return _isAcitve; }
+            set
+            {
+                _isAcitve = value;
+                if(_isAcitve)
+                {
+                    if (OnActivate != null) OnActivate.Invoke(this, EventArgs.Empty);
+                }
+                else
+                {
+                    if (OnDeActivate != null) OnDeActivate.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        public enum LogType
         {
             Info,
             Warning,
@@ -66,6 +108,8 @@ namespace Assets.Scripts.Console
         }
 
         public event EventHandler<ConsoleLogEventArgs> OnLog;
+        public event EventHandler OnActivate;
+        public event EventHandler OnDeActivate;
 
         public static Console Instance
         {
@@ -85,15 +129,11 @@ namespace Assets.Scripts.Console
             var s = command.CommandName.Split('.');
             if (s.Length > 1)
             {
-                if (!_autocompleteSet.Contains(s[0] + "."))
-                {
-                    _autocompleteSet.Add(s[0] + ".");
-                }
-                _autocompleteSet.Add(s[1]);
+                _autoCompleteManger.Add(s[0] + ".", s[1]);
             }
             else
             {
-                _autocompleteSet.Add(command.CommandName);
+                _autoCompleteManger.Add(command.CommandName);
             }
             
         }
@@ -128,14 +168,22 @@ namespace Assets.Scripts.Console
                 from bb in Parse.AnyChar.Until(Parse.Char('"'))
                 select new string(bb.ToArray());
 
+            var bracketsParser =
+                from leading in Parse.WhiteSpace.Many()
+                from first in Parse.Chars('(', '[', '{').Once()
+                from inner in Parse.AnyChar.Except(Parse.Chars(')', ']', '}').Once()).Many()
+                from last in Parse.Chars(')', ']', '}').Once()
+                select new string(first.Concat(inner).Concat(last).ToArray());
+
             var argumentWithoutQuoatParser =
-                from first in Parse.WhiteSpace.Many()
-                from argumen in Parse.LetterOrDigit.Many().Or(Parse.Char('?').Once())
+                from leading in Parse.WhiteSpace.Many()
+                from argumen in Parse.LetterOrDigit.Or(Parse.Char('.')).Many().Or(Parse.Char('?').Once())
                 select new string(argumen.ToArray());
 
-            var argumentParser = argumenWithQuoatParser.Or(argumentWithoutQuoatParser);
+            var argumentParser = argumenWithQuoatParser.Or(bracketsParser).Or(argumentWithoutQuoatParser);
 
             var parser = from cmd in commandParser
+                from w in Parse.WhiteSpace.Many()
                 from par in argumentParser.Many()
                 select new Tuple<string, IEnumerable<string>>(cmd, par);
 
@@ -184,7 +232,7 @@ namespace Assets.Scripts.Console
 
         public List<string> GetMatchingCommands(string pattern)
         {
-            return _autocompleteSet.Where(s => s.Contains(pattern)).ToList();
+            return _autoCompleteManger.GetAwaibleCommands(pattern).ToList();
         }
 
         public void Help()
@@ -195,7 +243,7 @@ namespace Assets.Scripts.Console
             }
         }
 
-        private void Log(string msg, LogType logType = LogType.Info)
+        public void Log(string msg, LogType logType = LogType.Info)
         {
             if (OnLog != null)
             {

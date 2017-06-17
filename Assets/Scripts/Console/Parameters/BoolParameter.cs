@@ -4,14 +4,20 @@ namespace Assets.Scripts.Console.Parameters
 {
     public class BoolParameter : Parameter
     {
-        private static readonly Predicate<string> CanParsePredicate = s =>
+ 
+        public BoolParameter(string name, bool optional = false) : base(name, optional)
+        {
+        }
+
+        protected override object ParseValue(string s)
+        {
+            return bool.Parse(s);
+        }
+
+        public override bool CanParse(string value)
         {
             bool tmp;
-            return bool.TryParse(s, out tmp);
-        };
-
-        public BoolParameter(string name, bool optional = false) : base(name, s => bool.Parse(s), CanParsePredicate, optional: optional)
-        {
+            return bool.TryParse(value, out tmp);
         }
 
         public override void Validate(string value)

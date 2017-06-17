@@ -1,136 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Assets.Scripts.Console.Attributes;
 using Assets.Scripts.Movement;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
 
 namespace Assets.Scripts
 {
     public class ConsoleCommandRouter : MonoBehaviour
     {
-        private DialogEventManagement _dialogEventManagement;
-        private ConsoleCommandsRepository _repo;
-
-        void Start()
+        private void Start()
         {
-            _dialogEventManagement = FindObjectOfType<DialogEventManagement>();
 
-            _repo = ConsoleCommandsRepository.Instance;
-            _repo.RegisterCommand("help", Help);
-            _repo.RegisterCommand("timeScale", TimeScale);
-            _repo.RegisterCommand("openDoors", OpenDoors);
-            _repo.RegisterCommand("repairEngine", RepairEngine);
-            _repo.RegisterCommand("movementSpeed", MovementSpeed);
-            _repo.RegisterCommand("movementSpeed", MovementSpeed);
-            _repo.RegisterCommand("beginSlaughter", BeginSlaughter);
-            _repo.RegisterCommand("broadcastFungus", BroadcastFungus);
-            _repo.RegisterCommand("goto", Goto);
+            //_repo = ConsoleCommandsRepository.Instance;
+            //_repo.RegisterCommand("help", Help);
+            //_repo.RegisterCommand("timeScale", TimeScale);
+            //_repo.RegisterCommand("openDoors", OpenDoors);
+            //_repo.RegisterCommand("repairEngine", RepairEngine);
+            //_repo.RegisterCommand("movementSpeed", MovementSpeed);
+            //_repo.RegisterCommand("movementSpeed", MovementSpeed);
+            //_repo.RegisterCommand("beginSlaughter", BeginSlaughter);
+            //_repo.RegisterCommand("broadcastFungus", BroadcastFungus);
+            //_repo.RegisterCommand("goto", Goto);
+
+            Console.Console.Instance.RegisterClass<ConsoleCommandRouter>(this);
         }
 
-        public string Help(params string[] args)
-        {
-            var sb = new StringBuilder();
-            _repo.Repository.ForEach(pair => sb.Append(pair.Key + "\n\r"));
+        //public string Help()
+        //{
+        //    var sb = new StringBuilder();
+        //    _repo.Repository.ForEach(pair => sb.Append(pair.Key + "\n\r"));
 
-            return sb.ToString();
+        //    return sb.ToString();
+        //}
+
+        [ConsoleCommand(Global = true)]
+        public void TimeScale(float timeScale)
+        {
+            Time.timeScale = timeScale;
         }
 
-        public string TimeScale(params string[] args)
-        {
-            if (args.Length < 1)
-            {
-                return "usage timeScale [float]";
-            }
-            var scale = args[0];
-            float timeScale = 0f;
-            if (float.TryParse(scale, out timeScale))
-            {
-                Time.timeScale = timeScale;
-                return "Set Timescale to " + timeScale;
-            }
-            else
-            {
-                return "Cannot parse " + args[0] + " to a number";
-            }
-        }
-
-        public string OpenDoors(params string[] args)
+        [ConsoleCommand(Global = true)]
+        public void OpenDoors()
         {
             foreach (var door in FindObjectsOfType<Door>())
             {
                 door.IsOpen = true;
             }
-
-            return "All doors are open";
         }
 
-        public string RepairEngine(params string[] args)
+        [ConsoleCommand(Global = true)]
+        public void RepairEngine()
         {
             for (int i = 0; i < 4; i++)
             {
                 Fungus.Flowchart.BroadcastFungusMessage("Engineroom_Repair");
             }
-
-            return "Engine repaired";
         }
 
-        public string MovementSpeed(params string[] args)
+        [ConsoleCommand(Global = true)]
+        public void MovementSpeed(float movementSpeed)
         {
-            if (args.Length < 1)
-            {
-                return "usage movementSpeed [float]";
-            }
-
-            var speed = args[0];
-            float speedF = 0f;
-            if (float.TryParse(speed, out speedF))
-            {
-                FindObjectOfType<MoveController>().Speed = speedF;
-                return "Set movement speed to " + speedF;
-            }
-            else
-            {
-                return "Cannot parse " + args[0] + " to a number";
-            }
+            FindObjectOfType<MoveController>().Speed = movementSpeed;
         }
 
-        public string BeginSlaughter(params string[] args)
+        [ConsoleCommand(Global = true)]
+        public void BeginSlaughter()
         {
             Fungus.Flowchart.BroadcastFungusMessage("Engineroom_Exit");
-            return "May the Slaughter begin";
         }
 
-        public string BroadcastFungus(params string[] args)
+        [ConsoleCommand(Global = true)]
+        public void BroadcastFungus(string message)
         {
-            if (args.Length < 1)
-            {
-                return "usage broadcastFungus [string]";
-            }
-
-            Fungus.Flowchart.BroadcastFungusMessage(args[0]);
-            return "Fungus message broadcasted";
+            Fungus.Flowchart.BroadcastFungusMessage(message);
         }
 
-        public string Goto(params string[] args)
+        [ConsoleCommand(Global = true)]
+        public void Goto(Vector3 pos)
         {
-            if (args.Length < 3)
-            {
-                return "usage goto x y z";
-            }
-
-            float x, y, z;
-
-            if (float.TryParse(args[0], out x) && float.TryParse(args[1], out y) && float.TryParse(args[2], out z))
-            {
-                FindObjectOfType<MoveController>().transform.position = new Vector3(x, y, z);
-                return "Player moved to position " + x + " " + y + " " + z;
-            }
-            else
-            {
-                return "Cannot parse coordinate to a number";
-            } 
+            FindObjectOfType<MoveController>().transform.position = pos;
         }
     }
 }

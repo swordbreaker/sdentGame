@@ -9,7 +9,7 @@ namespace Assets.Scripts.Console
     public class ConsoleCommand : IConsoleCommand
     {
         public delegate void ConsoleAction(object[] arguments);
-        
+
         public ConsoleAction Action { get; private set; }
         public string CommandName { get; private set; }
         public IParameter[] Parameters { get; private set; }
@@ -73,7 +73,8 @@ namespace Assets.Scripts.Console
 
             foreach (var parameter in Parameters)
             {
-                sb.Append(string.Format(" {0}:{1}", parameter.GetParamType().Name, parameter.Name));
+                sb.Append(" ");
+                sb.Append(parameter.GetSyntax());
             }
 
             return sb.ToString();

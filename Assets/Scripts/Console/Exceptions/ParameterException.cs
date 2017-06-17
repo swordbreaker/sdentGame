@@ -4,7 +4,7 @@ using Assets.Scripts.Console.Parameters;
 
 namespace Assets.Scripts.Console.Exceptions
 {
-    public class ParameterException : Exception
+    public class ParameterException : ConsoleException
     {
         public IParameter Parameter { get; set; }
 

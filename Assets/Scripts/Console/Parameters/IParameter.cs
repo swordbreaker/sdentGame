@@ -13,8 +13,9 @@ namespace Assets.Scripts.Console.Parameters
 
         bool IsValid(string value);
 
-        object Parse(string value);
+        object Parse(string value, bool validate = true);
 
         Type GetParamType();
+        string GetSyntax();
     }
 }

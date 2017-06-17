@@ -4,14 +4,20 @@ namespace Assets.Scripts.Console.Parameters
 {
     public class CharParameter : Parameter
     {
-        private static readonly Predicate<string> CanParsePredicate = s =>
+
+        public CharParameter(string name, bool optional = false) : base(name, optional)
+        {
+        }
+
+        protected override object ParseValue(string s)
+        {
+            return char.Parse(s);
+        }
+
+        public override bool CanParse(string value)
         {
             char tmp;
-            return char.TryParse(s, out tmp);
-        };
-
-        public CharParameter(string name, bool optional = false) : base(name, s => char.Parse(s), CanParsePredicate, optional: optional)
-        {
+            return char.TryParse(value, out tmp);
         }
 
         public override void Validate(string value)

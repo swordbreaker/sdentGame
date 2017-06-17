@@ -80,6 +80,18 @@ namespace Assets.Scripts.Movement
             _audioSource = GetComponent<AudioSource>();
             MouseLook.Init(transform, FpsCamera);
             _nextStep = _stepCycle / 2f;
+
+            Console.Console.Instance.OnActivate += (sender, args) =>
+            {
+                MouseLook.SetCursorLock(false);
+                CanMove = false;
+            };
+
+            Console.Console.Instance.OnDeActivate += (sender, args) =>
+            {
+                MouseLook.SetCursorLock(true);
+                CanMove = true;
+            };
         }
 
         private void Update()

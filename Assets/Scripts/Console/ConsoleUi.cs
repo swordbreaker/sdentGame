@@ -1,19 +1,27 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using Assets.Scripts.Console.Parameters;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Console
 {
     public class ConsoleUi : MonoBehaviour
     {
+        [SerializeField] private GameObject _consolePanel;
         [SerializeField] private InputField _inputField;
         [SerializeField] private Text _textField;
         [SerializeField] private RectTransform _contentField;
         [SerializeField] private ScrollRect _scrollRect;
 
+        private RectTransform _panelRectTransform;
         private float _startHeight;
         private bool _lockTab;
+        private bool _isActive;
+        private float _panelHeight;
+        private Vector3 _activePos;
+        private Vector3 _inActivePos;
 
         private void Start()
         {
@@ -21,31 +29,93 @@ namespace Assets.Scripts.Console
             Console.Instance.RegisterCommand(new ConsoleCommand("test", arguments => print("test" + arguments[0] + " " + arguments[1]), new IParameter[] { new FloatParameter("par1"), new StringParameter("par2") }));
             Console.Instance.RegisterCommand(new ConsoleCommand("cls", arguments => Clear(), ""));
             var testClass = new TestClass();
-            Console.Instance.RegisterClass<TestClass>(testClass);
+            Console.Instance.RegisterClass<TestClass>(testClass, ClassAnalyzer.ImportType.PublicOnly);
 
             _startHeight = _contentField.rect.height;
             Console.Instance.OnLog += (sender, args) => Log(args.Message);
+
+            _isActive = false;
+            _panelRectTransform = _consolePanel.GetComponent<RectTransform>();
+            _activePos = _panelRectTransform.position;
+            _panelHeight = _panelRectTransform.rect.height;
+            _inActivePos = new Vector3(_panelRectTransform.position.x, _panelRectTransform.position.y + _panelHeight, _panelRectTransform.position.z);
+            _panelRectTransform.position = _inActivePos;
+            _consolePanel.SetActive(false);
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
+            if (_isActive)
             {
-                Console.Instance.HistoryManager.AddToHistory(_inputField.text);
-                Console.Instance.Execute(_inputField.text);
-                _inputField.text = "";
-            }
+                if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
+                {
+                    Console.Instance.HistoryManager.AddToHistory(_inputField.text);
+                    Console.Instance.Execute(_inputField.text);
+                    _inputField.text = "";
+                }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                _inputField.text = Console.Instance.HistoryManager.Up();
-                _inputField.MoveTextEnd(false);
-            }
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    _inputField.text = Console.Instance.HistoryManager.Up();
+                    _inputField.MoveTextEnd(false);
+                }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    _inputField.text = Console.Instance.HistoryManager.Down();
+                    _inputField.MoveTextEnd(false);
+                }
+
+                if (Input.GetKeyDown(KeyCode.F6))
+                {
+                    StartCoroutine(Deactivate());
+                }
+            }
+            else
             {
-                _inputField.text = Console.Instance.HistoryManager.Down();
-                _inputField.MoveTextEnd(false);
+                if (Input.GetKeyDown(KeyCode.F6))
+                {
+                    StartCoroutine(Acitvate());
+                }
+            }
+        }
+
+        private IEnumerator Acitvate()
+        {
+            if (!_isActive)
+            {
+                _isActive = true;
+                Console.Instance.IsAcitve = true;
+                _consolePanel.SetActive(true);
+                //Animate Panel appearance
+                yield return StartCoroutine(Move(_panelRectTransform, _activePos, 0.5f));
+                EventSystem.current.SetSelectedGameObject(_inputField.gameObject, null);
+            }
+        }
+
+        private IEnumerator Deactivate()
+        {
+            if (_isActive)
+            {
+                _isActive = false;
+                Console.Instance.IsAcitve = false;
+                //Animate Panel appearance
+                yield return StartCoroutine(Move(_panelRectTransform, _inActivePos, 0.5f));
+                _consolePanel.SetActive(false);
+            }
+        }
+
+        private IEnumerator Move(Transform transform, Vector3 to, float travelTime)
+        {
+            var startTime = Time.time;
+            var startPos = transform.position;
+
+            var t = 0f;
+            while (t < 1f)
+            {
+                t = (Time.time - startTime) / travelTime;
+                transform.position = Vector3.Lerp(startPos, to, t);
+                yield return new WaitForEndOfFrame();
             }
         }
 
@@ -68,6 +138,7 @@ namespace Assets.Scripts.Console
 
         private void OnGUI()
         {
+            if(!_isActive) return;
             if (_lockTab && Event.current.type == EventType.KeyUp) _lockTab = false;
 
             if ((Event.current.keyCode == KeyCode.Tab || Event.current.character == '\t') && Event.current.type == EventType.KeyDown && !_lockTab)
@@ -85,6 +156,7 @@ namespace Assets.Scripts.Console
                     {
                         Log(cmd);
                     }
+                    Log(" ");
                 }
             }
 
@@ -97,6 +169,7 @@ namespace Assets.Scripts.Console
         private void Clear()
         {
             _textField.text = "";
+            _contentField.sizeDelta = new Vector2(_contentField.sizeDelta.x, _startHeight);
         }
     }
 }

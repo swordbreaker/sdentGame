@@ -8,43 +8,47 @@ namespace Assets.Scripts.Console.Parameters
         public string Name { get; private set; }
         public bool Optional { get; private set; }
 
-        private Func<string, object> _parser;
-        private Predicate<string> _canParsePredicate;
-        protected Predicate<string> ValidationPredicate;
-
-        private static readonly Predicate<string> DefaultValidationPredicate = s => true;
-
-        public Parameter(string name, Func<string, object> parser, Predicate<string> canParsePredicate, Predicate<string> validationPredicate = null, bool optional = false)
+       
+        public Parameter(string name, bool optional = false)
         {
-            _parser = parser;
-            _canParsePredicate = canParsePredicate;
-            ValidationPredicate = (validationPredicate == null) ? DefaultValidationPredicate : validationPredicate;
             Name = name;
             Optional = optional;
         }
 
-        public object Parse(string value)
+        protected abstract object ParseValue(string s);
+
+        public object Parse(string value, bool validate = true)
         {
-            Validate(value);
+            if (validate) Validate(value);
             if (CanParse(value))
             {
-                return _parser(value);
+                return ParseValue(value);
             }
-            throw new ParameterException(string.Format("Cannot parse {0} to type {1}", value, this.GetParamType().Name), this);
+            throw new ParameterException(string.Format("Cannot parse {0} to type {1}", value, this.GetParamType().Name),
+                this);
         }
 
-        public bool CanParse(string value)
+        public abstract bool CanParse(string value);
+
+        public virtual bool IsValid(string value)
         {
-            return _canParsePredicate(value);
+            return true;
         }
 
-        public bool IsValid(string value)
+        public virtual void Validate(string value)
         {
-            return ValidationPredicate(value);
+            if (!IsValid(value))
+            {
+                throw new ParameterException(string.Format("Validation error on parameter {0}", Name), this);
+            }
         }
-
-        public abstract void Validate(string value);
 
         public abstract Type GetParamType();
+
+        public virtual string GetSyntax()
+        {
+            return
+                string.Format("{0}:{1}", GetParamType().Name, Name);
+        }
     }
 }
