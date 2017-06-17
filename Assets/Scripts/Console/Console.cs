@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Assets.Scripts.Console.Attributes;
 using UnityEngine;
 using Assets.Scripts.Console.Exceptions;
+using Assets.Scripts.Console.Parameters;
 using Sprache;
 
 namespace Assets.Scripts.Console
@@ -57,6 +59,18 @@ namespace Assets.Scripts.Console
         {
             Debug.Log(c);
         }
+
+        [ConsoleCommand]
+        public void ListTest(int[] a)
+        {
+            var sb = new StringBuilder();
+            foreach (var i in a)
+            {
+                sb.Append(i + ",");
+            }
+            Debug.Log(sb.ToString());
+        }
+
     }
 
     public class Console
@@ -72,6 +86,44 @@ namespace Assets.Scripts.Console
         private readonly Color _errorColor = Color.red;
         private bool _isAcitve;
 
+
+        public static readonly Dictionary<Type, Type> DefaultParameters = new Dictionary<Type, Type>()
+        {
+            {typeof(bool), typeof(BoolParameter) },
+            {typeof(byte), typeof(ByteParamter) },
+            {typeof(char), typeof(CharParameter) },
+            {typeof(decimal), typeof(DecimalParameter) },
+            {typeof(double), typeof(DoubleParameter) },
+            {typeof(float), typeof(FloatParameter) },
+            {typeof(long), typeof(LongParameter) },
+            {typeof(sbyte), typeof(SbyteParameter) },
+            {typeof(short), typeof(ShortParameter) },
+            {typeof(uint), typeof(UintParameter) },
+            {typeof(int), typeof(IntParameter) },
+            {typeof(ulong), typeof(UlongParameter) },
+            {typeof(ushort), typeof(UshortParameter) },
+            {typeof(string), typeof(StringParameter) },
+            {typeof(Vector2), typeof(Vectro2Parameter) },
+            {typeof(Vector3), typeof(Vector3Parameter) },
+            {typeof(Color), typeof(ColorParameter) },
+            {typeof(bool[]), typeof(ArrayParameter<bool>) },
+            {typeof(byte[]), typeof(ArrayParameter<byte>) },
+            {typeof(char[]), typeof(ArrayParameter<char>) },
+            {typeof(decimal[]), typeof(ArrayParameter<decimal>) },
+            {typeof(double[]), typeof(ArrayParameter<double>) },
+            {typeof(float[]), typeof(ArrayParameter<float>) },
+            {typeof(long[]), typeof(ArrayParameter<long>) },
+            {typeof(sbyte[]), typeof(ArrayParameter<sbyte>) },
+            {typeof(short[]), typeof(ArrayParameter<short>) },
+            {typeof(uint[]), typeof(ArrayParameter<uint>) },
+            {typeof(int[]), typeof(ArrayParameter<int>) },
+            {typeof(ulong[]), typeof(ArrayParameter<ulong>) },
+            {typeof(ushort[]), typeof(ArrayParameter<ushort>) },
+            {typeof(string[]), typeof(ArrayParameter<string>) },
+            {typeof(Vector2[]), typeof(ArrayParameter<Vector2>) },
+            {typeof(Vector3[]), typeof(ArrayParameter<Vector3>) },
+            {typeof(Color[]), typeof(ArrayParameter<Color>) },
+        };
 
         public bool IsAcitve
         {
@@ -135,7 +187,6 @@ namespace Assets.Scripts.Console
             {
                 _autoCompleteManger.Add(command.CommandName);
             }
-            
         }
 
         public void RegisterClass<T>(object instance, ClassAnalyzer.ImportType importType = ClassAnalyzer.ImportType.Marked)

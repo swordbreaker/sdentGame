@@ -18,36 +18,17 @@ namespace Assets.Scripts.Console
             All, PublicOnly, Marked
         }
 
-        private static readonly Dictionary<Type, Type> DefaultParameters = new Dictionary<Type, Type>()
-        {
-            {typeof(bool), typeof(BoolParameter) },
-            {typeof(byte), typeof(ByteParamter) },
-            {typeof(char), typeof(CharParameter) },
-            {typeof(decimal), typeof(DecimalParameter) },
-            {typeof(double), typeof(DoubleParameter) },
-            {typeof(float), typeof(FloatParameter) },
-            {typeof(long), typeof(LongParameter) },
-            {typeof(sbyte), typeof(SbyteParameter) },
-            {typeof(short), typeof(ShortParameter) },
-            {typeof(uint), typeof(UintParameter) },
-            {typeof(ulong), typeof(UlongParameter) },
-            {typeof(ushort), typeof(UshortParameter) },
-            {typeof(string), typeof(StringParameter) },
-            {typeof(Vector2), typeof(Vectro2Parameter) },
-            {typeof(Vector3), typeof(Vector3Parameter) },
-            {typeof(Color), typeof(ColorParameter) },
-        };
-
         public static List<IConsoleCommand> GetCommands(Type t, object obj, ImportType importType)
         {
             var className = t.Name;
-            var prefix = className + ".";
             var commands = new List<IConsoleCommand>();
 
             foreach (var methodInfo in t.GetMethods())
             {
+                var prefix = className + ".";
+
                 //Filter out the object Methods
-                if(methodInfo.Name == "Equals" || methodInfo.Name == "GetHashCode" || methodInfo.Name == "GetType" || methodInfo.Name == "ToString") continue;
+                if (methodInfo.Name == "Equals" || methodInfo.Name == "GetHashCode" || methodInfo.Name == "GetType" || methodInfo.Name == "ToString") continue;
 
                 //Check if it is private
                 if (importType == ImportType.PublicOnly && methodInfo.IsPrivate) continue;
@@ -60,7 +41,11 @@ namespace Assets.Scripts.Console
                 if (attributes.Length > 0)
                 {
                     var cca = (ConsoleCommandAttribute) attributes[0];
-                    if (cca.Global) prefix = "";
+                    if (cca.Global)
+                    {
+                        Debug.Log(methodInfo.Name + " is global");
+                        prefix = "";
+                    }
                     if (!string.IsNullOrEmpty(cca.Name))
                     {
                         commandName = prefix + cca.Name;
@@ -104,26 +89,13 @@ namespace Assets.Scripts.Console
                 }
             }
 
-            if (!DefaultParameters.ContainsKey(pInfo.ParameterType))
+            if (!Console.DefaultParameters.ContainsKey(pInfo.ParameterType))
             {
                 throw new ConsoleException(string.Format("Cannot find a parameter for the type {0}", pInfo.ParameterType));
             }
-            if (t == null) t = DefaultParameters[pInfo.ParameterType];
+            if (t == null) t = Console.DefaultParameters[pInfo.ParameterType];
 
-            object o = t.Assembly.CreateInstance
-            (
-                typeName: t.FullName,
-                ignoreCase: true,
-                bindingAttr: BindingFlags.ExactBinding,
-                binder: null,
-                args: new object[]
-                {
-                    name ?? pInfo.Name,
-                    pInfo.IsOptional
-                },
-                culture: CultureInfo.CurrentCulture,
-                activationAttributes: null
-            );
+            var o = ConstructParameter(t, name ?? pInfo.Name, pInfo.IsOptional);
 
             if (cnpa != null)
             {
@@ -133,6 +105,26 @@ namespace Assets.Scripts.Console
 
                 m.Invoke(o, new[] { from, till });
             }
+
+            return (IParameter)o;
+        }
+
+        public static IParameter ConstructParameter(Type t, string name, bool optional)
+        {
+            object o = t.Assembly.CreateInstance
+            (
+                typeName: t.FullName,
+                ignoreCase: true,
+                bindingAttr: BindingFlags.ExactBinding,
+                binder: null,
+                args: new object[]
+                {
+                    name,
+                    optional
+                },
+                culture: CultureInfo.CurrentCulture,
+                activationAttributes: null
+            );
 
             return (IParameter)o;
         }
