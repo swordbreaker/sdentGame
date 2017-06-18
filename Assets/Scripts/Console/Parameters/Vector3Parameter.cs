@@ -37,7 +37,7 @@ namespace Assets.Scripts.Console.Parameters
 
         public override string GetSyntax()
         {
-            return string.Format("[x y z]:{0}", Name);
+            return string.Format("(x y z):{0}", Name);
         }
     }
 }

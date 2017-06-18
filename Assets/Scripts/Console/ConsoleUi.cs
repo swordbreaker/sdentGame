@@ -32,9 +32,9 @@ namespace Assets.Scripts.Console
         private void Start()
         {
             //Register the Help command
-            Console.Instance.RegisterCommand(new ConsoleCommand("help", arguments => Console.Instance.Help()));
+            Console.Instance.RegisterCommand(new ConsoleCommand("help", arguments => Console.Instance.Help(), returnMessage: null));
             //Register the cls command to clear the console
-            Console.Instance.RegisterCommand(new ConsoleCommand("cls", arguments => Clear(), ""));
+            Console.Instance.RegisterCommand(new ConsoleCommand("cls", arguments => Clear(), returnMessage: null));
 
             if (_useEssentialCommands)
             {
@@ -43,7 +43,7 @@ namespace Assets.Scripts.Console
             }
 
             _startHeight = _contentField.rect.height;
-            Console.Instance.OnLog += (sender, args) => Log(args.Message);
+            Console.Instance.OnLog += Log;
 
             _isActive = false;
             _panelRectTransform = _consolePanel.GetComponent<RectTransform>();
@@ -59,6 +59,7 @@ namespace Assets.Scripts.Console
             Console.Instance.DeregisterCommand("help");
             Console.Instance.DeregisterCommand("cls");
             Console.Instance.DeregisterClass<EssentialCommands>(_essentialCommands);
+            Console.Instance.OnLog -= Log;
         }
 
         private void Update()
@@ -153,6 +154,11 @@ namespace Assets.Scripts.Console
                 transform.position = Vector3.Lerp(startPos, to, t);
                 yield return new WaitForEndOfFrame();
             }
+        }
+
+        private void Log(object sender, Console.ConsoleLogEventArgs args)
+        {
+            Log(args.Message);
         }
 
         private void Log(string message)

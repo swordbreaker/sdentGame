@@ -153,6 +153,12 @@ namespace Assets.Scripts.Console
         /// <param name="command">The command.</param>
         public void RegisterCommand(IConsoleCommand command)
         {
+            if (_registeredCommands.ContainsKey(command.CommandName))
+            {
+                Debug.LogError(string.Format("Cannot register command a command whit the name {0} is already registered", command.CommandName));
+                return;
+            }
+
             _registeredCommands.Add(command.CommandName, command);
             var s = command.CommandName.Split('.');
             if (s.Length > 1)
@@ -222,9 +228,10 @@ namespace Assets.Scripts.Console
         /// </summary>
         /// <typeparam name="T">The Type of the Class</typeparam>
         /// <param name="instance">The instance of the class.</param>
-        public void DeregisterClass<T>(object instance)
+        /// <param name="importType">Use the same import type here as you used on register</param>
+        public void DeregisterClass<T>(object instance, ReflectionHelper.ImportType importType = ReflectionHelper.ImportType.Marked)
         {
-            foreach (var cmd in ReflectionHelper.GetCommands(typeof(T), instance, ReflectionHelper.ImportType.Public))
+            foreach (var cmd in ReflectionHelper.GetCommands(typeof(T), instance, importType))
             {
                 if(_registeredCommands.ContainsKey(cmd.CommandName)) DeregisterCommand(cmd.CommandName);
             }

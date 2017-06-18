@@ -231,4 +231,8 @@ public class DialogEventManagement : MonoBehaviour {
 		_globalSoundLerp = new LerpHelper<float> (AudioListener.volume, 0, 9, false);
 	}
 
+    private void OnDestroy()
+    {
+        Console.Instance.DeregisterClass<DialogEventManagement>(this);
+    }
 }

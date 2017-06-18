@@ -11,10 +11,9 @@ namespace Assets.Scripts
             Console.Console.Instance.RegisterClass<ConsoleActions>(this);
         }
 
-        [ConsoleCommand(Global = true)]
-        public void TimeScale(float timeScale)
+        private void OnDestroy()
         {
-            Time.timeScale = timeScale;
+            Console.Console.Instance.DeregisterClass<ConsoleActions>(this);
         }
 
         [ConsoleCommand(Global = true)]
@@ -53,10 +52,11 @@ namespace Assets.Scripts
             Fungus.Flowchart.BroadcastFungusMessage(message);
         }
 
-        [ConsoleCommand(Global = true)]
+        [ConsoleCommand(Global = true, ReturnMessage = null)]
         public void Goto(Vector3 pos)
         {
             FindObjectOfType<MoveController>().transform.position = pos;
+            Console.Console.Instance.Log(string.Format("Goto {0}", pos));
         }
     }
 }

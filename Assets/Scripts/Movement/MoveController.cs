@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Movement
 {
@@ -81,17 +83,27 @@ namespace Assets.Scripts.Movement
             MouseLook.Init(transform, FpsCamera);
             _nextStep = _stepCycle / 2f;
 
-            Console.Console.Instance.OnActivate += (sender, args) =>
-            {
-                MouseLook.SetCursorLock(false);
-                CanMove = false;
-            };
+            Console.Console.Instance.OnActivate += ConsoleOnOnActivate;
+            Console.Console.Instance.OnDeActivate += ConsoleOnOnDeActivate;
+        }
 
-            Console.Console.Instance.OnDeActivate += (sender, args) =>
-            {
-                MouseLook.SetCursorLock(true);
-                CanMove = true;
-            };
+        private void ConsoleOnOnDeActivate(object sender, EventArgs eventArgs)
+        {
+            MouseLook.SetCursorLock(true);
+            CanMove = true;
+        }
+
+        private void ConsoleOnOnActivate(object o, EventArgs eventArgs)
+        {
+            MouseLook.SetCursorLock(false);
+            CanMove = false;
+        }
+
+        private void OnDestroy()
+        {
+            Debug.Log("MovementController Destroyed");
+            Console.Console.Instance.OnActivate -= ConsoleOnOnActivate;
+            Console.Console.Instance.OnDeActivate -= ConsoleOnOnDeActivate;
         }
 
         private void Update()
