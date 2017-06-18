@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Sprache;
+using Assets.Scripts.Console.ConsoleParser;
 
 namespace Assets.Scripts.Console.Parameters
 {
@@ -9,9 +9,9 @@ namespace Assets.Scripts.Console.Parameters
         {
         }
 
-        protected override object ParseValue(string s)
+        protected override object ParseValue(IValue v)
         {
-            return Parser.Parse(s).ToArray();
+            return GetList(v).ToArray();
         }
     }
 }

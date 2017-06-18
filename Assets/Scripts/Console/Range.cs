@@ -1,7 +1,4 @@
-﻿using System;
-using Valve.VR;
-
-namespace Assets.Scripts.Console
+﻿namespace Assets.Scripts.Console
 {
     /// <summary>
     /// Imutable struct to store a Range

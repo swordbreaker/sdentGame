@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Console.Parameters
 {
-    public class StringParameter : Parameter
+    public class StringParameter : VariableParameter
     {
         public StringParameter(string name, bool optional = false) : base(name, optional)
         {
@@ -14,13 +14,9 @@ namespace Assets.Scripts.Console.Parameters
             return s;
         }
 
-        public override bool CanParse(string value)
+        protected override bool CanParse(string value)
         {
             return true;
-        }
-
-        public override void Validate(string value)
-        {
         }
 
         public override Type GetParamType()

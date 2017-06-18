@@ -1,9 +1,10 @@
 ﻿using System;
+using Assets.Scripts.Console.ConsoleParser;
 using Assets.Scripts.Console.Exceptions;
 
 namespace Assets.Scripts.Console.Parameters
 {
-    public class NumericParameter<T> : Parameter where T: struct,
+    public abstract class NumericParameter<T> : VariableParameter where T: struct,
                                               IComparable,
                                               IComparable<T>,
                                               IConvertible,
@@ -14,23 +15,17 @@ namespace Assets.Scripts.Console.Parameters
 
         private readonly Func<string, T> _parser;
 
-        public NumericParameter(string name, Func<string, T> parser, bool optional) : base(name, optional)
+        protected NumericParameter(string name, Func<string, T> parser, bool optional) : base(name, optional)
         {
             _parser = parser;
         }
 
-        protected override object ParseValue(string s)
+        protected override object ParseValue(string value)
         {
-            return _parser(s);
+            return _parser(value);
         }
 
-        public override bool CanParse(string value)
-        {
-            float tmp;
-            return float.TryParse(value, out tmp);
-        }
-
-        public override bool IsValid(string value)
+        public override bool IsValid(IValue value)
         {
             if (Range.HasValue)
             {
@@ -47,7 +42,7 @@ namespace Assets.Scripts.Console.Parameters
             return true;
         }
 
-        public override void Validate(string value)
+        public override void Validate(IValue value)
         {
             if (!IsValid(value))
             {

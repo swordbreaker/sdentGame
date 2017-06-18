@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Assets.Scripts.Console.ConsoleParser;
 
 namespace Assets.Scripts.Console
 {
@@ -9,8 +6,7 @@ namespace Assets.Scripts.Console
     {
         string CommandName { get;}
         string ReturnMessage { get; set; }
-        void Execute(params string[] arguments);
+        void Execute(params IValue[] arguments);
         string GetCommandSyntax();
-
     }
 }

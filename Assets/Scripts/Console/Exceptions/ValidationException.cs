@@ -10,17 +10,17 @@ namespace Assets.Scripts.Console.Exceptions
 
         public ValidationException(string message, Parameter parameter) : base(message)
         {
-            parameter = Parameter;
+            Parameter = parameter;
         }
 
         public ValidationException(string message, Exception innerException, Parameter parameter) : base(message, innerException)
         {
-            parameter = Parameter;
+            Parameter = parameter;
         }
 
         protected ValidationException(SerializationInfo info, StreamingContext context, Parameter parameter) : base(info, context)
         {
-            parameter = Parameter;
+            Parameter = parameter;
         }
     }
 }

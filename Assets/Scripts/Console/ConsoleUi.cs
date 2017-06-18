@@ -1,39 +1,46 @@
 ﻿using System.Collections;
 using System.Linq;
-using Assets.Scripts.Console.Parameters;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Input = UnityEngine.Input;
 
 namespace Assets.Scripts.Console
 {
     public class ConsoleUi : MonoBehaviour
     {
+        [SerializeField] private bool _useEssentialCommands;
+        [SerializeField] private KeyCode _openCloseConsoleKey = KeyCode.F6;
+        [SerializeField] private KeyCode _completeCommandKeyCode = KeyCode.Tab;
+        [SerializeField] private KeyCode _historyNextKeyCode = KeyCode.UpArrow;
+        [SerializeField] private KeyCode _historyPreviousKeyCode = KeyCode.DownArrow;
         [SerializeField] private GameObject _consolePanel;
         [SerializeField] private InputField _inputField;
         [SerializeField] private Text _textField;
         [SerializeField] private RectTransform _contentField;
         [SerializeField] private ScrollRect _scrollRect;
-        [SerializeField] private KeyCode _openCloseConsoleKey = KeyCode.F6;
-        [SerializeField] private KeyCode _completeCommandKeyCode = KeyCode.Tab;
-        [SerializeField] private KeyCode _historyNextKeyCode = KeyCode.UpArrow;
-        [SerializeField] private KeyCode _historyPreviousKeyCode = KeyCode.DownArrow;
 
         private RectTransform _panelRectTransform;
         private float _startHeight;
-        private bool _lockTab;
         private bool _isActive;
         private float _panelHeight;
         private Vector3 _activePos;
         private Vector3 _inActivePos;
+        private EssentialCommands _essentialCommands;
 
         private void Start()
         {
+            //Register the Help command
             Console.Instance.RegisterCommand(new ConsoleCommand("help", arguments => Console.Instance.Help()));
-            Console.Instance.RegisterCommand(new ConsoleCommand("test", arguments => print("test" + arguments[0] + " " + arguments[1]), new IParameter[] { new FloatParameter("par1"), new StringParameter("par2") }));
+            //Register the cls command to clear the console
             Console.Instance.RegisterCommand(new ConsoleCommand("cls", arguments => Clear(), ""));
-            var testClass = new TestClass();
-            Console.Instance.RegisterClass<TestClass>(testClass, ClassAnalyzer.ImportType.PublicOnly);
+
+            if (_useEssentialCommands)
+            {
+                _essentialCommands = new EssentialCommands();
+                Console.Instance.RegisterClass<EssentialCommands>(_essentialCommands);
+            }
 
             _startHeight = _contentField.rect.height;
             Console.Instance.OnLog += (sender, args) => Log(args.Message);
@@ -45,6 +52,13 @@ namespace Assets.Scripts.Console
             _inActivePos = new Vector3(_panelRectTransform.position.x, _panelRectTransform.position.y + _panelHeight, _panelRectTransform.position.z);
             _panelRectTransform.position = _inActivePos;
             _consolePanel.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            Console.Instance.DeregisterCommand("help");
+            Console.Instance.DeregisterCommand("cls");
+            Console.Instance.DeregisterClass<EssentialCommands>(_essentialCommands);
         }
 
         private void Update()
@@ -89,7 +103,7 @@ namespace Assets.Scripts.Console
                         {
                             Log(cmd);
                         }
-                        Log(" ");
+                        if(matchingCommands.Count != 0) Log(" ");
                     }
                 }
             }
@@ -153,21 +167,17 @@ namespace Assets.Scripts.Console
             }
         }
 
-        private void InputChanged(string arg0)
-        {
-
-        }
-
         private void OnGUI()
         {
             if(!_isActive) return;
 
-            if (Event.current.keyCode == _completeCommandKeyCode)
+            //Use the Keys to prevent that unity switches the active UI element on tab or enter.
+            if (Event.current.keyCode == _completeCommandKeyCode && Event.current.type != EventType.Repaint && Event.current.type != EventType.Layout)
             {
                 Event.current.Use();
             }
 
-            if (Event.current.keyCode == KeyCode.Return)
+            if (Event.current.keyCode == KeyCode.Return && Event.current.type != EventType.Repaint && Event.current.type != EventType.Layout)
             {
                 Event.current.Use();
             }

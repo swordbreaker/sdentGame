@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Console.ConsoleParser;
 using Assets.Scripts.Console.Exceptions;
 
 namespace Assets.Scripts.Console.Parameters
@@ -15,27 +16,26 @@ namespace Assets.Scripts.Console.Parameters
             Optional = optional;
         }
 
-        protected abstract object ParseValue(string s);
+        protected abstract object ParseValue(IValue value);
 
-        public object Parse(string value, bool validate = true)
+        public object Parse(IValue value, bool validate = true)
         {
             if (validate) Validate(value);
             if (CanParse(value))
             {
                 return ParseValue(value);
             }
-            throw new ParameterException(string.Format("Cannot parse {0} to type {1}", value, this.GetParamType().Name),
-                this);
+            throw new ParameterException(string.Format("Cannot parse {0} to type {1}", value, GetParamType().Name), this);
         }
 
-        public abstract bool CanParse(string value);
+        public abstract bool CanParse(IValue value);
 
-        public virtual bool IsValid(string value)
+        public virtual bool IsValid(IValue value)
         {
             return true;
         }
 
-        public virtual void Validate(string value)
+        public virtual void Validate(IValue value)
         {
             if (!IsValid(value))
             {

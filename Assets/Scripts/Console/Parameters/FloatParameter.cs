@@ -8,5 +8,11 @@
         {
             return string.Format("float:{0}", Name);
         }
+
+        protected override bool CanParse(string value)
+        {
+            float tmp;
+            return float.TryParse(value, out tmp);
+        }
     }
 }

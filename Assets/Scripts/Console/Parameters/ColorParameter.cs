@@ -1,14 +1,35 @@
 ﻿using System;
 using System.Linq;
-using Sprache;
+using Assets.Scripts.Console.ConsoleParser;
+using Assets.Scripts.Console.Exceptions;
 using UnityEngine;
 
 namespace Assets.Scripts.Console.Parameters
 {
-    public class ColorParameter : AbstractClassParameter<Color>
+    public class ColorParameter : Parameter
     {
         public ColorParameter(string name, bool optional = false) : base(name, optional)
         {
+        }
+
+        protected override object ParseValue(IValue value)
+        {
+            var vObject = (VObject)value;
+            if(vObject == null) throw new ParameterException("Cannot parse to color when it is not an Object", this);
+
+            var floatParameter = new FloatParameter("dummy");
+            var channels = vObject.Variables.Select(value1 => (float)floatParameter.Parse(value1)).ToArray();
+
+            return new Color(channels[0], channels[1], channels[2], channels[3]);
+        }
+
+        public override bool CanParse(IValue value)
+        {
+            var vObject = value as VObject;
+            if (vObject == null || vObject.Variables.Count != 4) return false;
+
+            var floatParameter = new FloatParameter("dummy");
+            return vObject.Variables.All(floatParameter.CanParse);
         }
 
         public override Type GetParamType()
@@ -19,25 +40,6 @@ namespace Assets.Scripts.Console.Parameters
         public override string GetSyntax()
         {
             return string.Format("(r g b a):{0}", Name);
-        }
-
-        protected override Parser<Color> Parser
-        {
-            get
-            {
-                return from first in Sprache.Parse.Char('(')
-                    from r in Sprache.Parse.Decimal.Token()
-                    from g in Sprache.Parse.Decimal.Token()
-                    from b in Sprache.Parse.Decimal.Token()
-                    from a in Sprache.Parse.Decimal.Token()
-                    from last in Sprache.Parse.Char(')')
-                    select new Color(
-                        float.Parse(new string(r.ToArray())),
-                        float.Parse(new string(g.ToArray())),
-                        float.Parse(new string(b.ToArray())),
-                        float.Parse(new string(a.ToArray()))
-                    );
-            }
         }
     }
 }

@@ -2,26 +2,22 @@
 
 namespace Assets.Scripts.Console.Parameters
 {
-    public class CharParameter : Parameter
+    public class CharParameter : VariableParameter
     {
 
         public CharParameter(string name, bool optional = false) : base(name, optional)
         {
         }
 
-        protected override object ParseValue(string s)
+        protected override object ParseValue(string value)
         {
-            return char.Parse(s);
+            return char.Parse(value);
         }
 
-        public override bool CanParse(string value)
+        protected override bool CanParse(string value)
         {
             char tmp;
             return char.TryParse(value, out tmp);
-        }
-
-        public override void Validate(string value)
-        {
         }
 
         public override Type GetParamType()

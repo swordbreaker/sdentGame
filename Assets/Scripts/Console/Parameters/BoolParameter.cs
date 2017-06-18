@@ -2,26 +2,22 @@
 
 namespace Assets.Scripts.Console.Parameters
 {
-    public class BoolParameter : Parameter
+    public class BoolParameter : VariableParameter
     {
  
         public BoolParameter(string name, bool optional = false) : base(name, optional)
         {
         }
 
-        protected override object ParseValue(string s)
+        protected override object ParseValue(string value)
         {
-            return bool.Parse(s);
+            return bool.Parse(value);
         }
 
-        public override bool CanParse(string value)
+        protected override bool CanParse(string value)
         {
             bool tmp;
             return bool.TryParse(value, out tmp);
-        }
-
-        public override void Validate(string value)
-        {
         }
 
         public override Type GetParamType()

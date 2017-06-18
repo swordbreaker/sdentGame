@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.Console.ConsoleParser;
 using Assets.Scripts.Console.Exceptions;
 using Assets.Scripts.Console.Parameters;
 
@@ -8,6 +9,7 @@ namespace Assets.Scripts.Console
 {
     public class ConsoleCommand : IConsoleCommand
     {
+        public const string DefaultReturnMessage = "Command executed";
         public delegate void ConsoleAction(object[] arguments);
 
         public ConsoleAction Action { get; private set; }
@@ -20,13 +22,13 @@ namespace Assets.Scripts.Console
             CommandName = name;
             Action = action;
             Parameters = new IParameter[0];
-            ReturnMessage = "Command executed";
+            ReturnMessage = DefaultReturnMessage;
         }
 
         public ConsoleCommand(string name, ConsoleAction action, IParameter[] parameters) : this(name, action)
         {
             Parameters = parameters;
-            ReturnMessage = "Command executed";
+            ReturnMessage = DefaultReturnMessage;
         }
 
         public ConsoleCommand(string name, ConsoleAction action, string returnMessage) : this(name, action)
@@ -39,9 +41,9 @@ namespace Assets.Scripts.Console
             ReturnMessage = returnMessage;
         }
 
-        public void Execute(params string[] arguments)
+        public void Execute(params IValue[] arguments)
         {
-            if(arguments == null) arguments = new string[0];
+            if(arguments == null) arguments = new IValue[0];
 
             if (arguments.Length > Parameters.Length)
             {

@@ -6,6 +6,12 @@ namespace Assets.Scripts.Console.Attributes
     public class ConsoleCommandAttribute : Attribute
     {
         public string Name { get; set; }
+        public string ReturnMessage { get; set; }
         public bool Global { get; set; }
+
+        public ConsoleCommandAttribute()
+        {
+            ReturnMessage = ConsoleCommand.DefaultReturnMessage;
+        }
     }
 }

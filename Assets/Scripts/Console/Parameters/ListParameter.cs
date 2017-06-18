@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Sprache;
+﻿using System.Linq;
+using Assets.Scripts.Console.ConsoleParser;
 
 namespace Assets.Scripts.Console.Parameters
 {
@@ -12,9 +9,9 @@ namespace Assets.Scripts.Console.Parameters
         {
         }
 
-        protected override object ParseValue(string s)
+        protected override object ParseValue(IValue v)
         {
-            return Parser.Parse(s).ToList();
+            return GetList(v).ToList();
         }
     }
 }

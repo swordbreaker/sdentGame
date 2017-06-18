@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Assets.Scripts.Console.Attributes;
+using Assets.Scripts.Console.ConsoleParser;
 using UnityEngine;
 using Assets.Scripts.Console.Exceptions;
 using Assets.Scripts.Console.Parameters;
@@ -10,83 +9,38 @@ using Sprache;
 
 namespace Assets.Scripts.Console
 {
-    public class TestClass
-    {
-        [ConsoleCommand]
-        public void PrintMe(string message)
-        {
-            Debug.Log(message);
-        }
-
-        [ConsoleCommand]
-        public void Calc(float a, float b)
-        {
-            Debug.Log(a + b);
-        }
-
-        [ConsoleCommand]
-        public void Ping()
-        {
-            Debug.Log("pong");
-        }
-
-        [ConsoleCommand]
-        public static void StaticTest()
-        {
-            Debug.Log("static");
-        }
-
-        [ConsoleCommand]
-        public void Vector2Test(Vector2 v2)
-        {
-            Debug.Log(v2);
-        }
-
-        [ConsoleCommand]
-        public void Vector3Test(Vector3 v3)
-        {
-            Debug.Log(v3);
-        }
-
-        [ConsoleCommand]
-        public void RangeTest([ConsoleNumericParameter(0f, 1f, ParameterName = "other Name")]float r)
-        {
-            
-        }
-
-        [ConsoleCommand(Name = "Hambbe", Global = true)]
-        public void ColorTest(Color c)
-        {
-            Debug.Log(c);
-        }
-
-        [ConsoleCommand]
-        public void ListTest(int[] a)
-        {
-            var sb = new StringBuilder();
-            foreach (var i in a)
-            {
-                sb.Append(i + ",");
-            }
-            Debug.Log(sb.ToString());
-        }
-
-    }
-
     public class Console
     {
+        public enum LogType
+        {
+            Info,
+            Warning,
+            Error
+        }
+
+        #region Fields
+        /// <summary>
+        /// Dictionary with all registered commands
+        /// </summary>
         private readonly Dictionary<string, IConsoleCommand> _registeredCommands = new Dictionary<string, IConsoleCommand>();
         private readonly AutoCompleteManger _autoCompleteManger = new AutoCompleteManger();
-
-        private static Console _instance;
         public readonly ConsoleHistoryManager HistoryManager = new ConsoleHistoryManager();
 
+        //Colors used for the Log Method
         private readonly Color _infoColor = Color.black;
         private readonly Color _warningColor = Color.yellow;
         private readonly Color _errorColor = Color.red;
+
+        private static Console _instance;
+
+        /// <summary>
+        /// Is the console active/open
+        /// </summary>
         private bool _isAcitve;
 
-
+        /// <summary>
+        /// All parameters used by the reflection helper and the list parameters to know which parameter class should be used for which type.
+        /// </summary>
         public static readonly Dictionary<Type, Type> DefaultParameters = new Dictionary<Type, Type>()
         {
             {typeof(bool), typeof(BoolParameter) },
@@ -123,15 +77,34 @@ namespace Assets.Scripts.Console
             {typeof(Vector2[]), typeof(ArrayParameter<Vector2>) },
             {typeof(Vector3[]), typeof(ArrayParameter<Vector3>) },
             {typeof(Color[]), typeof(ArrayParameter<Color>) },
+            {typeof(List<bool>), typeof(ListParameter<bool>) },
+            {typeof(List<byte>), typeof(ListParameter<byte>) },
+            {typeof(List<char>), typeof(ListParameter<char>) },
+            {typeof(List<decimal>), typeof(ListParameter<decimal>) },
+            {typeof(List<double>), typeof(ListParameter<double>) },
+            {typeof(List<float>), typeof(ListParameter<float>) },
+            {typeof(List<long>), typeof(ListParameter<long>) },
+            {typeof(List<sbyte>), typeof(ListParameter<sbyte>) },
+            {typeof(List<short>), typeof(ListParameter<short>) },
+            {typeof(List<uint>), typeof(ListParameter<uint>) },
+            {typeof(List<int>), typeof(ListParameter<int>) },
+            {typeof(List<ulong>), typeof(ListParameter<ulong>) },
+            {typeof(List<ushort>), typeof(ListParameter<ushort>) },
+            {typeof(List<string>), typeof(ListParameter<string>) },
+            {typeof(List<Vector2>), typeof(ListParameter<Vector2>) },
+            {typeof(List<Vector3>), typeof(ListParameter<Vector3>) },
+            {typeof(List<Color>), typeof(ListParameter<Color>) },
         };
+        #endregion
 
+        #region Properties
         public bool IsAcitve
         {
             get { return _isAcitve; }
             set
             {
                 _isAcitve = value;
-                if(_isAcitve)
+                if (_isAcitve)
                 {
                     if (OnActivate != null) OnActivate.Invoke(this, EventArgs.Empty);
                 }
@@ -142,13 +115,13 @@ namespace Assets.Scripts.Console
             }
         }
 
-        public enum LogType
+        public static Console Instance
         {
-            Info,
-            Warning,
-            Error
+            get { return _instance ?? (_instance = new Console()); }
         }
+        #endregion
 
+        #region Events
         public class ConsoleLogEventArgs : EventArgs
         {
             public string Message { get; set; }
@@ -162,19 +135,22 @@ namespace Assets.Scripts.Console
         public event EventHandler<ConsoleLogEventArgs> OnLog;
         public event EventHandler OnActivate;
         public event EventHandler OnDeActivate;
+        #endregion
 
-        public static Console Instance
+        /// <summary>
+        /// Creates the console new. The console will lose all registered commands. Use this on scene switch.
+        /// </summary>
+        /// <returns>The new instance of the Console</returns>
+        public static Console CreateNew()
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new Console();
-                }
-                return _instance;
-            }
+            _instance = new Console();
+            return _instance;
         }
 
+        /// <summary>
+        /// Registers a new console command.
+        /// </summary>
+        /// <param name="command">The command.</param>
         public void RegisterCommand(IConsoleCommand command)
         {
             _registeredCommands.Add(command.CommandName, command);
@@ -189,78 +165,100 @@ namespace Assets.Scripts.Console
             }
         }
 
-        public void RegisterClass<T>(object instance, ClassAnalyzer.ImportType importType = ClassAnalyzer.ImportType.Marked)
+        /// <summary>
+        /// Registers a new class. The class will be searched through with reflection.
+        /// </summary>
+        /// <typeparam name="T">The Type of the Class</typeparam>
+        /// <param name="instance">The instance of the class on which the console will invoke the methods.</param>
+        /// <param name="importType">Import Type:
+        /// Public : Import all Public Methods
+        /// Marked (default) : Import only Methods with the ConsoleCommand attribute
+        /// </param>
+        public void RegisterClass<T>(object instance, ReflectionHelper.ImportType importType = ReflectionHelper.ImportType.Marked)
         {
-            foreach (var cmd in ClassAnalyzer.GetCommands(typeof(T), instance, importType))
+            foreach (var cmd in ReflectionHelper.GetCommands(typeof(T), instance, importType))
             {
                 RegisterCommand(cmd);
             }
         }
 
+
+        /// <summary>
+        /// Remove a registered the command.
+        /// </summary>
+        /// <param name="command">The command.</param>
+        public void DeregisterCommand(IConsoleCommand command)
+        {
+            DeregisterCommand(command.CommandName);
+        }
+
+        /// <summary>
+        /// Remove a registered the command.
+        /// </summary>
+        /// <param name="commandName">The command name.</param>
+        public void DeregisterCommand(string commandName)
+        {
+            if (_registeredCommands.ContainsKey(commandName))
+            {
+                _registeredCommands.Remove(commandName);
+                var s = commandName.Split('.');
+                if (s.Length > 1)
+                {
+                    _autoCompleteManger.Remove(s[0] + ".");
+                }
+                else
+                {
+                    _autoCompleteManger.Remove(commandName);
+                }
+            }
+            else
+            {
+                Debug.LogError("Cannot deregister command, command was not registerd");
+            }
+        }
+
+        /// <summary>
+        /// Removes all commands registered from a class.
+        /// </summary>
+        /// <typeparam name="T">The Type of the Class</typeparam>
+        /// <param name="instance">The instance of the class.</param>
+        public void DeregisterClass<T>(object instance)
+        {
+            foreach (var cmd in ReflectionHelper.GetCommands(typeof(T), instance, ReflectionHelper.ImportType.Public))
+            {
+                if(_registeredCommands.ContainsKey(cmd.CommandName)) DeregisterCommand(cmd.CommandName);
+            }
+        }
+
+        /// <summary>
+        /// Executes a command. Tries to parse the provided string into a command and executes it.
+        /// </summary>
+        /// <param name="arg">Provided string form the consle.</param>
         public void Execute(string arg)
         {
-            var simpleCommandParser = from leading in Parse.WhiteSpace.Many()
-                from first in Parse.Letter.Once()
-                from rest in Parse.LetterOrDigit.Many()
-                select new string(first.Concat(rest).ToArray());
+            var commandResult = CParser.CommandParser.TryParse(arg);
 
-            var classParser = from leading in Parse.WhiteSpace.Many()
-                from first in Parse.Letter.Once()
-                from c in Parse.LetterOrDigit.Many()
-                from point in Parse.Char('.')
-                from m in Parse.LetterOrDigit.Many()
-                select new string(first.Concat(c).ToArray()) + point + new string(m.ToArray());
-
-            var commandParser = classParser.Or(simpleCommandParser);
-
-            var argumenWithQuoatParser =
-                from first in Parse.WhiteSpace.Many()
-                from q in Parse.Char('"')
-                from bb in Parse.AnyChar.Until(Parse.Char('"'))
-                select new string(bb.ToArray());
-
-            var bracketsParser =
-                from leading in Parse.WhiteSpace.Many()
-                from first in Parse.Chars('(', '[', '{').Once()
-                from inner in Parse.AnyChar.Except(Parse.Chars(')', ']', '}').Once()).Many()
-                from last in Parse.Chars(')', ']', '}').Once()
-                select new string(first.Concat(inner).Concat(last).ToArray());
-
-            var argumentWithoutQuoatParser =
-                from leading in Parse.WhiteSpace.Many()
-                from argumen in Parse.LetterOrDigit.Or(Parse.Char('.')).Many().Or(Parse.Char('?').Once())
-                select new string(argumen.ToArray());
-
-            var argumentParser = argumenWithQuoatParser.Or(bracketsParser).Or(argumentWithoutQuoatParser);
-
-            var parser = from cmd in commandParser
-                from w in Parse.WhiteSpace.Many()
-                from par in argumentParser.Many()
-                select new Tuple<string, IEnumerable<string>>(cmd, par);
-
-
-            var tupleResult = parser.TryParse(arg);
-
-            if (tupleResult.WasSuccessful)
+            if (commandResult.WasSuccessful)
             {
-                var tuple = tupleResult.Value;
+                var cmd = commandResult.Value;
 
-                var cmd = tuple.V1;
-
-                if (_registeredCommands.ContainsKey(cmd))
+                //Does the command exist?
+                if (_registeredCommands.ContainsKey(cmd.Name))
                 {
                     try
                     {
-                        if (string.Equals(tuple.V2.FirstOrDefault(), "?", StringComparison.InvariantCultureIgnoreCase))
+                        //Is the first parameter of the comment a question mark? Then show the command syntax
+                        if (cmd.Parameters.FirstOrDefault() is QuestionMark)
                         {
-                            Log(_registeredCommands[cmd].GetCommandSyntax());
+                            Log(_registeredCommands[cmd.Name].GetCommandSyntax());
                         }
                         else
                         {
-                            _registeredCommands[cmd].Execute(tuple.V2.ToArray());
-                            if (_registeredCommands[cmd].ReturnMessage != null)
+                            //Execute the command
+                            _registeredCommands[cmd.Name].Execute(cmd.Parameters.ToArray());
+                            if (_registeredCommands[cmd.Name].ReturnMessage != null)
                             {
-                                Log(_registeredCommands[cmd].ReturnMessage);
+                                Log(_registeredCommands[cmd.Name].ReturnMessage);
                             }
                         }
                     }
@@ -278,12 +276,16 @@ namespace Assets.Scripts.Console
             {
                 Log("Cannot parse your comment", LogType.Error);
             }
-
         }
 
+        /// <summary>
+        /// Find comments which match the pattern (substring of the comment form index 0)
+        /// </summary>
+        /// <param name="pattern">The pattern.</param>
+        /// <returns>A list of matching commands</returns>
         public List<string> GetMatchingCommands(string pattern)
         {
-            return _autoCompleteManger.GetAwaibleCommands(pattern).ToList();
+            return _autoCompleteManger.GetAvailableCommands(pattern).ToList();
         }
 
         public void Help()
@@ -294,6 +296,12 @@ namespace Assets.Scripts.Console
             }
         }
 
+        /// <summary>
+        /// Logs the specified message to the console.
+        /// </summary>
+        /// <param name="msg">The message.</param>
+        /// <param name="logType">Type of the log.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">logType - null</exception>
         public void Log(string msg, LogType logType = LogType.Info)
         {
             if (OnLog != null)
@@ -302,7 +310,6 @@ namespace Assets.Scripts.Console
                 switch (logType)
                 {
                     case LogType.Info:
-                        
                         color = string.Format("<color=#{0}>", ColorUtility.ToHtmlStringRGBA(_infoColor));
                         break;
                     case LogType.Warning:

@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MoonSharp.Interpreter.DataStructs;
-using UnityEditor.iOS.Xcode;
 
 namespace Assets.Scripts.Console
 {
@@ -9,34 +7,46 @@ namespace Assets.Scripts.Console
     {
         private readonly Dictionary<string, List<string>> _autoCompleteDictronary = new Dictionary<string,List<string>>();
 
-        public IEnumerable<string> GetAwaibleCommands(string s)
+        /// <summary>
+        /// Gets the available commands saved in the AutoCompleManager for these Pattern.
+        /// </summary>
+        /// <param name="pattern">The Pattern.</param>
+        /// <returns></returns>
+        public IEnumerable<string> GetAvailableCommands(string pattern)
         {
-            var splitt = s.Split('.');
+            var splitt = pattern.Split('.');
             if (_autoCompleteDictronary.ContainsKey(splitt[0]))
             {
-                return _autoCompleteDictronary[s];
+                return _autoCompleteDictronary[pattern];
             }
-            else
+            if (splitt.Length > 1)
             {
-                if (splitt.Length > 1)
+                var cmd = splitt[0] + ".";
+                if (_autoCompleteDictronary.ContainsKey(cmd))
                 {
-                    var cmd = splitt[0] + ".";
-                    if (_autoCompleteDictronary.ContainsKey(cmd))
-                    {
-                        return Filter(_autoCompleteDictronary[cmd], splitt[1]).Select(s1 => cmd + s1);
-                    }
-                    return new List<string>();
+                    return Filter(_autoCompleteDictronary[cmd], splitt[1]).Select(s1 => cmd + s1);
                 }
-                return Filter(_autoCompleteDictronary.Keys, splitt[0]);
+                return new List<string>();
             }
+            return Filter(_autoCompleteDictronary.Keys, splitt[0]);
         }
 
-        public void Add(string value, IEnumerable<string> l)
+        /// <summary>
+        /// Adds the class command to the Manager.
+        /// </summary>
+        /// <param name="commandName">The class name.</param>
+        /// <param name="l">A list of all methods of a class. When the command is global the this should be null or an empty list</param>
+        private void Add(string commandName, IEnumerable<string> l)
         {
             if(l == null) l = new List<string>();
-            _autoCompleteDictronary[value] = l.ToList();
+            _autoCompleteDictronary[commandName] = l.ToList();
         }
 
+        /// <summary>
+        /// Adds the class command to the Manager.
+        /// </summary>
+        /// <param name="key">The class name with the . at the end. For example TestClass.</param>
+        /// <param name="value">The method</param>
         public void Add(string key, string value)
         {
             if (_autoCompleteDictronary.ContainsKey(key))
@@ -49,9 +59,22 @@ namespace Assets.Scripts.Console
             }
         }
 
-        public void Add(string value)
+        /// <summary>
+        /// Adds the specified command to the manager.
+        /// </summary>
+        /// <param name="commandName">Name of the command.</param>
+        public void Add(string commandName)
         {
-            Add(value, new List<string>());
+            Add(commandName, new List<string>());
+        }
+
+        /// <summary>
+        /// Removes the specified command when it is a class all Methods will be also removed.
+        /// </summary>
+        /// <param name="commandName">Name of the command.</param>
+        public void Remove(string commandName)
+        {
+            _autoCompleteDictronary.Remove(commandName);
         }
 
         private IEnumerable<string> Filter(IEnumerable<string> list, string value)

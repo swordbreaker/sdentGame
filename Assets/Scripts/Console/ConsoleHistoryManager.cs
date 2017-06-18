@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Valve.VR;
 
 namespace Assets.Scripts.Console
 {
@@ -45,7 +44,7 @@ namespace Assets.Scripts.Console
                 _pointer = _pointer.Previous;
             }
 
-            return _pointer.Value;
+            return _pointer != null ? _pointer.Value : "";
         }
     }
 }
