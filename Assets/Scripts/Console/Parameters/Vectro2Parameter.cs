@@ -15,7 +15,7 @@ namespace Assets.Scripts.Console.Parameters
         {
             var vObject = (VObject)value;
 
-            var floatParameter = new FloatParameter("dummy");
+            var floatParameter = new FloatParameter("float");
             var floats = vObject.Variables.Select(value1 => (float)floatParameter.Parse(value1)).ToArray();
 
             return new Vector3(floats[0], floats[1], floats[2]);
@@ -26,7 +26,7 @@ namespace Assets.Scripts.Console.Parameters
             var vObject = value as VObject;
             if (vObject == null || vObject.Variables.Count != 3) return false;
 
-            var floatParameter = new FloatParameter("dummy");
+            var floatParameter = new FloatParameter("float");
             return vObject.Variables.All(floatParameter.CanParse);
         }
 

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using Assets.Scripts.ScriptableObjects;
+﻿using Assets.Scripts.ScriptableObjects;
 using TMPro;
-using UnityEditor.iOS.Xcode;
 using UnityEngine;
 using UnityEngine.UI;
 
