@@ -7,8 +7,25 @@ using Fungus;
 using UnityEngine.UI;
 using Assets.Scripts.Helpers;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
 
 public class DialogEventManagement : MonoBehaviour {
+
+    [SerializeField]
+    private ScreenSettings _screenSuccessSettings;
+
+    [SerializeField]
+    private ScreenSettings _screenInfoSettings;
+
+    [SerializeField]
+    private ScreenSettings _screenWarnSettings;
+
+    [SerializeField]
+    private ScreenSettings _screenDangerSettings;
+
+    [SerializeField] 
+    private ScreensController _screens;
 
 	[SerializeField]
 	private Flowchart _flowchart;
@@ -77,6 +94,7 @@ public class DialogEventManagement : MonoBehaviour {
     private void Start()
     {
         Console.Instance.RegisterClass<DialogEventManagement>(this);
+        _screens.ScreenSmallShipEntree.ChangeText("Kein Zutritt!", _screenDangerSettings);
     }
 
     [ConsoleCommand]
@@ -90,6 +108,16 @@ public class DialogEventManagement : MonoBehaviour {
 	{
 		_playerBed.GetComponent<FungusTriggerInteraction> ().enabled = false;
 	}
+
+    [ConsoleCommand]
+    public void RepairIntroductionEnded() 
+    {
+        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Ausguck", _screenInfoSettings);
+        _screens.ScreenLookOutEntree.ChangeText("Hier ist der Ausguck", _screenSuccessSettings);
+        LookAtLookOutEntree();
+        AddEndingDeepSleepPossibility();
+        EnablePlayerMovement();
+    }
 
     [ConsoleCommand]
     public void LookAtLookOutEntree() 
@@ -123,11 +151,20 @@ public class DialogEventManagement : MonoBehaviour {
 	}
 
     [ConsoleCommand]
-    void CaptainStart() 
+    public void CaptainStart() 
 	{
-		this.CaptainEntree.GetComponent<FungusTrigger> ().Active = true;
-		this.OpenCaptainDoor ();
+		CaptainEntree.GetComponent<FungusTrigger> ().Active = true;
+        OpenCaptainDoor ();
+        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Kapitanszimmer", _screenInfoSettings);
+        _screens.ScreenCaptainEntree.ChangeText("Hier ist das\n\rKapitanszimmer", _screenSuccessSettings);
 	}
+
+    [ConsoleCommand]
+    public void Captain_Entree_Ended() 
+    {
+        _screens.ChangeTextOnInfoScreens("Finden Sie die ID-Karte des Kapitan", _screenInfoSettings);
+        _screens.ScreenCaptainEntree.ChangeText("Hier ist das\n\rKapitanszimmer", _screenSuccessSettings);
+    }
 
     [ConsoleCommand]
     public void OpenCaptainDoor() 
@@ -160,9 +197,30 @@ public class DialogEventManagement : MonoBehaviour {
     [ConsoleCommand]
     public void StartEngineroom() 
 	{
-		this._engineRoomEntree.GetComponent<FungusTrigger> ().Active = true;
-		this.OpenEngineRoomDoor ();
+		_engineRoomEntree.GetComponent<FungusTrigger> ().Active = true;
+		OpenEngineRoomDoor ();
+        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Motorraum", _screenInfoSettings);
+        _screens.ScreenEngineRoomEntree.ChangeText("Hier ist der Motorraum", _screenSuccessSettings);
 	}
+
+    public IEnumerator EndGameDisplayText() 
+    {
+        while (true) 
+        {
+            _screens.ChangeTextOnInfoScreens("Haben Sie keine Angst", _screenDangerSettings);
+            yield return new WaitForSeconds(4.0F);
+            _screens.ChangeTextOnInfoScreens("Sauerstoff ist knapp", _screenDangerSettings);
+            yield return new WaitForSeconds(4.0F);
+            _screens.ChangeTextOnInfoScreens("Gehen Sie zurück in den Tiefschlaf", _screenDangerSettings);
+            yield return new WaitForSeconds(4.0F);
+        }
+    }
+
+    [ConsoleCommand]
+    public void Engineroom_Exit_Start()
+    {
+        StartCoroutine("EndGameDisplayText");
+    }
 
     [ConsoleCommand]
     public void OpenEngineRoomDoor() 

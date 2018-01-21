@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class CreditsPanel : MonoBehaviour
 {
+    [SerializeField] private float _secondsPerScreen = 15.0f;
+
     private void Start()
     {
-		GetComponent<RectTransform>().DOLocalMoveY(4600f, 30f).SetEase(Ease.Linear);
+        GetComponent<RectTransform>().DOLocalMoveY(4600f, 4600f / Screen.height * _secondsPerScreen).SetEase(Ease.Linear);
         StartCoroutine(FadeOutAudioListener(2, 0.1f, 29));
         Invoke("BackToMainMenu", 32f);
         Cursor.lockState = CursorLockMode.None;

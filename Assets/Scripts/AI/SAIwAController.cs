@@ -46,7 +46,6 @@ public class SAIwAController : MonoBehaviour
 		if (_turnOnLights == null) return;
 
 		bool done;
-		bool doneEmission;
 		_pointLight.color = _turnOnLights.CurrentValue(out done);
 
 		if (done) _turnOnLights = null;

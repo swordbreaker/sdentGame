@@ -176,9 +176,6 @@ GameObject:
   - component: {fileID: 114241211585472050}
   - component: {fileID: 114158259524416874}
   - component: {fileID: 114757337187594250}
-  - component: {fileID: 114630480520398404}
-  - component: {fileID: 114407496064222224}
-  - component: {fileID: 114624419899270278}
   - component: {fileID: 114593382046493772}
   - component: {fileID: 114436808269349088}
   - component: {fileID: 114959410757959242}
@@ -254,13 +251,13 @@ GameObject:
   - component: {fileID: 114402354715004968}
   - component: {fileID: 114813077445382520}
   - component: {fileID: 114655569927268742}
-  - component: {fileID: 114629952294551448}
   - component: {fileID: 114507483520284128}
-  - component: {fileID: 114777720273555040}
   - component: {fileID: 114425859086563690}
   - component: {fileID: 114022646922266424}
   - component: {fileID: 114587257682005850}
   - component: {fileID: 114608716112587450}
+  - component: {fileID: 114614124441507726}
+  - component: {fileID: 114269435964413252}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -710,7 +707,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 541.9401
     y: 674.32513
-    width: 145
+    width: 143.69348
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -819,7 +816,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 335.01715
     y: 69.60837
-    width: 127
+    width: 125.32221
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -845,7 +842,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 665.41174
     y: 69.358215
-    width: 176
+    width: 173.08752
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -871,7 +868,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 535.02185
     y: 761.373
-    width: 151
+    width: 149.20486
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -896,7 +893,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1003.2228
     y: 486.9206
-    width: 155
+    width: 154.71625
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1183,7 +1180,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 544.2228
     y: 520.1669
-    width: 145
+    width: 143.69348
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1237,7 +1234,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 756.95374
     y: 373.8969
-    width: 171
+    width: 167.57614
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1283,6 +1280,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1906e9ba5ad4a498eff47a9126dd06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _screenInfoSettings: {fileID: 11400000, guid: 841eeacaed418404994e31a600cd7769,
+    type: 2}
+  _screenWarnSettings: {fileID: 11400000, guid: 41bd453202d5041d08377854e54d8ab6,
+    type: 2}
+  _screenDangerSettings: {fileID: 11400000, guid: 8560ae070d504497d845e32fc11e0724,
+    type: 2}
+  _screens: {fileID: 0}
   _flowchart: {fileID: 114892666088814562}
   _SAIwAController: {fileID: 0}
   _player: {fileID: 0}
@@ -1318,7 +1322,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 196.302
     y: 375.88
-    width: 122
+    width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1358,7 +1362,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 501.5819
     y: 70.86427
-    width: 130
+    width: 128.99646
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1538,7 +1542,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 541.4941
     y: 445.26376
-    width: 145
+    width: 143.69348
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1725,6 +1729,22 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &114269435964413252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 224
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: Captain_Entree_Ended
+  delay: 0
 --- !u!114 &114278389907045118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2085,7 +2105,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -137.18008
-    y: 7.6107645
+    y: 5.3971376
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2160,31 +2180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 210
   indentLevel: 0
---- !u!114 &114407496064222224
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 754.95374
-    y: 448.87976
-    width: 178
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 112
-  blockName: Captain_Take_ID_Card1
-  description: 
-  eventHandler: {fileID: 114630480520398404}
-  commandList:
-  - {fileID: 114624419899270278}
 --- !u!114 &114410983645065956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2310,7 +2305,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -35.583145
     y: 508.22046
-    width: 141
+    width: 140.01923
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2396,7 +2391,7 @@ MonoBehaviour:
   itemId: 14
   indentLevel: 0
   targetObject: {fileID: 1952306719512844}
-  methodName: LookAtLookOutEntree
+  methodName: RepairIntroductionEnded
   delay: 0
 --- !u!114 &114460359334893818
 MonoBehaviour:
@@ -2438,7 +2433,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 541.66113
     y: 599.96643
-    width: 145
+    width: 143.69348
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2738,7 +2733,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 557.01587
     y: 374.5239
-    width: 125
+    width: 123.485085
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2955,7 +2950,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 988.57623
     y: 873.6637
-    width: 154
+    width: 152.87912
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3064,7 +3059,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 993.20966
     y: 592.3579
-    width: 155
+    width: 156.55338
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3080,6 +3075,22 @@ MonoBehaviour:
   - {fileID: 114802011173053738}
   - {fileID: 114398439962572888}
   - {fileID: 114146204071717250}
+--- !u!114 &114614124441507726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392511437507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 225
+  indentLevel: 0
+  targetObject: {fileID: 1952306719512844}
+  methodName: Engineroom_Exit_Start
+  delay: 0
 --- !u!114 &114622252586279218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3093,22 +3104,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114396104749827520}
   waitForFrames: 1
---- !u!114 &114624419899270278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 113
-  indentLevel: 0
-  targetObject: {fileID: 1952306719512844}
-  methodName: AddCaptainExitTrigger
-  delay: 0
 --- !u!114 &114629030717794058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3122,35 +3117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 147
   indentLevel: 0
---- !u!114 &114629952294551448
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 213
-  indentLevel: 0
-  targetObject: {fileID: 1952306719512844}
-  methodName: AddEndingDeepSleepPossibility
-  delay: 0
---- !u!114 &114630480520398404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 114407496064222224}
-  message: Captain_Take_ID_Card
 --- !u!114 &114633201257103978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3359,7 +3325,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1007.25867
     y: 361.94522
-    width: 146
+    width: 145.53061
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3389,7 +3355,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 40.999256
     y: 183.14961
-    width: 157
+    width: 160.22763
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3402,8 +3368,6 @@ MonoBehaviour:
   - {fileID: 114842038503279012}
   - {fileID: 114269275271777180}
   - {fileID: 114459803843815668}
-  - {fileID: 114629952294551448}
-  - {fileID: 114777720273555040}
 --- !u!114 &114705840318750796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3591,7 +3555,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 994.5513
     y: 704.7149
-    width: 141
+    width: 141.85635
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3601,6 +3565,7 @@ MonoBehaviour:
   eventHandler: {fileID: 114934502987173052}
   commandList:
   - {fileID: 114705840318750796}
+  - {fileID: 114614124441507726}
   - {fileID: 114725939662204884}
   - {fileID: 114575230400512958}
   - {fileID: 114563768628004112}
@@ -3687,22 +3652,6 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
---- !u!114 &114777720273555040
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392511437507262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 217
-  indentLevel: 0
-  targetObject: {fileID: 1952306719512844}
-  methodName: EnablePlayerMovement
-  delay: 0
 --- !u!114 &114787904334158388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4036,7 +3985,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 371.47934
     y: 369.29257
-    width: 131
+    width: 128.99646
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4047,6 +3996,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 114162189785231146}
   - {fileID: 114605533910258532}
+  - {fileID: 114269435964413252}
 --- !u!114 &114886741247446224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4109,11 +4059,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -49.002243, y: 73.05526}
+  scrollPos: {x: 115.859085, y: 210.36002}
   variablesScrollPos: {x: 0, y: 0}
-  variablesExpanded: 1
+  variablesExpanded: 0
   blockViewHeight: 420
-  zoom: 0.45174727
+  zoom: 0.27216408
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -4121,9 +4071,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114436812937442426}
+  - {fileID: 114396104749827520}
   selectedCommands:
-  - {fileID: 114529876114444170}
+  - {fileID: 114472236751819130}
   variables:
   - {fileID: 114978007602951696}
   - {fileID: 114714274343590086}
@@ -4155,7 +4105,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1292.3898
     y: 350.89246
-    width: 148
+    width: 147.36774
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
