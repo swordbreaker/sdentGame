@@ -13,6 +13,9 @@ using System.Collections;
 public class DialogEventManagement : MonoBehaviour {
 
     [SerializeField]
+    private ScreenSettings _screenSuccessSettings;
+
+    [SerializeField]
     private ScreenSettings _screenInfoSettings;
 
     [SerializeField]
@@ -109,8 +112,8 @@ public class DialogEventManagement : MonoBehaviour {
     [ConsoleCommand]
     public void RepairIntroductionEnded() 
     {
-        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Ausguck", _screenWarnSettings);
-        _screens.ScreenLookOutEntree.ChangeText("Hier ist der Ausguck", _screenInfoSettings);
+        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Ausguck", _screenInfoSettings);
+        _screens.ScreenLookOutEntree.ChangeText("Hier ist der Ausguck", _screenSuccessSettings);
         LookAtLookOutEntree();
         AddEndingDeepSleepPossibility();
         EnablePlayerMovement();
@@ -152,15 +155,15 @@ public class DialogEventManagement : MonoBehaviour {
 	{
 		CaptainEntree.GetComponent<FungusTrigger> ().Active = true;
         OpenCaptainDoor ();
-        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Kapitanszimmer", _screenWarnSettings);
-        _screens.ScreenCaptainEntree.ChangeText("Hier ist das\n\rKapitanszimmer", _screenInfoSettings);
+        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Kapitanszimmer", _screenInfoSettings);
+        _screens.ScreenCaptainEntree.ChangeText("Hier ist das\n\rKapitanszimmer", _screenSuccessSettings);
 	}
 
     [ConsoleCommand]
     public void Captain_Entree_Ended() 
     {
         _screens.ChangeTextOnInfoScreens("Finden Sie die ID-Karte des Kapitan", _screenInfoSettings);
-        _screens.ScreenCaptainEntree.ChangeText("Hier ist das\n\rKapitanszimmer", _screenInfoSettings);
+        _screens.ScreenCaptainEntree.ChangeText("Hier ist das\n\rKapitanszimmer", _screenSuccessSettings);
     }
 
     [ConsoleCommand]
@@ -196,7 +199,8 @@ public class DialogEventManagement : MonoBehaviour {
 	{
 		_engineRoomEntree.GetComponent<FungusTrigger> ().Active = true;
 		OpenEngineRoomDoor ();
-        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Motorraum", _screenWarnSettings);
+        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Motorraum", _screenInfoSettings);
+        _screens.ScreenEngineRoomEntree.ChangeText("Hier ist der Motorraum", _screenSuccessSettings);
 	}
 
     public IEnumerator EndGameDisplayText() 
