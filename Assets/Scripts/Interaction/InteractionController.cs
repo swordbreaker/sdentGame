@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Linq;
 using TMPro;
-using UnityEngine.UI;
 
 public class InteractionController : MonoBehaviour
 {
+    [SerializeField] private float _distance = 2.5F;
+
     private TextMeshProUGUI interactionText;
 
     public void Start ()
@@ -24,7 +23,7 @@ public class InteractionController : MonoBehaviour
         RaycastHit hitInfo;
         if (interactionText != null)
             interactionText.text = "";
-        if (Physics.Raycast (transform.position, transform.forward, out hitInfo, 2, LayerMask.GetMask ("PlayerInteraction")))
+        if (Physics.Raycast (transform.position, transform.forward, out hitInfo, _distance, LayerMask.GetMask ("PlayerInteraction")))
         {
             var interactions = hitInfo.transform.gameObject.GetComponents<IInteraction>().Where(x => x.Interactable).ToList();
             if (interactions.Any())
