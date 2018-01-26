@@ -1280,9 +1280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1906e9ba5ad4a498eff47a9126dd06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _screenSuccessSettings: {fileID: 11400000, guid: f6fe9ef17c8494618a5f4a7a145703df,
+    type: 2}
   _screenInfoSettings: {fileID: 11400000, guid: 841eeacaed418404994e31a600cd7769,
     type: 2}
-  _screenWarnSettings: {fileID: 11400000, guid: 41bd453202d5041d08377854e54d8ab6,
+  _screenWarnSettings: {fileID: 11400000, guid: 6f5d4abbabe92418f906c7b6219b045c,
     type: 2}
   _screenDangerSettings: {fileID: 11400000, guid: 8560ae070d504497d845e32fc11e0724,
     type: 2}
@@ -1300,6 +1302,27 @@ MonoBehaviour:
   _engineRoomDoor: {fileID: 0}
   _alarm: {fileID: 0}
   _crewMembersToKill:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
