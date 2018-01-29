@@ -243,7 +243,7 @@ namespace Fungus
             return false;
         }
 
-        protected virtual IEnumerator ProcessTokens(List<TextTagToken> tokens, bool stopAudio, Action onComplete)
+        protected virtual IEnumerator ProcessTokens(List<TextTagToken> tokens, bool stopAudio, Action onComplete, AudioSource p_audioSource = null)
         {
             // Reset control members
             boldActive = false;
@@ -485,6 +485,13 @@ namespace Fungus
             exitFlag = false;
             isWaitingForInput = false;
             isWriting = false;
+
+            // Wait for audio to finish
+            float progress = Mathf.Clamp01(p_audioSource.time / p_audioSource.clip.length);
+            while (progress > 0.01F) {
+                progress = Mathf.Clamp01(p_audioSource.time / p_audioSource.clip.length);
+                yield return new WaitForSeconds(1);
+            }
 
             NotifyEnd(stopAudio);
 
@@ -894,7 +901,7 @@ namespace Fungus
         /// <param name="stopAudio">Stops any currently playing audioclip.</param>
         /// <param name="audioClip">Audio clip to play when text starts writing.</param>
         /// <param name="onComplete">Callback to call when writing is finished.</param>
-        public virtual IEnumerator Write(string content, bool clear, bool waitForInput, bool stopAudio, AudioClip audioClip, Action onComplete)
+        public virtual IEnumerator Write(string content, bool clear, bool waitForInput, bool stopAudio, AudioClip audioClip, Action onComplete, AudioSource source = null)
         {
             if (clear)
 			{
@@ -920,7 +927,7 @@ namespace Fungus
 
             gameObject.SetActive(true);
 
-            yield return StartCoroutine(ProcessTokens(tokens, stopAudio, onComplete));
+            yield return StartCoroutine(ProcessTokens(tokens, stopAudio, onComplete, source));
         }
 
         /// <summary>

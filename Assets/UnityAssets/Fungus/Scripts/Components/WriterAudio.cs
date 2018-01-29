@@ -31,7 +31,7 @@ namespace Fungus
 
         // If none is specifed then we use any AudioSource on the gameobject, and if that doesn't exist we create one.
         [Tooltip("AudioSource to use for playing sound effects. If none is selected then one will be created.")]
-        [SerializeField] protected AudioSource targetAudioSource;
+        [SerializeField] public AudioSource targetAudioSource;
 
         [Tooltip("Type of sound effect to play when writing text")]
         [SerializeField] protected AudioMode audioMode = AudioMode.Beeps;

@@ -473,17 +473,19 @@ namespace Fungus
             // Voice over clip takes precedence over a character sound effect if provided
 
             AudioClip soundEffectClip = null;
+            AudioSource audioSource = null;
             if (voiceOverClip != null)
             {
-                WriterAudio writerAudio = GetWriterAudio();
+                var writerAudio = GetWriterAudio();
                 writerAudio.OnVoiceover(voiceOverClip);
+                audioSource = writerAudio.targetAudioSource;
             }
             else if (speakingCharacter != null)
             {
                 soundEffectClip = speakingCharacter.SoundEffect;
             }
 
-            yield return StartCoroutine(writer.Write(text, clearPrevious, waitForInput, stopVoiceover, soundEffectClip, onComplete));
+            yield return StartCoroutine(writer.Write(text, clearPrevious, waitForInput, stopVoiceover, soundEffectClip, onComplete, audioSource));
         }
 
         /// <summary>
