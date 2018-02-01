@@ -481,17 +481,21 @@ namespace Fungus
                 }
             }
 
+            if (!inputFlag && p_audioSource != null)
+            {
+                // Wait for audio to finish
+                float progress = Mathf.Clamp01(p_audioSource.time / p_audioSource.clip.length);
+                while (progress > 0.01F)
+                {
+                    progress = Mathf.Clamp01(p_audioSource.time / p_audioSource.clip.length);
+                    yield return new WaitForSeconds(1);
+                }
+            }
+
             inputFlag = false;
             exitFlag = false;
             isWaitingForInput = false;
             isWriting = false;
-
-            // Wait for audio to finish
-            float progress = Mathf.Clamp01(p_audioSource.time / p_audioSource.clip.length);
-            while (progress > 0.01F) {
-                progress = Mathf.Clamp01(p_audioSource.time / p_audioSource.clip.length);
-                yield return new WaitForSeconds(1);
-            }
 
             NotifyEnd(stopAudio);
 
