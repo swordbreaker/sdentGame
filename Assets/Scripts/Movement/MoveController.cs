@@ -24,9 +24,18 @@ namespace Assets.Scripts.Movement
         private bool _jump;
         private bool _isJumping;
         private bool _previouslyGrounde;
+        private Animator _animator;
+
         [SerializeField] private AudioClip[] _footstepSounds;
         [SerializeField] private AudioClip _jumpSound;
         [SerializeField] private AudioClip _landSound;
+
+        private readonly int _aniOnGround = Animator.StringToHash("OnGround");
+        private readonly int _aniTurn = Animator.StringToHash("Turn");
+        private readonly int _aniForward = Animator.StringToHash("Forward");
+        private readonly int _aniJump = Animator.StringToHash("Jump");
+        private readonly int _aniJumpLeg = Animator.StringToHash("JumpLeg");
+
         #region Properties
 
         public Vector3 Velocity
@@ -82,6 +91,8 @@ namespace Assets.Scripts.Movement
             _audioSource = GetComponent<AudioSource>();
             MouseLook.Init(transform, FpsCamera);
             _nextStep = _stepCycle / 2f;
+            //_animator = gameObject.GetComponentInChildren<Animator>();
+
 
             Console.Console.Instance.OnActivate += ConsoleOnOnActivate;
             Console.Console.Instance.OnDeActivate += ConsoleOnOnDeActivate;
@@ -117,6 +128,9 @@ namespace Assets.Scripts.Movement
                 movementVector = Vector3.ProjectOnPlane(movementVector, transform.up);
                 _movementDirection = movementVector.normalized * Speed;
                 ProgressStepCycle(Speed, x, y);
+
+                //_animator.SetFloat(_aniForward, y);
+                //_animator.SetFloat(_aniTurn, x);
             }
 
 			if (CanJump && _isGrounded && Input.GetButtonDown("Jump"))
@@ -135,6 +149,9 @@ namespace Assets.Scripts.Movement
                 //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
                 var jumpVector = transform.TransformDirection(new Vector3(0f, JumpForce, 0f));
                 _rigidbody.AddForce(jumpVector, ForceMode.Impulse);
+
+                //_animator.SetFloat(_aniJump, jumpVector.magnitude);
+
                 _jumpForce = Vector3.zero;
                 _jump = false;
                 _isJumping = true;
@@ -159,10 +176,12 @@ namespace Assets.Scripts.Movement
                 Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
                 _isGrounded = true;
+                //_animator.SetBool(_aniOnGround, true);
             }
             else
             {
                 _isGrounded = false;
+                //_animator.SetBool(_aniOnGround, false);
             }
 
             if (!_previouslyGrounde && _isJumping && _isGrounded)

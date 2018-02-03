@@ -1,0 +1,7 @@
+newmtl Ground
+map_Kd Texture_2_Specular_edited.png
+bump Texture_2_Normal.psd
+map_Ke Texture_2_Emission.png
+Kd 1 1 1
+d 1
+
