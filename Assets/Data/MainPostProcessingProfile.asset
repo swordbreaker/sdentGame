@@ -16,7 +16,7 @@ MonoBehaviour:
     m_Settings:
       mode: 0
       depth:
-        scale: 1
+        scale: 0.032
       motionVectors:
         sourceOpacity: 1
         motionImageOpacity: 0
@@ -42,10 +42,10 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 1
-      radius: 0.3
-      sampleCount: 16
-      downsampling: 1
+      intensity: 0.97
+      radius: 0.49
+      sampleCount: 10
+      downsampling: 0
       forceForwardCompatibility: 0
       ambientOnly: 0
       highPrecision: 0
@@ -69,11 +69,11 @@ MonoBehaviour:
       screenEdgeMask:
         intensity: 0.03
   depthOfField:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      focusDistance: 10
-      aperture: 5.6
-      focalLength: 50
+      focusDistance: 1
+      aperture: 9.7
+      focalLength: 44
       useCameraFov: 0
       kernelSize: 1
   motionBlur:
@@ -85,7 +85,7 @@ MonoBehaviour:
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
-      lowPercent: 45
+      lowPercent: 42.15942
       highPercent: 95
       minLuminance: -5
       maxLuminance: 1
@@ -100,36 +100,36 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.5
-        threshold: 1.1
-        softKnee: 0.5
-        radius: 4
-        antiFlicker: 0
+        intensity: 0.72
+        threshold: 0.8
+        softKnee: 0.096
+        radius: 1.66
+        antiFlicker: 1
       lensDirt:
-        texture: {fileID: 0}
-        intensity: 3
+        texture: {fileID: 2800000, guid: 3884f7a2d04ffe8409ad9200b275896f, type: 3}
+        intensity: 2
   colorGrading:
     m_Enabled: 1
     m_Settings:
       tonemapping:
         tonemapper: 2
-        neutralBlackIn: 0.075
-        neutralWhiteIn: 10.4
-        neutralBlackOut: -0.003
-        neutralWhiteOut: 10.3
-        neutralWhiteLevel: 6.2
+        neutralBlackIn: 0.0732
+        neutralWhiteIn: 7.75
+        neutralBlackOut: 0.0098
+        neutralWhiteOut: 7.63
+        neutralWhiteLevel: 7.63
         neutralWhiteClip: 10
       basic:
-        postExposure: 0.27
+        postExposure: 0.34
         temperature: -3
         tint: 0
         hueShift: 0
-        saturation: 1.12
-        contrast: 1.2
+        saturation: 1.057
+        contrast: 1.443
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
-        blue: {x: 0, y: 0, z: 1.1}
+        blue: {x: 0, y: 0, z: 0.96}
         currentEditingChannel: 2
       colorWheels:
         mode: 1

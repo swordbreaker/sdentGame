@@ -15,6 +15,9 @@ public class SAIwAController : MonoBehaviour
     [SerializeField]
     private Light _pointLight;
 
+    [SerializeField]
+    private Light[] _lights;
+
 	[SerializeField]
 	private GameObject _core;
 
@@ -32,7 +35,13 @@ public class SAIwAController : MonoBehaviour
 		_coreStartColor = _coreRenderer.material.color;
 		_turnOnLights = new LerpHelper<Color> (Color.black, _pointLight.color, 2f, false);
 		_pointLight.color = Color.black;
-	}
+
+        foreach (var light in _lights)
+        {
+            light.color = Color.black;  
+        }
+
+    }
 
 	void Update () 
 	{
@@ -46,9 +55,15 @@ public class SAIwAController : MonoBehaviour
 		if (_turnOnLights == null) return;
 
 		bool done;
-		_pointLight.color = _turnOnLights.CurrentValue(out done);
+        var current = _turnOnLights.CurrentValue(out done);
+        _pointLight.color = current;
 
-		if (done) _turnOnLights = null;
+        foreach (var light in _lights)
+        {
+            light.color = current;
+        }
+
+        if (done) _turnOnLights = null;
 	}
 
 	public void UpdateAlarmColor(float timePassed) 
