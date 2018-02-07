@@ -19,4 +19,9 @@ public class CreditsController : MonoBehaviour
         }
 	}
 
+    private void OnDestroy()
+    {
+        Destroy(GameObject.Find("EndingMusicPlayer"));
+    }
+
 }
