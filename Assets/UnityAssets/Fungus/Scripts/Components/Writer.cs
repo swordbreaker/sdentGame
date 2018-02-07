@@ -485,7 +485,7 @@ namespace Fungus
             {
                 // Wait for audio to finish
                 float progress = Mathf.Clamp01(p_audioSource.time / p_audioSource.clip.length);
-                while (progress > 0.01F)
+                while (progress > 0.01F && !inputFlag)
                 {
                     progress = Mathf.Clamp01(p_audioSource.time / p_audioSource.clip.length);
                     yield return new WaitForSeconds(1);
@@ -896,6 +896,8 @@ namespace Fungus
             }
         }
 
+        private int writers = 0;
+
         /// <summary>
         /// Writes text using a typewriter effect to a UI text object.
         /// </summary>
@@ -907,6 +909,7 @@ namespace Fungus
         /// <param name="onComplete">Callback to call when writing is finished.</param>
         public virtual IEnumerator Write(string content, bool clear, bool waitForInput, bool stopAudio, AudioClip audioClip, Action onComplete, AudioSource source = null)
         {
+            writers++;
             if (clear)
 			{
 				this.Text = "";
@@ -931,7 +934,10 @@ namespace Fungus
 
             gameObject.SetActive(true);
 
-            yield return StartCoroutine(ProcessTokens(tokens, stopAudio, onComplete, source));
+            yield return StartCoroutine(ProcessTokens(tokens, stopAudio, () => {
+                writers--;
+                onComplete();
+            }, source));
         }
 
         /// <summary>
@@ -1018,6 +1024,7 @@ namespace Fungus
 
         public virtual void OnNextLineEvent()
         {
+            if (writers == 0) return;
             inputFlag = true;
 
             if (isWriting)

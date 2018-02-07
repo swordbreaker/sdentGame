@@ -814,7 +814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 335.01715
+    x: 338.6914
     y: 69.60837
     width: 125.32221
     height: 40
@@ -953,7 +953,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &114092240269384346
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &114269435964413252
@@ -1978,7 +1978,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
 --- !u!114 &114347378022223864
@@ -3376,7 +3376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 40.999256
+    x: 44.67351
     y: 183.14961
     width: 160.22763
     height: 40
@@ -4096,7 +4096,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 114396104749827520}
   selectedCommands:
-  - {fileID: 114472236751819130}
+  - {fileID: 114329677367208900}
   variables:
   - {fileID: 114978007602951696}
   - {fileID: 114714274343590086}
