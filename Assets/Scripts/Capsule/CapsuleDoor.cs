@@ -61,8 +61,6 @@ namespace Assets.Scripts.Capsule
             if (IsLocked) return;
             if (other.tag == "Player")
             {
-                audioSource.Stop();
-                audioSource.PlayOneShot(openCloseAudioClip);
                 Close();
             }
         }
