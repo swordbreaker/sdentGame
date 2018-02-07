@@ -10,6 +10,7 @@ namespace Assets.Scripts.MainMenu
         [SerializeField] private float _delay;
         [SerializeField] private Ease _ease;
         [SerializeField] private Button _playButton;
+        [SerializeField] private Button _infoButton;
         [SerializeField] private Button _exitButton;
 
         private RectTransform _rectTransform;
@@ -20,6 +21,7 @@ namespace Assets.Scripts.MainMenu
             Invoke("Show", _delay);
 
             _playButton.onClick.AddListener(() => SceneController.LoadLevel("Main"));
+            _infoButton.onClick.AddListener(() => SceneController.LoadLevel("Info"));
             _exitButton.onClick.AddListener(Application.Quit);
         }
 
