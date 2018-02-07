@@ -488,7 +488,7 @@ namespace Fungus
                 while (progress > 0.01F && !inputFlag)
                 {
                     progress = Mathf.Clamp01(p_audioSource.time / p_audioSource.clip.length);
-                    yield return new WaitForSeconds(1);
+                    yield return new WaitForSeconds(0.01f);
                 }
             }
 
