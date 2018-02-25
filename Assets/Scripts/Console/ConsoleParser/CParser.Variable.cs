@@ -1,13 +1,18 @@
 ﻿using System.Linq;
 using Sprache;
 
-namespace Assets.Scripts.Console.ConsoleParser
+namespace CommandConsole.ConsoleParser
 {
     static partial class CParser
     {
         public static Parser<Variable> NumberParser
         {
-            get { return Parse.Decimal.Select(s => new Variable(s)); }
+            get
+            {
+                return from minus in Parse.Chars('-', '–').Token()
+                    from dez in Parse.Decimal
+                    select new Variable(minus + dez);
+            }
         }
 
         public static Parser<Variable> StringParser
@@ -43,7 +48,7 @@ namespace Assets.Scripts.Console.ConsoleParser
 
         public static Parser<Variable> VariableParser
         {
-            get { return StringParser.Or(NumberParser); }
+            get { return NumberParser.Or(StringParser); }
         }
 
         public static Parser<VList> ListParser
@@ -58,7 +63,11 @@ namespace Assets.Scripts.Console.ConsoleParser
 
         public static Parser<IValue> ValueParser
         {
-            get { return ListParser.Select(list => (IValue)list).Or(ObjectParser.Select(o => (IValue)o)).Or(VariableParser.Select(variable => (IValue)variable)); }
+            get {
+                return ListParser.Select(list => (IValue)list)
+                    .Or(ObjectParser.Select(o => (IValue)o))
+                    .Or(VariableParser.Select(variable => (IValue)variable)); 
+            }
         }
     }
 }

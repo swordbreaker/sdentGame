@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Movement;
 using System.Linq;
-using Assets.Scripts.Console;
-using Assets.Scripts.Console.Attributes;
+using CommandConsole;
+using CommandConsole.Attributes;
 using Fungus;
 using UnityEngine.UI;
 using Assets.Scripts.Helpers;

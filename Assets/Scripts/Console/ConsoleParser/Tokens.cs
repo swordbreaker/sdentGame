@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.Console.ConsoleParser
+namespace CommandConsole.ConsoleParser
 {
     public class Command
     {

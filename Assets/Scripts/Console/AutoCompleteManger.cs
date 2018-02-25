@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Assets.Scripts.Console
+namespace CommandConsole
 {
     public class AutoCompleteManger
     {

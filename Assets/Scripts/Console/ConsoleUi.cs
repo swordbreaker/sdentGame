@@ -2,11 +2,10 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Input = UnityEngine.Input;
 
-namespace Assets.Scripts.Console
+namespace CommandConsole
 {
     public class ConsoleUi : MonoBehaviour
     {

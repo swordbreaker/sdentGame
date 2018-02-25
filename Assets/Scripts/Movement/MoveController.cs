@@ -1,7 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using Random = UnityEngine.Random;
+using CommandConsole;
+using System;
 
 namespace Assets.Scripts.Movement
 {
@@ -93,9 +94,8 @@ namespace Assets.Scripts.Movement
             _nextStep = _stepCycle / 2f;
             //_animator = gameObject.GetComponentInChildren<Animator>();
 
-
-            Console.Console.Instance.OnActivate += ConsoleOnOnActivate;
-            Console.Console.Instance.OnDeActivate += ConsoleOnOnDeActivate;
+            CommandConsole.Console.Instance.OnActivate += ConsoleOnOnActivate;
+            CommandConsole.Console.Instance.OnDeActivate += ConsoleOnOnDeActivate;
         }
 
         private void ConsoleOnOnDeActivate(object sender, EventArgs eventArgs)
@@ -113,8 +113,8 @@ namespace Assets.Scripts.Movement
         private void OnDestroy()
         {
             Debug.Log("MovementController Destroyed");
-            Console.Console.Instance.OnActivate -= ConsoleOnOnActivate;
-            Console.Console.Instance.OnDeActivate -= ConsoleOnOnDeActivate;
+            CommandConsole.Console.Instance.OnActivate -= ConsoleOnOnActivate;
+            CommandConsole.Console.Instance.OnDeActivate -= ConsoleOnOnDeActivate;
         }
 
         private void Update()

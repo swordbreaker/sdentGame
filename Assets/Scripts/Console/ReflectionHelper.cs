@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using Assets.Scripts.Console.Attributes;
-using Assets.Scripts.Console.Exceptions;
-using Assets.Scripts.Console.Parameters;
+using CommandConsole.Attributes;
+using CommandConsole.Exceptions;
+using CommandConsole.Parameters;
 
-namespace Assets.Scripts.Console
+namespace CommandConsole
 {
     public static class ReflectionHelper
     {
@@ -16,9 +16,10 @@ namespace Assets.Scripts.Console
             Public, Marked
         }
 
-        public static List<IConsoleCommand> GetCommands(Type t, object obj, ImportType importType)
+        public static List<IConsoleCommand> GetCommands(Type t, object obj, ImportType importType, string className = null)
         {
-            var className = t.Name;
+            if (className == null) className = t.Name;
+            //var className = t.Name;
             var commands = new List<IConsoleCommand>();
 
             foreach (var methodInfo in t.GetMethods())
@@ -86,11 +87,15 @@ namespace Assets.Scripts.Console
                 }
             }
 
-            if (!Console.DefaultParameters.ContainsKey(pInfo.ParameterType))
+            if (t == null)
             {
-                throw new ConsoleException(string.Format("Cannot find a parameter for the type {0}", pInfo.ParameterType));
+                if (!Console.DefaultParameters.ContainsKey(pInfo.ParameterType))
+                {
+                    throw new ConsoleException(
+                        string.Format("Cannot find a parameter for the type {0}", pInfo.ParameterType));
+                }
+                t = Console.DefaultParameters[pInfo.ParameterType];
             }
-            if (t == null) t = Console.DefaultParameters[pInfo.ParameterType];
 
             var o = ConstructParameter(t, name ?? pInfo.Name, pInfo.IsOptional);
 

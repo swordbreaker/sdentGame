@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Console.ConsoleParser;
+using CommandConsole.ConsoleParser;
 using UnityEngine;
-using Assets.Scripts.Console.Exceptions;
-using Assets.Scripts.Console.Parameters;
+using CommandConsole.Exceptions;
+using CommandConsole.Parameters;
 using Sprache;
 
-namespace Assets.Scripts.Console
+namespace CommandConsole
 {
     public class Console
     {
@@ -176,18 +176,18 @@ namespace Assets.Scripts.Console
         /// </summary>
         /// <typeparam name="T">The Type of the Class</typeparam>
         /// <param name="instance">The instance of the class on which the console will invoke the methods.</param>
+        /// <param name="className">A custom classname which will be the prefix for the command for example Class.DoSometing when null the name of the class will be used. Usefull if more than one instance of a class are registerd in the console.</param>
         /// <param name="importType">Import Type:
         /// Public : Import all Public Methods
         /// Marked (default) : Import only Methods with the ConsoleCommand attribute
         /// </param>
-        public void RegisterClass<T>(object instance, ReflectionHelper.ImportType importType = ReflectionHelper.ImportType.Marked)
+        public void RegisterClass<T>(object instance, string className = null, ReflectionHelper.ImportType importType = ReflectionHelper.ImportType.Marked)
         {
-            foreach (var cmd in ReflectionHelper.GetCommands(typeof(T), instance, importType))
+            foreach (var cmd in ReflectionHelper.GetCommands(typeof(T), instance, importType, className))
             {
                 RegisterCommand(cmd);
             }
         }
-
 
         /// <summary>
         /// Remove a registered the command.
@@ -228,10 +228,11 @@ namespace Assets.Scripts.Console
         /// </summary>
         /// <typeparam name="T">The Type of the Class</typeparam>
         /// <param name="instance">The instance of the class.</param>
+        /// <param name="className">The registred class name</param>
         /// <param name="importType">Use the same import type here as you used on register</param>
-        public void DeregisterClass<T>(object instance, ReflectionHelper.ImportType importType = ReflectionHelper.ImportType.Marked)
+        public void DeregisterClass<T>(object instance, string className = null, ReflectionHelper.ImportType importType = ReflectionHelper.ImportType.Marked)
         {
-            foreach (var cmd in ReflectionHelper.GetCommands(typeof(T), instance, importType))
+            foreach (var cmd in ReflectionHelper.GetCommands(typeof(T), instance, importType, className))
             {
                 if(_registeredCommands.ContainsKey(cmd.CommandName)) DeregisterCommand(cmd.CommandName);
             }

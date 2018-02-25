@@ -1,8 +1,8 @@
 ﻿using System;
-using Assets.Scripts.Console.ConsoleParser;
-using Assets.Scripts.Console.Exceptions;
+using CommandConsole.ConsoleParser;
+using CommandConsole.Exceptions;
 
-namespace Assets.Scripts.Console.Parameters
+namespace CommandConsole.Parameters
 {
     public abstract class NumericParameter<T> : VariableParameter where T: struct,
                                               IComparable,

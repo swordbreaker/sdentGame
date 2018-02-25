@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Sprache;
 
-namespace Assets.Scripts.Console.ConsoleParser
+namespace CommandConsole.ConsoleParser
 {
     public static partial class CParser
     {

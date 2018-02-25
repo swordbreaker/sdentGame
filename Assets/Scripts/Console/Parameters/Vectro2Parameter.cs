@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Assets.Scripts.Console.ConsoleParser;
+using CommandConsole.ConsoleParser;
 using UnityEngine;
 
-namespace Assets.Scripts.Console.Parameters
+namespace CommandConsole.Parameters
 {
     public class Vectro2Parameter : Parameter
     {

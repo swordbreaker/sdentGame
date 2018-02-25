@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Console.ConsoleParser;
+using CommandConsole.ConsoleParser;
 
-namespace Assets.Scripts.Console.Parameters
+namespace CommandConsole.Parameters
 {
     public class IListParameter<T> : Parameter
     {

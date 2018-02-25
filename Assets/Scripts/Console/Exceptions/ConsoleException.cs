@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Assets.Scripts.Console.Exceptions
+namespace CommandConsole.Exceptions
 {
     public class ConsoleException : Exception
     {

@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Console
+﻿namespace CommandConsole
 {
     public class Tuple<T1, T2>
     {

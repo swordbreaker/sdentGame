@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Console.ConsoleParser;
+﻿using CommandConsole.ConsoleParser;
 
-namespace Assets.Scripts.Console.Parameters
+namespace CommandConsole.Parameters
 {
     public abstract class VariableParameter : Parameter
     {

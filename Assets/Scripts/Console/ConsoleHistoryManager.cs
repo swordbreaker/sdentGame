@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.Console
+namespace CommandConsole
 {
     public class ConsoleHistoryManager
     {
