@@ -53,5 +53,11 @@ namespace Assets.Scripts.Helpers
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public LerpHelper<T> Reverse()
+        {
+            return new LerpHelper<T>((T)End, (T)Start, TravelTime, UseSpeed);
+        }
     }
+
 }

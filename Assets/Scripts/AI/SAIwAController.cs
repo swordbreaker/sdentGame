@@ -21,7 +21,7 @@ public class SAIwAController : MonoBehaviour
 	[SerializeField]
 	private GameObject _core;
 
-	private Color _spotLightStartColor;
+	public Color SpotLightStartColor;
 	private Color _coreStartColor;
 
 	private Renderer _coreRenderer;
@@ -30,7 +30,7 @@ public class SAIwAController : MonoBehaviour
 
 	void Start() 
 	{
-		_spotLightStartColor = _spotLight.GetComponent<Light> ().color;
+		SpotLightStartColor = _spotLight.GetComponent<Light> ().color;
 		_coreRenderer = _core.GetComponent<Renderer> ();
 		_coreStartColor = _coreRenderer.material.color;
 		_turnOnLights = new LerpHelper<Color> (Color.black, _pointLight.color, 2f, false);
@@ -66,14 +66,14 @@ public class SAIwAController : MonoBehaviour
         if (done) _turnOnLights = null;
 	}
 
-	public void UpdateAlarmColor(float timePassed) 
+	public void UpdateAlarmColor(float timePassed)
 	{
-        var color = Color.Lerp(_spotLightStartColor, _alarmColor, timePassed);
+        var color = Color.Lerp(SpotLightStartColor, _alarmColor, timePassed);
         _spotLight.color = color;
 	    _pointLight.color = color;
 	}
 
-	public Transform LookAt 
+    public Transform LookAt 
 	{
 		set
 		{
