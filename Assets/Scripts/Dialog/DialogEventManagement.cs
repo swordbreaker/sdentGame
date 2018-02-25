@@ -155,8 +155,8 @@ public class DialogEventManagement : MonoBehaviour {
 	{
 		CaptainEntree.GetComponent<FungusTrigger> ().Active = true;
         OpenCaptainDoor ();
-        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Kapitanszimmer", _screenInfoSettings);
-        _screens.ScreenCaptainEntree.ChangeText("Hier ist das\n\rKapitanszimmer", _screenSuccessSettings);
+        _screens.ChangeTextOnInfoScreens("Gehen Sie zum Kapitans\n\rzimmer", _screenInfoSettings);
+        _screens.ScreenCaptainEntree.ChangeText("Hier ist das\n\rKapitans\n\rzimmer", _screenSuccessSettings);
 	}
 
     [ConsoleCommand]
