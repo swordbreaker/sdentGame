@@ -12,6 +12,9 @@ namespace Assets.Scripts.Ui
         [SerializeField] private GameObject _pauseMenuPanel;
         private MoveController _moveController;
 
+        [SerializeField]
+        private GameObject _graphicSettingsPanel;
+
         private void Start()
         {
             _pauseMenuPanel.SetActive(false);
@@ -20,6 +23,8 @@ namespace Assets.Scripts.Ui
 
         private void Update()
         {
+            if (_graphicSettingsPanel.activeSelf) return;
+
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 _pauseMenuPanel.SetActive(!_pauseMenuPanel.activeSelf);
