@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Console
+﻿namespace CommandConsole
 {
     /// <summary>
     /// Imutable struct to store a Range

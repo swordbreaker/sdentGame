@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using Assets.Scripts.Console.Parameters;
+using CommandConsole.Parameters;
 
-namespace Assets.Scripts.Console.Exceptions
+namespace CommandConsole.Exceptions
 {
     public class ValidationException : ConsoleException
     {

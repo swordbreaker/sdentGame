@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using Assets.Scripts.Console.ConsoleParser;
-using Assets.Scripts.Console.Exceptions;
+using CommandConsole.ConsoleParser;
+using CommandConsole.Exceptions;
 using UnityEngine;
 
-namespace Assets.Scripts.Console.Parameters
+namespace CommandConsole.Parameters
 {
     public class ColorParameter : Parameter
     {

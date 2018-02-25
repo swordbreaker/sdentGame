@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Console.Parameters
+﻿namespace CommandConsole.Parameters
 {
     public class DoubleParameter : NumericParameter<double>
     {

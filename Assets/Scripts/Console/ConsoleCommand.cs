@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Assets.Scripts.Console.ConsoleParser;
-using Assets.Scripts.Console.Exceptions;
-using Assets.Scripts.Console.Parameters;
+using CommandConsole.ConsoleParser;
+using CommandConsole.Exceptions;
+using CommandConsole.Parameters;
 
-namespace Assets.Scripts.Console
+namespace CommandConsole
 {
     public class ConsoleCommand : IConsoleCommand
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Scripts.Console.Attributes
+namespace CommandConsole.Attributes
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class ConsoleCommandAttribute : Attribute

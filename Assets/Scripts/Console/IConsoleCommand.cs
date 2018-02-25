@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Console.ConsoleParser;
+﻿using CommandConsole.ConsoleParser;
 
-namespace Assets.Scripts.Console
+namespace CommandConsole
 {
     public interface IConsoleCommand
     {

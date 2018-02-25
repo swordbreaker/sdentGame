@@ -1,19 +1,26 @@
-﻿using Assets.Scripts.Console.Attributes;
+﻿using CommandConsole;
 using Assets.Scripts.Movement;
 using UnityEngine;
+using CommandConsole.Attributes;
 
 namespace Assets.Scripts
 {
     public class ConsoleActions : MonoBehaviour
     {
+        [SerializeField] GameObject _fpsCanvas;
+
+        private bool _fpsEnabled;
+
+
+
         private void Start()
         {
-            Console.Console.Instance.RegisterClass<ConsoleActions>(this);
+            Console.Instance.RegisterClass<ConsoleActions>(this);
         }
 
         private void OnDestroy()
         {
-            Console.Console.Instance.DeregisterClass<ConsoleActions>(this);
+            Console.Instance.DeregisterClass<ConsoleActions>(this);
         }
 
         [ConsoleCommand(Global = true)]
@@ -56,7 +63,22 @@ namespace Assets.Scripts
         public void Goto(Vector3 pos)
         {
             FindObjectOfType<MoveController>().transform.position = pos;
-            Console.Console.Instance.Log(string.Format("Goto {0}", pos));
+            Console.Instance.Log(string.Format("Goto {0}", pos));
+        }
+
+        [ConsoleCommand(Global = true, ReturnMessage = null)]
+        public void ToggleFps()
+        {
+            _fpsEnabled = !_fpsEnabled;
+            _fpsCanvas.SetActive(_fpsEnabled);
+            if (_fpsEnabled)
+            {
+                Console.Instance.Log("Fps Graph enabled");
+            }
+            else
+            {
+                Console.Instance.Log("Fps Graph disabled");
+            }
         }
     }
 }

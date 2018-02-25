@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.Console.Attributes;
+﻿using CommandConsole.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Console
+namespace CommandConsole
 {
     public class EssentialCommands
     {

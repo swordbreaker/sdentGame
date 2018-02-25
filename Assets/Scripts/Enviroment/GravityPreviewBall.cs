@@ -1,5 +1,5 @@
-﻿using Assets.Scripts.Console;
-using Assets.Scripts.Console.Attributes;
+﻿using CommandConsole;
+using CommandConsole.Attributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
