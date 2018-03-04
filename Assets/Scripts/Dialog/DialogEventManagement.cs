@@ -73,6 +73,15 @@ public class DialogEventManagement : MonoBehaviour {
 	[SerializeField]
 	private Image _deepSleepEndingImage;
 
+    [SerializeField]
+    private AudioSource _alarmSoundtrack;
+
+    [SerializeField]
+    private AudioSource _endingMusic;
+
+    [SerializeField]
+    private AudioClip _endingClipDeepSleep;
+
 	private LerpHelper<Color> _deepSleepLerp;
 	private LerpHelper<float> _globalSoundLerp;
 
@@ -82,7 +91,6 @@ public class DialogEventManagement : MonoBehaviour {
 		{	
 			bool imageGoalReached, audioGoalReached;
 			_deepSleepEndingImage.color = _deepSleepLerp.CurrentValue (out imageGoalReached);
-			Debug.Log (AudioListener.volume);
 			AudioListener.volume = _globalSoundLerp.CurrentValue (out audioGoalReached);
 			if (imageGoalReached && audioGoalReached) 
 			{
@@ -260,7 +268,8 @@ public class DialogEventManagement : MonoBehaviour {
     public void StartAlarm() 
 	{
 		this._alarm.Alarm = true;
-	}
+	    _alarmSoundtrack.Play();
+    }
 
     [ConsoleCommand]
     public void KillNextCrewMember() 
@@ -287,10 +296,17 @@ public class DialogEventManagement : MonoBehaviour {
 	{
 		_deepSleepLerp = new LerpHelper<Color> (_deepSleepEndingImage.color, Color.black, 5, false);
 		_globalSoundLerp = new LerpHelper<float> (AudioListener.volume, 0, 9, false);
+	    _endingMusic.clip = _endingClipDeepSleep;
+	    _endingMusic.PlayDelayed(9f);
 	}
-
+    
     private void OnDestroy()
     {
         Console.Instance.DeregisterClass<DialogEventManagement>(this);
+        Destroy(GameObject.Find("FungusManager"));
+        if (_globalSoundLerp != null)
+        {
+            AudioListener.volume = _globalSoundLerp.StartValue;
+        }
     }
 }

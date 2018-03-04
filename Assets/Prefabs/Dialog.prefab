@@ -1330,6 +1330,7 @@ MonoBehaviour:
   - {fileID: 0}
   _playerBed: {fileID: 0}
   _deepSleepEndingImage: {fileID: 0}
+  _alarmSoundtrack: {fileID: 0}
 --- !u!114 &114182664610300450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4094,9 +4095,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114396104749827520}
-  selectedCommands:
-  - {fileID: 114329677367208900}
+  - {fileID: 114669902015984618}
+  selectedCommands: []
   variables:
   - {fileID: 114978007602951696}
   - {fileID: 114714274343590086}

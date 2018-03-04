@@ -12,7 +12,7 @@ namespace Assets.Scripts.Capsule
         public void Start ()
         {
             engine.Velocity = capsuleVelocity;
-			Invoke ("LoadCreditsScene", 45);
+			Invoke ("LoadCreditsScene", 39);
         }
 
 		private void LoadCreditsScene() 
