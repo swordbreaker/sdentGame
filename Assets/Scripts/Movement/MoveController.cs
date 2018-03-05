@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using Random = UnityEngine.Random;
-using CommandConsole;
 using System;
 
 namespace Assets.Scripts.Movement
@@ -228,7 +227,8 @@ namespace Assets.Scripts.Movement
         {
             if (_rigidbody.velocity.sqrMagnitude > 0 && (x != 0 || y != 0))
             {
-                _stepCycle += (_rigidbody.velocity.magnitude + (speed)) * Time.fixedDeltaTime;
+                //_stepCycle += (_rigidbody.velocity.magnitude + (speed)) * Time.fixedDeltaTime;
+                _stepCycle += _rigidbody.velocity.sqrMagnitude * speed * Time.deltaTime;
             }
 
             if (!(_stepCycle > _nextStep))

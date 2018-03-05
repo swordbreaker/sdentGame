@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using Assets.Script;
-using Assets.Scripts.Helpers;
 using UnityEngine;
 
 public class GravityController : MonoBehaviour
@@ -11,8 +7,8 @@ public class GravityController : MonoBehaviour
     public Vector3[] _rays;
     public float MaxDistance;
     private float _gravity = 9.81f;
-    public bool UsesGravityManipultation { get; private set; }
-    public Vector3 Normal { get; private set; }
+    public bool UsesGravityManipultation;
+    public Vector3 Normal;
 
 
     private void FixedUpdate()
@@ -36,7 +32,7 @@ public class GravityController : MonoBehaviour
             }
         }
 
-        Debug.DrawRay(transform.position, normal, Color.red);
+        //Debug.DrawRay(transform.position, normal, Color.red);
 
         if (normal != Vector3.zero)
         {
@@ -52,11 +48,11 @@ public class GravityController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        foreach (var r in GetRays())
-        {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawRay(r);
-        }
+        //foreach (var r in GetRays())
+        //{
+        //    Gizmos.color = Color.cyan;
+        //    Gizmos.DrawRay(r);
+        //}
     }
 
     private IEnumerable<Ray> GetRays()
