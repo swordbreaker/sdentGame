@@ -2578,7 +2578,7 @@ public class qb_Painter : EditorWindow
 				if (eraseSelected == true)
 				{
 					//if the current object's prefab is the curPrefab
-					if (PrefabUtility.GetPrefabParent(objects[ii]) != curPrefab)
+					if (PrefabUtility.GetCorrespondingObjectFromSource(objects[ii]) != curPrefab)
 						addToList = false;
 				}
 				//if group erase is on
